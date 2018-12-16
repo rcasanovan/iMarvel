@@ -22,13 +22,10 @@
 		C8CE168521C70DE100B79F02 /* RequestErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CE167421C70DE100B79F02 /* RequestErrors.swift */; };
 		C8CE168621C70DE100B79F02 /* ResultError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CE167521C70DE100B79F02 /* ResultError.swift */; };
 		C8CE168721C70DE100B79F02 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CE167621C70DE100B79F02 /* EndPoint.swift */; };
-		C8CE168821C70DE100B79F02 /* PollResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CE167A21C70DE100B79F02 /* PollResponse.swift */; };
-		C8CE168921C70DE100B79F02 /* CreateSessionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CE167C21C70DE100B79F02 /* CreateSessionResponse.swift */; };
-		C8CE168A21C70DE100B79F02 /* CreateSessionParameterData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CE167D21C70DE100B79F02 /* CreateSessionParameterData.swift */; };
-		C8CE168B21C70DE100B79F02 /* SessionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CE167E21C70DE100B79F02 /* SessionRequest.swift */; };
-		C8CE168C21C70DE100B79F02 /* PollRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CE167F21C70DE100B79F02 /* PollRequest.swift */; };
 		C8CE169221C70E3C00B79F02 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = C8CE168F21C70E3C00B79F02 /* Reachability.m */; };
 		C8CE169321C70E3C00B79F02 /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CE169021C70E3C00B79F02 /* ReachabilityManager.swift */; };
+		C8CE169721C7109F00B79F02 /* CharactersResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CE169621C7109F00B79F02 /* CharactersResponse.swift */; };
+		C8CE169921C7117200B79F02 /* CharactersRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CE169821C7117200B79F02 /* CharactersRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,15 +58,12 @@
 		C8CE167421C70DE100B79F02 /* RequestErrors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestErrors.swift; sourceTree = "<group>"; };
 		C8CE167521C70DE100B79F02 /* ResultError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultError.swift; sourceTree = "<group>"; };
 		C8CE167621C70DE100B79F02 /* EndPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
-		C8CE167A21C70DE100B79F02 /* PollResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PollResponse.swift; sourceTree = "<group>"; };
-		C8CE167C21C70DE100B79F02 /* CreateSessionResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateSessionResponse.swift; sourceTree = "<group>"; };
-		C8CE167D21C70DE100B79F02 /* CreateSessionParameterData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateSessionParameterData.swift; sourceTree = "<group>"; };
-		C8CE167E21C70DE100B79F02 /* SessionRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionRequest.swift; sourceTree = "<group>"; };
-		C8CE167F21C70DE100B79F02 /* PollRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PollRequest.swift; sourceTree = "<group>"; };
 		C8CE168F21C70E3C00B79F02 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		C8CE169021C70E3C00B79F02 /* ReachabilityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
 		C8CE169121C70E3C00B79F02 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		C8CE169421C70E8200B79F02 /* iMarvel-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iMarvel-Bridging-Header.h"; sourceTree = "<group>"; };
+		C8CE169621C7109F00B79F02 /* CharactersResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersResponse.swift; sourceTree = "<group>"; };
+		C8CE169821C7117200B79F02 /* CharactersRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,8 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				C8CE167821C70DE100B79F02 /* Data Models */,
-				C8CE167E21C70DE100B79F02 /* SessionRequest.swift */,
-				C8CE167F21C70DE100B79F02 /* PollRequest.swift */,
+				C8CE169821C7117200B79F02 /* CharactersRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -203,27 +196,9 @@
 		C8CE167821C70DE100B79F02 /* Data Models */ = {
 			isa = PBXGroup;
 			children = (
-				C8CE167921C70DE100B79F02 /* Poll */,
-				C8CE167B21C70DE100B79F02 /* Session */,
+				C8CE169521C7107A00B79F02 /* Characters */,
 			);
 			path = "Data Models";
-			sourceTree = "<group>";
-		};
-		C8CE167921C70DE100B79F02 /* Poll */ = {
-			isa = PBXGroup;
-			children = (
-				C8CE167A21C70DE100B79F02 /* PollResponse.swift */,
-			);
-			path = Poll;
-			sourceTree = "<group>";
-		};
-		C8CE167B21C70DE100B79F02 /* Session */ = {
-			isa = PBXGroup;
-			children = (
-				C8CE167C21C70DE100B79F02 /* CreateSessionResponse.swift */,
-				C8CE167D21C70DE100B79F02 /* CreateSessionParameterData.swift */,
-			);
-			path = Session;
 			sourceTree = "<group>";
 		};
 		C8CE168D21C70E2400B79F02 /* Managers */ = {
@@ -242,6 +217,14 @@
 				C8CE169021C70E3C00B79F02 /* ReachabilityManager.swift */,
 			);
 			path = "Reachability Manager";
+			sourceTree = "<group>";
+		};
+		C8CE169521C7107A00B79F02 /* Characters */ = {
+			isa = PBXGroup;
+			children = (
+				C8CE169621C7109F00B79F02 /* CharactersResponse.swift */,
+			);
+			path = Characters;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -350,16 +333,13 @@
 				C8CE169321C70E3C00B79F02 /* ReachabilityManager.swift in Sources */,
 				C8CE168621C70DE100B79F02 /* ResultError.swift in Sources */,
 				C8CE168721C70DE100B79F02 /* EndPoint.swift in Sources */,
-				C8CE168C21C70DE100B79F02 /* PollRequest.swift in Sources */,
-				C8CE168821C70DE100B79F02 /* PollResponse.swift in Sources */,
 				C8CE168121C70DE100B79F02 /* HTTPCode.swift in Sources */,
-				C8CE168921C70DE100B79F02 /* CreateSessionResponse.swift in Sources */,
 				C8CE168021C70DE100B79F02 /* RequestManager.swift in Sources */,
 				C8CE164A21C6F4AD00B79F02 /* ViewController.swift in Sources */,
-				C8CE168B21C70DE100B79F02 /* SessionRequest.swift in Sources */,
+				C8CE169721C7109F00B79F02 /* CharactersResponse.swift in Sources */,
 				C8CE169221C70E3C00B79F02 /* Reachability.m in Sources */,
-				C8CE168A21C70DE100B79F02 /* CreateSessionParameterData.swift in Sources */,
 				C8CE168521C70DE100B79F02 /* RequestErrors.swift in Sources */,
+				C8CE169921C7117200B79F02 /* CharactersRequest.swift in Sources */,
 				C8CE168221C70DE100B79F02 /* NetworkHeaders.swift in Sources */,
 				C8CE164821C6F4AD00B79F02 /* AppDelegate.swift in Sources */,
 				C8CE168421C70DE100B79F02 /* RequestProtocol.swift in Sources */,

@@ -8,7 +8,7 @@
 import UIKit
 
 protocol EndpointProtocol: RawRepresentable where RawValue == String {
-    var baseUrl: URL? { get }
+    static var baseUrl: String { get }
     var url: URL? { get }
 }
 
@@ -17,13 +17,13 @@ protocol EndpointProtocol: RawRepresentable where RawValue == String {
  */
 private struct Url {
     
-    static let baseUrl: String = "http://partners.api.skyscanner.net/apiservices"
-    static let apiKey: String = "ss630745725358065467897349852985"
+    static let baseUrl: String = "https://gateway.marvel.com:443"
+    static let apiKey: String = "6298465264107ae67e9e00c642dcad8a"
     
     struct Fields {
-        static let apikey: String = "apikey"
-        static let pageIndex: String = "pageIndex"
-        static let pageSize: String = "pageSize"
+        static let apiKey: String = "apikey"
+        static let limit: String = "limit"
+        static let offset: String = "offset"
     }
     
 }
@@ -33,15 +33,12 @@ enum Endpoint: EndpointProtocol {
     
     var rawValue: String {
         switch self {
-        case .createSession():
-            return "/pricing/v1.0"
-        case .pollResultsWith(let pollEndpoint, let pageIndex, let pageSize):
-            return "\(pollEndpoint)?\(Url.Fields.apikey)=\(Url.apiKey)&\(Url.Fields.pageIndex)=\(pageIndex)&\(Url.Fields.pageSize)=\(pageSize)"
+        case .getCharactersWith(let limit, let offset):
+            return "/v1/public/characters?\(Url.Fields.apiKey)=\(Url.apiKey)&\(Url.Fields.limit)=\(limit)&\(Url.Fields.offset)=\(offset)"
         }
     }
     
-    case createSession()
-    case pollResultsWith(pollEndpoint: String, pageIndex: UInt, pageSize: UInt)
+    case getCharactersWith(limit: UInt, offset: UInt)
 }
 
 extension EndpointProtocol {
@@ -51,14 +48,13 @@ extension EndpointProtocol {
         return nil
     }
     
-    var baseUrl: URL? {
-        let urlComponents = URLComponents(string: Url.baseUrl + self.rawValue)
+    var url: URL? {
+        let urlComponents = URLComponents(string: Endpoint.baseUrl + self.rawValue)
         return urlComponents?.url
     }
     
-    var url: URL? {
-        let urlComponents = URLComponents(string: self.rawValue)
-        return urlComponents?.url
+    static var baseUrl: String {
+        return "\(Url.baseUrl)"
     }
     
 }
