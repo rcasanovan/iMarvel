@@ -69,6 +69,7 @@
 		C8CE168F21C70E3C00B79F02 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		C8CE169021C70E3C00B79F02 /* ReachabilityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
 		C8CE169121C70E3C00B79F02 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		C8CE169421C70E8200B79F02 /* iMarvel-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iMarvel-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +111,7 @@
 		C8CE164621C6F4AD00B79F02 /* iMarvel */ = {
 			isa = PBXGroup;
 			children = (
+				C8CE169421C70E8200B79F02 /* iMarvel-Bridging-Header.h */,
 				C8CE164721C6F4AD00B79F02 /* AppDelegate.swift */,
 				C8CE164921C6F4AD00B79F02 /* ViewController.swift */,
 				C8CE164B21C6F4AD00B79F02 /* Main.storyboard */,
@@ -531,6 +533,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.wallapop.iMarvel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "iMarvel/iMarvel-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -549,6 +552,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.wallapop.iMarvel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "iMarvel/iMarvel-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
