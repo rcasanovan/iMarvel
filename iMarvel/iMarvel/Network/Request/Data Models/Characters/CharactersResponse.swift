@@ -39,14 +39,15 @@ public struct CharacterResponse: Decodable {
 public struct ThumbnailResponse: Decodable {
     
     let path: String
-//    let ext: String
-//    
-//    //__ This is little trick.
-//    //__ The "thumbnail" field has another field inside called "extension"
-//    //__ The problem is we can't process this field using Swift
-//    //__ so we need to create an enum like a "bridge" to process the field
-//    enum CodingKeys: String, CodingKey {
-//        case ext = "extension"
-//    }
+    let ext: String
+
+    //__ This is little trick.
+    //__ The "thumbnail" field has another field inside called "extension"
+    //__ The problem is we can't process this field using Swift
+    //__ so we need to create an enum like a "bridge" to process the fields
+    enum CodingKeys: String, CodingKey {
+        case path = "path"
+        case ext = "extension"
+    }
     
 }
