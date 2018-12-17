@@ -15,9 +15,11 @@ class CharactersListInteractor {
     private let requestManager = RequestManager()
     private var allCharactersSync: Bool = false
     private var charactersListViewModel: [CharactersListViewModel]
+    private var suggestions: [SuggestionViewModel]
     
     init() {
         charactersListViewModel = []
+        suggestions = []
     }
     
 }
@@ -74,8 +76,15 @@ extension CharactersListInteractor: CharactersListInteractorDelegate {
     }
     
     func getAllSuggestions(completion: @escaping CharactersListGetSuggestionsCompletionBlock) {
-        let suggestions = SearchSuggestionsManager.getSuggestions()
-        completion(SuggestionViewModel.getViewModelsWith(suggestions: suggestions))
+        let allSuggestions = SearchSuggestionsManager.getSuggestions()
+        suggestions = SuggestionViewModel.getViewModelsWith(suggestions: allSuggestions)
+        completion(suggestions)
+    }
+    
+    func getSuggestionAt(index: Int) -> SuggestionViewModel? {
+        if !suggestions.indices.contains(index) { return nil }
+        
+        return suggestions[index]
     }
     
 }

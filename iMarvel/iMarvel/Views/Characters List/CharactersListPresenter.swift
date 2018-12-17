@@ -87,6 +87,10 @@ extension CharactersListPresenter: CharactersListPresenterDelegate {
     }
     
     func suggestionSelectedAt(index: Int) {
+        guard let suggestion = interactor.getSuggestionAt(index: index) else {
+            return
+        }
+        searchCharacter(suggestion.suggestion)
     }
     
 }

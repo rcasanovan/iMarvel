@@ -35,6 +35,7 @@ protocol CharactersListInteractorDelegate : class {
     func getCharactersWith(character: String?, completion: @escaping CharactersListGetCharactersCompletionBlock)
     func saveSearch(_ search: String)
     func getAllSuggestions(completion: @escaping CharactersListGetSuggestionsCompletionBlock)
+    func getSuggestionAt(index: Int) -> SuggestionViewModel?
 }
 
 // Presenter / Router
