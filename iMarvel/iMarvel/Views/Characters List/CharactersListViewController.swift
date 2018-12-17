@@ -65,7 +65,7 @@ extension CharactersListViewController {
         charactersTableView?.estimatedRowHeight = 193.0
         charactersTableView?.rowHeight = UITableView.automaticDimension
         charactersTableView?.invalidateIntrinsicContentSize()
-        charactersTableView?.allowsSelection = false
+        charactersTableView?.allowsSelection = true
         charactersTableView?.backgroundColor = .black
         charactersTableView?.delegate = self
         
@@ -230,6 +230,10 @@ extension CharactersListViewController: UITableViewDelegate {
             // Call the presenter
             presenter?.loadNextPage()
         }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        presenter?.showCharacterDetailAt(index: indexPath.row)
     }
     
 }

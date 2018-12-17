@@ -12,11 +12,13 @@ class CharactersListPresenter {
     
     private weak var view: CharactersListViewInjection?
     private let interactor: CharactersListInteractorDelegate
+    private let router: CharactersListRouterDelegate
     
     // MARK - Lifecycle
     init(view: CharactersListViewInjection, navigationController: UINavigationController? = nil) {
         self.view = view
         self.interactor = CharactersListInteractor()
+        self.router = CharactersListRouter(navigationController: navigationController)
     }
     
 }
@@ -104,6 +106,10 @@ extension CharactersListPresenter: CharactersListPresenterDelegate {
             return
         }
         searchCharacter(suggestion.suggestion)
+    }
+    
+    func showCharacterDetailAt(index: Int) {
+        router.showDetail()
     }
     
 }

@@ -65,6 +65,7 @@ extension CharactersListTableViewCell {
      */
     private func setupViews() {
         backgroundColor = .clear
+        selectionStyle = .none
         
         configureSubviews()
         addSubviews()

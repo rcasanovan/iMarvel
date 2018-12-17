@@ -23,6 +23,7 @@ protocol CharactersListPresenterDelegate : class {
     func loadNextPage()
     func getSuggestions()
     func suggestionSelectedAt(index: Int)
+    func showCharacterDetailAt(index: Int)
 }
 
 // Presenter / Interactor
@@ -42,4 +43,5 @@ protocol CharactersListInteractorDelegate : class {
 
 // Presenter / Router
 protocol CharactersListRouterDelegate : class {
+    func showDetail()
 }
