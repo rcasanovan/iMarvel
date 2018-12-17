@@ -1,0 +1,26 @@
+source 'https://github.com/CocoaPods/Specs.git'
+
+platform :ios, '11.0'
+use_frameworks!
+inhibit_all_warnings!
+
+#link_with 'iMarvel', 'iMarvelTests'
+
+def iMarvelPods
+    #SVProgressHUD
+    pod 'SVProgressHUD', '~> 2.2.5'
+    
+    #Images
+    pod 'Haneke', '~> 1.0'
+    
+    #Realm
+    pod 'RealmSwift', '~> 3.7.6'
+end
+
+target 'iMarvel' do
+    iMarvelPods
+end
+
+target 'iMarvelTests' do
+    iMarvelPods
+end
