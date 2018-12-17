@@ -35,6 +35,7 @@
 		C8CE16B821C79C0900B79F02 /* CharactersListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CE16B721C79C0900B79F02 /* CharactersListRouter.swift */; };
 		C8CE16BA21C79FE600B79F02 /* CharactersListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CE16B921C79FE600B79F02 /* CharactersListViewModel.swift */; };
 		C8CE16BD21C7A1CF00B79F02 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CE16BC21C7A1CF00B79F02 /* ImageManager.swift */; };
+		C8CE16C021C7A32000B79F02 /* ImageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CE16BF21C7A32000B79F02 /* ImageTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +83,7 @@
 		C8CE16B721C79C0900B79F02 /* CharactersListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListRouter.swift; sourceTree = "<group>"; };
 		C8CE16B921C79FE600B79F02 /* CharactersListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListViewModel.swift; sourceTree = "<group>"; };
 		C8CE16BC21C7A1CF00B79F02 /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
+		C8CE16BF21C7A32000B79F02 /* ImageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +142,7 @@
 		C8CE165B21C6F4AE00B79F02 /* iMarvelTests */ = {
 			isa = PBXGroup;
 			children = (
+				C8CE16BE21C7A30F00B79F02 /* Images */,
 				C8CE16A421C7251500B79F02 /* Encryption */,
 				C8CE169A21C712A300B79F02 /* Network */,
 				C8CE165C21C6F4AE00B79F02 /* iMarvelTests.swift */,
@@ -318,6 +321,14 @@
 			path = "Image Manager";
 			sourceTree = "<group>";
 		};
+		C8CE16BE21C7A30F00B79F02 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				C8CE16BF21C7A32000B79F02 /* ImageTests.swift */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -449,6 +460,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C8CE16A621C7252E00B79F02 /* EncryptionTests.swift in Sources */,
+				C8CE16C021C7A32000B79F02 /* ImageTests.swift in Sources */,
 				C8CE169C21C712BD00B79F02 /* NetworkTests.swift in Sources */,
 				C8CE165D21C6F4AE00B79F02 /* iMarvelTests.swift in Sources */,
 			);

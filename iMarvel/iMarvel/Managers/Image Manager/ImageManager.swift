@@ -23,28 +23,13 @@ class ImageManager {
         
     }
     
-    public func getLandscapeUrlWith(_ partialUrl: String?, extension: String) -> URL? {
+    public func getLandscapeUrlWith(_ partialUrl: String?, ext: String) -> URL? {
         guard let partialUrl = partialUrl else {
             return nil
         }
         
-        var components = getURLComponents()
-        components.path = partialUrl + Url.ImageSize.landspace + partialUrl
-        return components.url
-    }
-    
-}
-
-// MARK: - Private section
-extension ImageManager {
-    
-    /**
-     * Get url components
-     */
-    private func getURLComponents() -> URLComponents {
-        var components = URLComponents()
-        components.scheme = "http"
-        return components
+        let url = URL(string: partialUrl + "/" + Url.ImageSize.landspace + "." + ext)
+        return url
     }
     
 }
