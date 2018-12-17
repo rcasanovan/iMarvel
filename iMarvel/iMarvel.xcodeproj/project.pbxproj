@@ -33,6 +33,7 @@
 		C8CE16B421C79BEA00B79F02 /* CharactersListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CE16B321C79BEA00B79F02 /* CharactersListPresenter.swift */; };
 		C8CE16B621C79BF700B79F02 /* CharactersListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CE16B521C79BF700B79F02 /* CharactersListInteractor.swift */; };
 		C8CE16B821C79C0900B79F02 /* CharactersListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CE16B721C79C0900B79F02 /* CharactersListRouter.swift */; };
+		C8CE16BA21C79FE600B79F02 /* CharactersListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CE16B921C79FE600B79F02 /* CharactersListViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,7 @@
 		C8CE16B321C79BEA00B79F02 /* CharactersListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListPresenter.swift; sourceTree = "<group>"; };
 		C8CE16B521C79BF700B79F02 /* CharactersListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListInteractor.swift; sourceTree = "<group>"; };
 		C8CE16B721C79C0900B79F02 /* CharactersListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListRouter.swift; sourceTree = "<group>"; };
+		C8CE16B921C79FE600B79F02 /* CharactersListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -300,6 +302,7 @@
 		C8CE16B021C79BC800B79F02 /* View Model */ = {
 			isa = PBXGroup;
 			children = (
+				C8CE16B921C79FE600B79F02 /* CharactersListViewModel.swift */,
 			);
 			path = "View Model";
 			sourceTree = "<group>";
@@ -414,6 +417,7 @@
 				C8CE168121C70DE100B79F02 /* HTTPCode.swift in Sources */,
 				C8CE168021C70DE100B79F02 /* RequestManager.swift in Sources */,
 				C8CE169721C7109F00B79F02 /* CharactersResponse.swift in Sources */,
+				C8CE16BA21C79FE600B79F02 /* CharactersListViewModel.swift in Sources */,
 				C8CE169221C70E3C00B79F02 /* Reachability.m in Sources */,
 				C8CE168521C70DE100B79F02 /* RequestErrors.swift in Sources */,
 				C8CE16AF21C79B9700B79F02 /* CharactersListProtocols.swift in Sources */,
