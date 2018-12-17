@@ -39,6 +39,7 @@
 		C8CE16C721C7A69100B79F02 /* SuggestionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CE16C621C7A69100B79F02 /* SuggestionsView.swift */; };
 		C8CE16C921C7A6F200B79F02 /* SuggestionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CE16C821C7A6F200B79F02 /* SuggestionViewModel.swift */; };
 		C8CE16CB21C7A75E00B79F02 /* SuggestionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CE16CA21C7A75E00B79F02 /* SuggestionTableViewCell.swift */; };
+		C8CE16CD21C7A7C600B79F02 /* SuggestionsDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CE16CC21C7A7C600B79F02 /* SuggestionsDatasource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +91,7 @@
 		C8CE16C621C7A69100B79F02 /* SuggestionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionsView.swift; sourceTree = "<group>"; };
 		C8CE16C821C7A6F200B79F02 /* SuggestionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionViewModel.swift; sourceTree = "<group>"; };
 		C8CE16CA21C7A75E00B79F02 /* SuggestionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionTableViewCell.swift; sourceTree = "<group>"; };
+		C8CE16CC21C7A7C600B79F02 /* SuggestionsDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionsDatasource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -358,6 +360,7 @@
 				C8CE16C421C7A66B00B79F02 /* Cell */,
 				C8CE16C521C7A67500B79F02 /* View Model */,
 				C8CE16C621C7A69100B79F02 /* SuggestionsView.swift */,
+				C8CE16CC21C7A7C600B79F02 /* SuggestionsDatasource.swift */,
 			);
 			path = Suggestions;
 			sourceTree = "<group>";
@@ -481,6 +484,7 @@
 			files = (
 				C8CE168321C70DE100B79F02 /* Result.swift in Sources */,
 				C8CE169321C70E3C00B79F02 /* ReachabilityManager.swift in Sources */,
+				C8CE16CD21C7A7C600B79F02 /* SuggestionsDatasource.swift in Sources */,
 				C8CE16B221C79BD800B79F02 /* CharactersListViewController.swift in Sources */,
 				C8CE168621C70DE100B79F02 /* ResultError.swift in Sources */,
 				C8CE16B621C79BF700B79F02 /* CharactersListInteractor.swift in Sources */,
