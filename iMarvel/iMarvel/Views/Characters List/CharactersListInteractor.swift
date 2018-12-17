@@ -45,7 +45,7 @@ extension CharactersListInteractor: CharactersListInteractorDelegate {
     
     func getCharactersWith(character: String?, completion: @escaping CharactersListGetCharactersCompletionBlock) {
         if allCharactersSync {
-            completion(charactersListViewModel, 0, true, nil, allCharactersSync)
+            completion(charactersListViewModel, 0, nil, true, nil, allCharactersSync)
             return
         }
         
@@ -55,15 +55,15 @@ extension CharactersListInteractor: CharactersListInteractorDelegate {
             switch response {
             case .success(let response):
                 guard let response = response else {
-                    completion(nil, 0, false, nil, self.allCharactersSync)
+                    completion(nil, 0, nil, false, nil, self.allCharactersSync)
                     return
                 }
                 
                 let responseViewModel = CharactersListViewModel.getViewModelsWith(characters: response.data.results)
                 self.charactersListViewModel.append(contentsOf: responseViewModel)
-                completion(self.charactersListViewModel, response.data.total, true, nil, self.allCharactersSync)
+                completion(self.charactersListViewModel, response.data.total, response.attributionText, true, nil, self.allCharactersSync)
             case .failure(let error):
-                completion(nil, 0, false, error, self.allCharactersSync)
+                completion(nil, 0, nil,  false, error, self.allCharactersSync)
             }
         }
     }

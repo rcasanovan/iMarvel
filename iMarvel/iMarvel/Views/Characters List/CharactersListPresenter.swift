@@ -24,11 +24,11 @@ class CharactersListPresenter {
 extension CharactersListPresenter {
     
     private func getCharacters(character: String? = nil) {
-        interactor.getCharactersWith(character: character) { [weak self] (characters, total, success, error, allCharactersSync) in
+        interactor.getCharactersWith(character: character) { [weak self] (characters, total, copyright, success, error, allCharactersSync) in
             guard let `self` = self else { return }
             
             if let characters = characters, allCharactersSync == false {
-                self.view?.loadCharacters(characters, totalResults: total)
+                self.view?.loadCharacters(characters, totalResults: total, copyright: copyright)
                 return
             }
             

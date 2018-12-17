@@ -12,7 +12,7 @@ import Foundation
 protocol CharactersListViewInjection : class {
     func showProgress(_ show: Bool, status: String)
     func showProgress(_ show: Bool)
-    func loadCharacters(_ viewModels: [CharactersListViewModel], totalResults: Int)
+    func loadCharacters(_ viewModels: [CharactersListViewModel], totalResults: Int, copyright: String?)
     func showMessageWith(title: String, message: String, actionTitle: String)
 }
 
@@ -25,7 +25,7 @@ protocol CharactersListPresenterDelegate : class {
 }
 
 // Presenter / Interactor
-typealias CharactersListGetCharactersCompletionBlock = (_ viewModel: [CharactersListViewModel]?, _ total: Int, _ success: Bool, _ error: ResultError?, _ allCharactersSync: Bool) -> Void
+typealias CharactersListGetCharactersCompletionBlock = (_ viewModel: [CharactersListViewModel]?, _ total: Int, _ copyright: String?, _ success: Bool, _ error: ResultError?, _ allCharactersSync: Bool) -> Void
 typealias CharactersListGetSuggestionsCompletionBlock = ([SuggestionViewModel]) -> Void
 
 protocol CharactersListInteractorDelegate : class {

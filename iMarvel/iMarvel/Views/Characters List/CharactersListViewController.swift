@@ -12,6 +12,7 @@ class CharactersListViewController: UIViewController {
     
     public var presenter: CharactersListPresenterDelegate?
     
+    private let customTitleView: CustomTitleView = CustomTitleView()
     private let searchView: SearchView = SearchView()
     private let totalResultsView: TotalResultsView = TotalResultsView()
     private let charactersListContainerView: UIView = UIView()
@@ -22,8 +23,14 @@ class CharactersListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter?.viewDidLoad()
+        addObservers()
         setupViews()
+        configureNavigationBar()
+        presenter?.viewDidLoad()
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
     
 }
@@ -62,6 +69,13 @@ extension CharactersListViewController {
         
         registerCells()
         setupDatasource()
+    }
+    
+    private func configureNavigationBar() {
+        customTitleView.titleColor = .white
+        customTitleView.setTitle("iMarvel")
+        customTitleView.subtitleColor = .white
+        navigationItem.titleView = customTitleView
     }
     
     /**
@@ -235,11 +249,13 @@ extension CharactersListViewController: CharactersListViewInjection {
     func showProgress(_ show: Bool) {
     }
     
-    func loadCharacters(_ viewModels: [CharactersListViewModel], totalResults: Int) {
+    func loadCharacters(_ viewModels: [CharactersListViewModel], totalResults: Int, copyright: String?) {
         // Are we loading the movies from the beginning? -> scroll to top
 //        if fromBeginning {
             scrollToTop()
 //        }
+        customTitleView.setSubtitle(copyright)
+        
         dataSource?.characters = viewModels
         charactersTableView?.reloadData()
         totalResultsView.isHidden = true
