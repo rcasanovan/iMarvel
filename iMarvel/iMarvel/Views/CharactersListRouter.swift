@@ -6,4 +6,16 @@
 //  Copyright © 2018 Wallapop. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class CharactersListRouter {
+    
+    public static func setupModule(navigationController: UINavigationController? = nil) -> UINavigationController {
+        let charactersListVC = CharactersListViewController()
+        charactersListVC.presenter = CharactersListPresenter(view: charactersListVC, navigationController: navigationController)
+        
+        let charactersListNVC = UINavigationController(rootViewController: charactersListVC)
+        return charactersListNVC
+    }
+    
+}

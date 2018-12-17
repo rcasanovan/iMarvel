@@ -6,4 +6,18 @@
 //  Copyright © 2018 Wallapop. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class CharactersListViewController: UIViewController {
+    
+    public var presenter: CharactersListPresenterDelegate?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
+}
+
+extension CharactersListViewController: CharactersListViewInjection {
+    
+}

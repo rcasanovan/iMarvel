@@ -7,3 +7,10 @@
 //
 
 import Foundation
+
+class CharactersListInteractor {
+}
+
+extension CharactersListInteractor: CharactersListInteractorDelegate {
+    
+}

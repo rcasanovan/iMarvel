@@ -7,3 +7,18 @@
 //
 
 import Foundation
+
+// View / Presenter
+protocol CharactersListViewInjection : class {
+}
+
+protocol CharactersListPresenterDelegate : class {
+}
+
+// Presenter / Interactor
+protocol CharactersListInteractorDelegate : class {
+}
+
+// Presenter / Router
+protocol CharactersListRouterDelegate : class {
+}
