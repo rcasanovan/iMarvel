@@ -42,6 +42,17 @@
 		C8CE16C921C7A6F200B79F02 /* SuggestionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CE16C821C7A6F200B79F02 /* SuggestionViewModel.swift */; };
 		C8CE16CB21C7A75E00B79F02 /* SuggestionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CE16CA21C7A75E00B79F02 /* SuggestionTableViewCell.swift */; };
 		C8CE16CD21C7A7C600B79F02 /* SuggestionsDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CE16CC21C7A7C600B79F02 /* SuggestionsDatasource.swift */; };
+		C8CE16D121C7A90600B79F02 /* SearchSuggestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CE16D021C7A90600B79F02 /* SearchSuggestion.swift */; };
+		C8CE16D421C7A9F500B79F02 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CE16D321C7A9F500B79F02 /* UIView.swift */; };
+		C8CE16DE21C7AA5200B79F02 /* InterUI-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C8CE16D621C7AA5200B79F02 /* InterUI-Bold.ttf */; };
+		C8CE16DF21C7AA5200B79F02 /* InterUI-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C8CE16D721C7AA5200B79F02 /* InterUI-Black.ttf */; };
+		C8CE16E021C7AA5200B79F02 /* InterUI-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C8CE16D821C7AA5200B79F02 /* InterUI-MediumItalic.ttf */; };
+		C8CE16E121C7AA5200B79F02 /* InterUI-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C8CE16D921C7AA5200B79F02 /* InterUI-BlackItalic.ttf */; };
+		C8CE16E221C7AA5200B79F02 /* InterUI-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C8CE16DA21C7AA5200B79F02 /* InterUI-BoldItalic.ttf */; };
+		C8CE16E321C7AA5200B79F02 /* InterUI-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C8CE16DB21C7AA5200B79F02 /* InterUI-Medium.ttf */; };
+		C8CE16E421C7AA5200B79F02 /* InterUI-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C8CE16DC21C7AA5200B79F02 /* InterUI-Regular.ttf */; };
+		C8CE16E521C7AA5200B79F02 /* InterUI-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C8CE16DD21C7AA5200B79F02 /* InterUI-Italic.ttf */; };
+		C8CE16E821C7AA8600B79F02 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CE16E721C7AA8600B79F02 /* UIFont.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +108,17 @@
 		C8CE16C821C7A6F200B79F02 /* SuggestionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionViewModel.swift; sourceTree = "<group>"; };
 		C8CE16CA21C7A75E00B79F02 /* SuggestionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionTableViewCell.swift; sourceTree = "<group>"; };
 		C8CE16CC21C7A7C600B79F02 /* SuggestionsDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionsDatasource.swift; sourceTree = "<group>"; };
+		C8CE16D021C7A90600B79F02 /* SearchSuggestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSuggestion.swift; sourceTree = "<group>"; };
+		C8CE16D321C7A9F500B79F02 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		C8CE16D621C7AA5200B79F02 /* InterUI-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "InterUI-Bold.ttf"; sourceTree = "<group>"; };
+		C8CE16D721C7AA5200B79F02 /* InterUI-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "InterUI-Black.ttf"; sourceTree = "<group>"; };
+		C8CE16D821C7AA5200B79F02 /* InterUI-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "InterUI-MediumItalic.ttf"; sourceTree = "<group>"; };
+		C8CE16D921C7AA5200B79F02 /* InterUI-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "InterUI-BlackItalic.ttf"; sourceTree = "<group>"; };
+		C8CE16DA21C7AA5200B79F02 /* InterUI-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "InterUI-BoldItalic.ttf"; sourceTree = "<group>"; };
+		C8CE16DB21C7AA5200B79F02 /* InterUI-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "InterUI-Medium.ttf"; sourceTree = "<group>"; };
+		C8CE16DC21C7AA5200B79F02 /* InterUI-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "InterUI-Regular.ttf"; sourceTree = "<group>"; };
+		C8CE16DD21C7AA5200B79F02 /* InterUI-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "InterUI-Italic.ttf"; sourceTree = "<group>"; };
+		C8CE16E721C7AA8600B79F02 /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
 		C9BA96E73C001A2D3F7102E9 /* Pods-iMarvelTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iMarvelTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-iMarvelTests/Pods-iMarvelTests.release.xcconfig"; sourceTree = "<group>"; };
 		D25C7D1A873D65D90EEC8E5B /* Pods-iMarvel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iMarvel.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iMarvel/Pods-iMarvel.debug.xcconfig"; sourceTree = "<group>"; };
 		DD8228C8959C34B2B4F2CA27 /* Pods_iMarvel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iMarvel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -194,6 +216,7 @@
 		C8CE166721C70D4000B79F02 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C8CE16D521C7AA5200B79F02 /* Fonts */,
 				C8CE166821C70D4700B79F02 /* Simulated Response */,
 			);
 			path = Resources;
@@ -267,6 +290,7 @@
 		C8CE168D21C70E2400B79F02 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				C8CE16CE21C7A8E800B79F02 /* Search Suggestions */,
 				C8CE16BB21C7A1C000B79F02 /* Image Manager */,
 				C8CE168E21C70E3C00B79F02 /* Reachability Manager */,
 			);
@@ -302,6 +326,8 @@
 		C8CE169D21C71E6600B79F02 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				C8CE16E621C7AA7A00B79F02 /* UIFont */,
+				C8CE16D221C7A9CE00B79F02 /* UIView */,
 				C8CE16A121C722FF00B79F02 /* Data */,
 				C8CE169E21C71E6D00B79F02 /* String */,
 			);
@@ -413,6 +439,53 @@
 			path = "View Model";
 			sourceTree = "<group>";
 		};
+		C8CE16CE21C7A8E800B79F02 /* Search Suggestions */ = {
+			isa = PBXGroup;
+			children = (
+				C8CE16CF21C7A8F200B79F02 /* Data Models */,
+			);
+			path = "Search Suggestions";
+			sourceTree = "<group>";
+		};
+		C8CE16CF21C7A8F200B79F02 /* Data Models */ = {
+			isa = PBXGroup;
+			children = (
+				C8CE16D021C7A90600B79F02 /* SearchSuggestion.swift */,
+			);
+			path = "Data Models";
+			sourceTree = "<group>";
+		};
+		C8CE16D221C7A9CE00B79F02 /* UIView */ = {
+			isa = PBXGroup;
+			children = (
+				C8CE16D321C7A9F500B79F02 /* UIView.swift */,
+			);
+			path = UIView;
+			sourceTree = "<group>";
+		};
+		C8CE16D521C7AA5200B79F02 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				C8CE16D621C7AA5200B79F02 /* InterUI-Bold.ttf */,
+				C8CE16D721C7AA5200B79F02 /* InterUI-Black.ttf */,
+				C8CE16D821C7AA5200B79F02 /* InterUI-MediumItalic.ttf */,
+				C8CE16D921C7AA5200B79F02 /* InterUI-BlackItalic.ttf */,
+				C8CE16DA21C7AA5200B79F02 /* InterUI-BoldItalic.ttf */,
+				C8CE16DB21C7AA5200B79F02 /* InterUI-Medium.ttf */,
+				C8CE16DC21C7AA5200B79F02 /* InterUI-Regular.ttf */,
+				C8CE16DD21C7AA5200B79F02 /* InterUI-Italic.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		C8CE16E621C7AA7A00B79F02 /* UIFont */ = {
+			isa = PBXGroup;
+			children = (
+				C8CE16E721C7AA8600B79F02 /* UIFont.swift */,
+			);
+			path = UIFont;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -499,8 +572,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				C8CE165221C6F4AE00B79F02 /* LaunchScreen.storyboard in Resources */,
+				C8CE16E321C7AA5200B79F02 /* InterUI-Medium.ttf in Resources */,
 				C8CE164F21C6F4AE00B79F02 /* Assets.xcassets in Resources */,
+				C8CE16DE21C7AA5200B79F02 /* InterUI-Bold.ttf in Resources */,
+				C8CE16E521C7AA5200B79F02 /* InterUI-Italic.ttf in Resources */,
 				C8CE16AC21C738C100B79F02 /* AllCharacters.json in Resources */,
+				C8CE16E121C7AA5200B79F02 /* InterUI-BlackItalic.ttf in Resources */,
+				C8CE16E021C7AA5200B79F02 /* InterUI-MediumItalic.ttf in Resources */,
+				C8CE16E221C7AA5200B79F02 /* InterUI-BoldItalic.ttf in Resources */,
+				C8CE16E421C7AA5200B79F02 /* InterUI-Regular.ttf in Resources */,
+				C8CE16DF21C7AA5200B79F02 /* InterUI-Black.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -625,6 +706,7 @@
 				C8CE169321C70E3C00B79F02 /* ReachabilityManager.swift in Sources */,
 				C8CE16CD21C7A7C600B79F02 /* SuggestionsDatasource.swift in Sources */,
 				C8CE16B221C79BD800B79F02 /* CharactersListViewController.swift in Sources */,
+				C8CE16D121C7A90600B79F02 /* SearchSuggestion.swift in Sources */,
 				C8CE168621C70DE100B79F02 /* ResultError.swift in Sources */,
 				C8CE16B621C79BF700B79F02 /* CharactersListInteractor.swift in Sources */,
 				C8CE168721C70DE100B79F02 /* EndPoint.swift in Sources */,
@@ -644,6 +726,8 @@
 				C8CE16B421C79BEA00B79F02 /* CharactersListPresenter.swift in Sources */,
 				C8CE16A021C71E7800B79F02 /* String.swift in Sources */,
 				C8CE16B821C79C0900B79F02 /* CharactersListRouter.swift in Sources */,
+				C8CE16D421C7A9F500B79F02 /* UIView.swift in Sources */,
+				C8CE16E821C7AA8600B79F02 /* UIFont.swift in Sources */,
 				C8CE164821C6F4AD00B79F02 /* AppDelegate.swift in Sources */,
 				C8CE168421C70DE100B79F02 /* RequestProtocol.swift in Sources */,
 				C8CE16A321C7230A00B79F02 /* Data.swift in Sources */,

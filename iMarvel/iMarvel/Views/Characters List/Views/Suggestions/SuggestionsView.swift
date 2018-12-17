@@ -16,7 +16,7 @@ class SuggestionsView: UIView {
     
     public var delegate: SuggestionsViewDelegate?
     
-    public var suggestions: [IMSuggestionViewModel] = [IMSuggestionViewModel]() {
+    public var suggestions: [SuggestionViewModel] = [SuggestionViewModel]() {
         didSet {
             suggestionsTableView?.isHidden = suggestions.isEmpty
             noSuggestionsLabel.isHidden = !suggestions.isEmpty
@@ -27,7 +27,7 @@ class SuggestionsView: UIView {
     
     private let noSuggestionsLabel = UILabel()
     private var suggestionsTableView: UITableView?
-    private var datasource: IMSuggestionsDatasource?
+    private var datasource: SuggestionsDatasource?
     
     
     override init(frame: CGRect) {
@@ -68,7 +68,7 @@ extension SuggestionsView {
         registerCells()
         setupDatasource()
         
-        noSuggestionsLabel.font = UIFont.mediumWithSize(size: 14.0)
+        noSuggestionsLabel.font = UIFont.interUIMediumWithSize(size: 14.0)
         noSuggestionsLabel.textColor = .lightGray
         noSuggestionsLabel.textAlignment = .center
         noSuggestionsLabel.text = "No suggestions"
@@ -94,7 +94,7 @@ extension SuggestionsView {
 }
 
 // MARK: - Layout & constraints
-extension IMSuggestionsView {
+extension SuggestionsView {
     
     /**
      * Internal struct for layout
@@ -130,7 +130,7 @@ extension IMSuggestionsView {
 }
 
 // MARK: - UITableViewDelegate
-extension IMSuggestionsView: UITableViewDelegate {
+extension SuggestionsView: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         delegate?.suggestionSelectedAt(index: indexPath.row)

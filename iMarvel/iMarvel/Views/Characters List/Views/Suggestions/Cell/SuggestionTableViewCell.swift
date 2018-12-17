@@ -37,7 +37,7 @@ class SuggestionTableViewCell: UITableViewCell {
      * - parameters:
      *      -viewModel: IMSuggestionViewModel
      */
-    public func bindWithViewModel(_ viewModel: IMSuggestionViewModel) {
+    public func bindWithViewModel(_ viewModel: SuggestionViewModel) {
         suggestionLabel.text = viewModel.suggestion
     }
 }
@@ -59,7 +59,7 @@ extension SuggestionTableViewCell {
      * ConfigureSubviews
      */
     private func configureSubviews() {
-        suggestionLabel.font = UIFont.mediumWithSize(size: 17.0)
+        suggestionLabel.font = UIFont.interUIMediumWithSize(size: 17.0)
         suggestionLabel.textColor = .black
         suggestionLabel.numberOfLines = 1
         suggestionLabel.backgroundColor = .clear
