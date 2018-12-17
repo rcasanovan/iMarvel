@@ -56,5 +56,15 @@ public extension String {
         guard let message = data(using: .utf8) else { return nil }
         return message.hashed(type, output: output)
     }
+    
+    public func isEmptyOrWhitespace() -> Bool {
+        if self.isEmpty  { return true }
+        return (self.trimmingCharacters(in: NSCharacterSet.whitespaces) == "")
+    }
+    
+    public func condenseWhitespaces() -> String {
+        let components = self.components(separatedBy: .whitespacesAndNewlines)
+        return components.filter { !$0.isEmpty }.joined(separator: " ")
+    }
 
 }

@@ -23,16 +23,21 @@ class CharactersListPresenter {
 
 extension CharactersListPresenter {
     
-    private func getCharacters(character: String? = nil, showProgress: Bool) {
+    private func getCharacters(showProgress: Bool) {
+        // Couldn't we have characters? -> return
+        if !interactor.shouldGetCharacters() { return }
+        
+        let currentSearchCharacter = interactor.getCurrentSearchCharacter()
+        
         view?.showProgress(showProgress, status: "Loading characters")
         
-        interactor.getCharactersWith(character: character) { [weak self] (characters, total, copyright, success, error, allCharactersSync) in
+        interactor.getCharactersWith(character: currentSearchCharacter) { [weak self] (characters, total, copyright, success, error, allCharactersSync) in
             guard let `self` = self else { return }
             
             self.view?.showProgress(false)
             
-            if let characters = characters, allCharactersSync == false {
-                self.processCharactersResults(characterSearch: character, characters: characters, total: total, copyright: copyright, showProgress: showProgress)
+            if let characters = characters {
+                self.processCharactersResults(characterSearch: currentSearchCharacter, characters: characters, total: total, copyright: copyright, showProgress: showProgress)
                 return
             }
             
@@ -60,7 +65,7 @@ extension CharactersListPresenter {
             view?.showMessageWith(title: "Oops", message: "It seems we don't have that character in the catalog right now 😢. Please try again", actionTitle: "Accept")
         }
         
-        view?.loadCharacters(characters, totalResults: total, copyright: copyright)
+        view?.loadCharacters(characters, totalResults: total, copyright: copyright, fromBeginning: showProgress)
     }
     
 }
@@ -72,11 +77,19 @@ extension CharactersListPresenter: CharactersListPresenterDelegate {
     }
     
     func searchCharacter(_ character: String) {
+        // If the character is completely empty or only contains whitespaces -> show an error message
+        if character.isEmptyOrWhitespace() {
+            view?.showMessageWith(title: "Oops ✋🤚", message: "It looks you´re trying to search a movie using a invalid criteria. Please try again", actionTitle: "Accept")
+            return
+        }
+        
         interactor.clearSearch()
-        getCharacters(character: character, showProgress: true)
+        interactor.updateSearchCharacter(character.condenseWhitespaces())
+        getCharacters(showProgress: true)
     }
     
     func loadNextPage() {
+        getCharacters(showProgress: false)
     }
     
     func getSuggestions() {

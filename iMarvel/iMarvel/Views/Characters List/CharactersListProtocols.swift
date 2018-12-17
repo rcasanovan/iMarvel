@@ -12,7 +12,7 @@ import Foundation
 protocol CharactersListViewInjection : class {
     func showProgress(_ show: Bool, status: String)
     func showProgress(_ show: Bool)
-    func loadCharacters(_ viewModels: [CharactersListViewModel], totalResults: Int, copyright: String?)
+    func loadCharacters(_ viewModels: [CharactersListViewModel], totalResults: Int, copyright: String?, fromBeginning: Bool)
     func loadSuggestions(_ suggestions: [SuggestionViewModel])
     func showMessageWith(title: String, message: String, actionTitle: String)
 }
@@ -36,6 +36,8 @@ protocol CharactersListInteractorDelegate : class {
     func saveSearch(_ search: String)
     func getAllSuggestions(completion: @escaping CharactersListGetSuggestionsCompletionBlock)
     func getSuggestionAt(index: Int) -> SuggestionViewModel?
+    func getCurrentSearchCharacter() -> String?
+    func updateSearchCharacter(_ searchCharacter: String)
 }
 
 // Presenter / Router

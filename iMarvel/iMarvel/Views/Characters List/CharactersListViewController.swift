@@ -20,6 +20,8 @@ class CharactersListViewController: BaseViewController {
     private var dataSource: CharactersListDataSource?
     private let suggestionsView = SuggestionsView()
     private var suggestionsViewBottomConstraint: NSLayoutConstraint?
+    private var totalCharacters: Int = 0
+    private var isLoadingNextPage: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -216,6 +218,20 @@ extension CharactersListViewController {
 // MARK: - UITableViewDelegate
 extension CharactersListViewController: UITableViewDelegate {
     
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        // Get the position for a percentage of the scrolling
+        // In this case we got the positions for the 75%
+        let position = Int(((Layout.Scroll.percentagePosition * Double(totalCharacters - 1)) / 100.0))
+        
+        // if we're not loading a next page && we´re in the 75% position
+        if !self.isLoadingNextPage && indexPath.item >= position {
+            // Change the value -> We're loading the next page
+            self.isLoadingNextPage = true
+            // Call the presenter
+            presenter?.loadNextPage()
+        }
+    }
+    
 }
 
 // MARK: - SearchViewDelegate
@@ -251,13 +267,15 @@ extension CharactersListViewController: CharactersListViewInjection {
         showLoader(show)
     }
     
-    func loadCharacters(_ viewModels: [CharactersListViewModel], totalResults: Int, copyright: String?) {
-        // Are we loading the movies from the beginning? -> scroll to top
-//        if fromBeginning {
+    func loadCharacters(_ viewModels: [CharactersListViewModel], totalResults: Int, copyright: String?, fromBeginning: Bool) {
+        totalCharacters = viewModels.count
+        // Are we loading the characters from the beginning? -> scroll to top
+        if fromBeginning {
             scrollToTop()
-//        }
+        }
         customTitleView.setSubtitle(copyright)
         
+        isLoadingNextPage = false
         dataSource?.characters = viewModels
         charactersTableView?.reloadData()
         totalResultsView.isHidden = true

@@ -50,7 +50,7 @@ class RequestManager {
         }
         
         guard var url = request.url else {
-            assertionFailure("Error creating URL for endpoint: \(String(describing: request))")
+             assertionFailure("Error creating URL for endpoint: \(String(describing: request))")
             request.completion?(Result.failure(ResultError.internalError(message: "Error creating URL for endpoint: \(String(describing: request))")))
             return
         }

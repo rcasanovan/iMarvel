@@ -16,10 +16,15 @@ class CharactersListInteractor {
     private var allCharactersSync: Bool = false
     private var charactersListViewModel: [CharactersListViewModel]
     private var suggestions: [SuggestionViewModel]
+    private var limit: UInt
+    private var offSet: UInt
+    private var searchCharacter: String?
     
     init() {
         charactersListViewModel = []
         suggestions = []
+        offSet = 0
+        limit = 100
     }
     
 }
@@ -39,20 +44,26 @@ extension CharactersListInteractor {
 extension CharactersListInteractor: CharactersListInteractorDelegate {
     
     func shouldGetCharacters() -> Bool {
-        return true
+        return !allCharactersSync
     }
     
     func clearSearch() {
         charactersListViewModel = []
+        offSet = 0
+        allCharactersSync = false
+        searchCharacter = nil
     }
     
     func getCharactersWith(character: String?, completion: @escaping CharactersListGetCharactersCompletionBlock) {
+        
+        searchCharacter = character
+        
         if allCharactersSync {
             completion(charactersListViewModel, 0, nil, true, nil, allCharactersSync)
             return
         }
         
-        getCharactersResultsWith(nameStartsWith: character, limit: 10, offset: 0){ [weak self] (response) in
+        getCharactersResultsWith(nameStartsWith: character, limit: limit, offset: offSet){ [weak self] (response) in
             guard let `self` = self else { return }
             
             switch response {
@@ -61,6 +72,12 @@ extension CharactersListInteractor: CharactersListInteractorDelegate {
                     completion(nil, 0, nil, false, nil, self.allCharactersSync)
                     return
                 }
+                
+                if response.data.limit > response.data.count {
+                    self.allCharactersSync = true
+                }
+                
+                self.offSet = self.offSet + self.limit
                 
                 let responseViewModel = CharactersListViewModel.getViewModelsWith(characters: response.data.results)
                 self.charactersListViewModel.append(contentsOf: responseViewModel)
@@ -85,6 +102,14 @@ extension CharactersListInteractor: CharactersListInteractorDelegate {
         if !suggestions.indices.contains(index) { return nil }
         
         return suggestions[index]
+    }
+    
+    func getCurrentSearchCharacter() -> String? {
+        return searchCharacter
+    }
+    
+    func updateSearchCharacter(_ searchCharacter: String) {
+        self.searchCharacter = searchCharacter
     }
     
 }
