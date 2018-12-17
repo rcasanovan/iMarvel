@@ -235,7 +235,7 @@ extension CharactersListViewController: CharactersListViewInjection {
     func showProgress(_ show: Bool) {
     }
     
-    func loadCharacters(_ viewModels: [CharactersListViewModel]) {
+    func loadCharacters(_ viewModels: [CharactersListViewModel], totalResults: Int) {
         // Are we loading the movies from the beginning? -> scroll to top
 //        if fromBeginning {
             scrollToTop()
@@ -243,8 +243,8 @@ extension CharactersListViewController: CharactersListViewInjection {
         dataSource?.characters = viewModels
         charactersTableView?.reloadData()
         totalResultsView.isHidden = true
-//        totalResultsView.isHidden = totalResults == 0
-//        totalResultsView.bindWithText("Total movies: \(totalResults)")
+        totalResultsView.isHidden = totalResults == 0
+        totalResultsView.bindWithText("Total characters: \(totalResults)")
     }
     
     func showMessageWith(title: String, message: String, actionTitle: String) {
