@@ -12,4 +12,7 @@
 //__ Reachability
 #import "Reachability.h"
 
+//__ Haneke
+#import <Haneke/Haneke.h>
+
 #endif /* iMarvel_Bridging_Header_h */

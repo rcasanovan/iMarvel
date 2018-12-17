@@ -23,4 +23,16 @@ class CharactersListPresenter {
 
 extension CharactersListPresenter: CharactersListPresenterDelegate {
     
+    func searchCharacter(_ character: String) {
+    }
+    
+    func loadNextPage() {
+    }
+    
+    func getSuggestions() {
+    }
+    
+    func suggestionSelectedAt(index: Int) {
+    }
+    
 }

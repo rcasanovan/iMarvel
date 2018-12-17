@@ -13,4 +13,20 @@ class CharactersListInteractor {
 
 extension CharactersListInteractor: CharactersListInteractorDelegate {
     
+    func shouldGetCharacters() -> Bool {
+        return true
+    }
+    
+    func clearSearch() {
+    }
+    
+    func getCharactersWith(character: String?, completion: @escaping GetCharactersListCompletionBlock) {
+    }
+    
+    func saveSearch(_ search: String) {
+    }
+    
+    func getAllSuggestions(completion: @escaping GetSuggestionsCompletionBlock) {
+    }
+    
 }

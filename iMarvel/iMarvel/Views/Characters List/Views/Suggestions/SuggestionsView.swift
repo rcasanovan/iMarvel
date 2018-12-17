@@ -9,7 +9,7 @@
 import UIKit
 
 protocol SuggestionsViewDelegate {
-    func suggestionSelectedAt(index: NSInteger)
+    func suggestionSelectedAt(index: Int)
 }
 
 class SuggestionsView: UIView {
