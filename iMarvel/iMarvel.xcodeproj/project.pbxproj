@@ -34,6 +34,7 @@
 		C8CE16B621C79BF700B79F02 /* CharactersListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CE16B521C79BF700B79F02 /* CharactersListInteractor.swift */; };
 		C8CE16B821C79C0900B79F02 /* CharactersListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CE16B721C79C0900B79F02 /* CharactersListRouter.swift */; };
 		C8CE16BA21C79FE600B79F02 /* CharactersListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CE16B921C79FE600B79F02 /* CharactersListViewModel.swift */; };
+		C8CE16BD21C7A1CF00B79F02 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CE16BC21C7A1CF00B79F02 /* ImageManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +81,7 @@
 		C8CE16B521C79BF700B79F02 /* CharactersListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListInteractor.swift; sourceTree = "<group>"; };
 		C8CE16B721C79C0900B79F02 /* CharactersListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListRouter.swift; sourceTree = "<group>"; };
 		C8CE16B921C79FE600B79F02 /* CharactersListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListViewModel.swift; sourceTree = "<group>"; };
+		C8CE16BC21C7A1CF00B79F02 /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,6 +224,7 @@
 		C8CE168D21C70E2400B79F02 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				C8CE16BB21C7A1C000B79F02 /* Image Manager */,
 				C8CE168E21C70E3C00B79F02 /* Reachability Manager */,
 			);
 			path = Managers;
@@ -305,6 +308,14 @@
 				C8CE16B921C79FE600B79F02 /* CharactersListViewModel.swift */,
 			);
 			path = "View Model";
+			sourceTree = "<group>";
+		};
+		C8CE16BB21C7A1C000B79F02 /* Image Manager */ = {
+			isa = PBXGroup;
+			children = (
+				C8CE16BC21C7A1CF00B79F02 /* ImageManager.swift */,
+			);
+			path = "Image Manager";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -417,6 +428,7 @@
 				C8CE168121C70DE100B79F02 /* HTTPCode.swift in Sources */,
 				C8CE168021C70DE100B79F02 /* RequestManager.swift in Sources */,
 				C8CE169721C7109F00B79F02 /* CharactersResponse.swift in Sources */,
+				C8CE16BD21C7A1CF00B79F02 /* ImageManager.swift in Sources */,
 				C8CE16BA21C79FE600B79F02 /* CharactersListViewModel.swift in Sources */,
 				C8CE169221C70E3C00B79F02 /* Reachability.m in Sources */,
 				C8CE168521C70DE100B79F02 /* RequestErrors.swift in Sources */,
