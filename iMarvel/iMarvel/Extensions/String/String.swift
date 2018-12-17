@@ -56,20 +56,5 @@ public extension String {
         guard let message = data(using: .utf8) else { return nil }
         return message.hashed(type, output: output)
     }
-    
-//    public func MD5() -> String? {
-//        let length = Int(CC_MD5_DIGEST_LENGTH)
-//        var digest = [UInt16](repeating: 0, count: length)
-//        
-//        if let d = self.data(using: String.Encoding.utf8) {
-//            _ = d.withUnsafeBytes { (body: UnsafePointer<UInt16>) in
-//                CC_MD5(body, CC_LONG(d.count), &digest)
-//            }
-//        }
-//        
-//        return (0..<length).reduce("") {
-//            $0 + String(format: "%02x", digest[$1])
-//        }
-//    }
 
 }
