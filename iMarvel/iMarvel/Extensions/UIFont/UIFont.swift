@@ -61,7 +61,7 @@ extension UIFont {
     /**
      * Get InterUI Regular font
      */
-    public class func hoodRegularWithSize(size : CGFloat) -> UIFont? {
+    public class func interUIRegularWithSize(size : CGFloat) -> UIFont? {
         return UIFont(name: "InterUI-Regular", size: size)
     }
     

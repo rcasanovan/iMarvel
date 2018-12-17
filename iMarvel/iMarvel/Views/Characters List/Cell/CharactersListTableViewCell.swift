@@ -13,6 +13,9 @@ class CharactersListTableViewCell: UITableViewCell {
     private var backgroundImageView: UIImageView = UIImageView()
     private var backgroundLayerImageView: UIVisualEffectView?
     private var posterImageView: UIImageView = UIImageView()
+    private var titleLabel: UILabel = UILabel()
+    private var releaseDateLabel: UILabel = UILabel()
+    private var overviewLabel: UILabel = UILabel()
     
     private var viewModel: CharactersListViewModel?
     
@@ -33,6 +36,10 @@ class CharactersListTableViewCell: UITableViewCell {
     public override func prepareForReuse() {
         super.prepareForReuse()
         backgroundImageView.image = nil
+        posterImageView.image = nil
+        titleLabel.text = ""
+        releaseDateLabel.text = ""
+        overviewLabel.text = ""
     }
     
     /**
@@ -43,6 +50,7 @@ class CharactersListTableViewCell: UITableViewCell {
      */
     public func bindWithViewModel(_ viewModel: CharactersListViewModel) {
         self.viewModel = viewModel
+        configureInformation()
         configureBackgroundImage()
         configurePosterImage()
     }
@@ -75,6 +83,31 @@ extension CharactersListTableViewCell {
         
         posterImageView.frame = CGRect(x: 0.0, y: 0.0, width: 100.0, height: 150.0)
         posterImageView.backgroundColor = .clear
+        
+        titleLabel.font = UIFont.interUIMediumWithSize(size: 17.0)
+        titleLabel.textColor = .white
+        titleLabel.numberOfLines = 0
+        titleLabel.adjustsFontSizeToFitWidth = true
+        titleLabel.backgroundColor = .clear
+        
+        releaseDateLabel.font = UIFont.interUIMediumWithSize(size: 14.0)
+        releaseDateLabel.textColor = .white
+        
+        overviewLabel.font = UIFont.interUIMediumWithSize(size: 15.0)
+        overviewLabel.textColor = .white
+        overviewLabel.numberOfLines = 0
+    }
+    
+    /**
+     * Configure movie information
+     */
+    private func configureInformation() {
+        guard let viewModel = viewModel else {
+            return
+        }
+        titleLabel.text = viewModel.name
+        releaseDateLabel.text = "Jan 30, 2008"
+        overviewLabel.text = viewModel.description
     }
     
     /**
@@ -123,6 +156,27 @@ extension CharactersListTableViewCell {
             static let top: CGFloat = 16.0
             static let bottom: CGFloat = 16.0
         }
+        
+        struct TitleLabel {
+            static let height: CGFloat = 45.0
+            static let top: CGFloat = 16.0
+            static let leading: CGFloat = 16.0
+            static let trailing: CGFloat = 16.0
+        }
+        
+        struct ReleaseDateLabel {
+            static let height: CGFloat = 17.0
+            static let top: CGFloat = 8.0
+            static let leading: CGFloat = 16.0
+            static let trailing: CGFloat = 16.0
+        }
+        
+        struct OverviewLabel {
+            static let top: CGFloat = 8.0
+            static let bottom: CGFloat = 8.0
+            static let leading: CGFloat = 16.0
+            static let trailing: CGFloat = 16.0
+        }
 
     }
     
@@ -139,12 +193,24 @@ extension CharactersListTableViewCell {
         }
         
         addSubview(posterImageView)
+        addSubview(titleLabel)
+        addSubview(releaseDateLabel)
+        addSubview(overviewLabel)
         
         addConstraintsWithFormat("H:|[v0]|", views: backgroundImageView)
         addConstraintsWithFormat("V:|[v0]|", views: backgroundImageView)
         
         addConstraintsWithFormat("H:|-\(Layout.PosterImageView.leading)-[v0(\(Layout.PosterImageView.width))]", views: posterImageView)
         addConstraintsWithFormat("V:|-\(Layout.PosterImageView.top)-[v0(\(Layout.PosterImageView.height))]->=\(Layout.PosterImageView.bottom)-|", views: posterImageView)
+        
+        addConstraintsWithFormat("H:[v0]-\(Layout.TitleLabel.leading)-[v1]-\(Layout.TitleLabel.trailing)-|", views: posterImageView, titleLabel)
+        addConstraintsWithFormat("V:|-\(Layout.TitleLabel.top)-[v0(\(Layout.TitleLabel.height))]", views: titleLabel)
+        
+        addConstraintsWithFormat("H:[v0]-\(Layout.ReleaseDateLabel.leading)-[v1]-\(Layout.ReleaseDateLabel.trailing)-|", views: posterImageView, releaseDateLabel)
+        addConstraintsWithFormat("V:[v0]-\(Layout.ReleaseDateLabel.top)-[v1(\(Layout.ReleaseDateLabel.height))]", views: titleLabel, releaseDateLabel)
+        
+        addConstraintsWithFormat("H:[v0]-\(Layout.OverviewLabel.leading)-[v1]-\(Layout.OverviewLabel.trailing)-|", views: posterImageView, overviewLabel)
+        addConstraintsWithFormat("V:[v0]-\(Layout.OverviewLabel.top)-[v1]-\(Layout.OverviewLabel.bottom)-|", views: releaseDateLabel, overviewLabel)
     }
     
 }
