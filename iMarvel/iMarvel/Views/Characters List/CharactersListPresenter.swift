@@ -23,12 +23,16 @@ class CharactersListPresenter {
 
 extension CharactersListPresenter {
     
-    private func getCharacters(character: String? = nil) {
+    private func getCharacters(character: String? = nil, showProgress: Bool) {
+        view?.showProgress(showProgress, status: "Loading characters")
+        
         interactor.getCharactersWith(character: character) { [weak self] (characters, total, copyright, success, error, allCharactersSync) in
             guard let `self` = self else { return }
             
+            self.view?.showProgress(false)
+            
             if let characters = characters, allCharactersSync == false {
-                self.view?.loadCharacters(characters, totalResults: total, copyright: copyright)
+                self.processCharactersResults(characterSearch: character, characters: characters, total: total, copyright: copyright, showProgress: showProgress)
                 return
             }
             
@@ -44,21 +48,42 @@ extension CharactersListPresenter {
         }
     }
     
+    private func processCharactersResults(characterSearch: String?, characters: [CharactersListViewModel], total: Int, copyright: String?, showProgress: Bool) {
+        
+        if !characters.isEmpty {
+            if let characterSearch = characterSearch {
+                // Save the character search
+                interactor.saveSearch(characterSearch)
+            }
+        }
+        else {
+            view?.showMessageWith(title: "Oops", message: "It seems we don't have that character in the catalog right now 😢. Please try again", actionTitle: "Accept")
+        }
+        
+        view?.loadCharacters(characters, totalResults: total, copyright: copyright)
+    }
+    
 }
 
 extension CharactersListPresenter: CharactersListPresenterDelegate {
     
     func viewDidLoad() {
-        getCharacters()
+        getCharacters(showProgress: true)
     }
     
     func searchCharacter(_ character: String) {
+        interactor.clearSearch()
+        getCharacters(character: character, showProgress: true)
     }
     
     func loadNextPage() {
     }
     
     func getSuggestions() {
+        interactor.getAllSuggestions { [weak self] (suggestions) in
+            guard let `self` = self else { return }
+            self.view?.loadSuggestions(suggestions)
+        }
     }
     
     func suggestionSelectedAt(index: Int) {

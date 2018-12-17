@@ -27,6 +27,7 @@ private struct Url {
         static let offset: String = "offset"
         static let hash: String = "hash"
         static let ts: String = "ts"
+        static let nameStartsWith: String = "nameStartsWith"
     }
     
 }
@@ -36,16 +37,22 @@ enum Endpoint: EndpointProtocol {
     
     var rawValue: String {
         switch self {
-        case .getCharactersWith(let limit, let offset):
+        case .getCharactersWith(let nameStartsWith, let limit, let offset):
             let ts = String(format: "%f", Date().timeIntervalSince1970)
             guard let hash = "\(ts)\(Url.privateKey)\(Url.apiKey)".hashed(.md5) else {
                 return "/v1/public/characters"
             }
-            return "/v1/public/characters?\(Url.Fields.apiKey)=\(Url.apiKey)&\(Url.Fields.limit)=\(limit)&\(Url.Fields.offset)=\(offset)&\(Url.Fields.ts)=\(ts)&\(Url.Fields.hash)=\(hash)"
+            var endpoint = "/v1/public/characters?\(Url.Fields.apiKey)=\(Url.apiKey)&\(Url.Fields.limit)=\(limit)&\(Url.Fields.offset)=\(offset)&\(Url.Fields.ts)=\(ts)&\(Url.Fields.hash)=\(hash)"
+            
+            if let nameStartsWith = nameStartsWith {
+                endpoint = "\(endpoint)&\(Url.Fields.nameStartsWith)=\(nameStartsWith)"
+            }
+            
+            return endpoint
         }
     }
     
-    case getCharactersWith(limit: UInt, offset: UInt)
+    case getCharactersWith(nameStartsWith: String?, limit: UInt, offset: UInt)
 }
 
 extension EndpointProtocol {

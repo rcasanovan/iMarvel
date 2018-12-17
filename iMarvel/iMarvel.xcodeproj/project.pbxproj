@@ -60,6 +60,8 @@
 		C8CE16F421C7B85E00B79F02 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CE16F321C7B85E00B79F02 /* Utils.swift */; };
 		C8CE16F721C7BD6D00B79F02 /* UIEdgeInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CE16F621C7BD6D00B79F02 /* UIEdgeInsets.swift */; };
 		C8CE16FB21C7C5C400B79F02 /* CustomTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CE16FA21C7C5C400B79F02 /* CustomTitleView.swift */; };
+		C8CE16FE21C7CDB800B79F02 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CE16FD21C7CDB800B79F02 /* BaseViewController.swift */; };
+		C8CE170021C7D68400B79F02 /* SearchSuggestionsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CE16FF21C7D68400B79F02 /* SearchSuggestionsManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -133,6 +135,8 @@
 		C8CE16F321C7B85E00B79F02 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		C8CE16F621C7BD6D00B79F02 /* UIEdgeInsets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIEdgeInsets.swift; sourceTree = "<group>"; };
 		C8CE16FA21C7C5C400B79F02 /* CustomTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTitleView.swift; sourceTree = "<group>"; };
+		C8CE16FD21C7CDB800B79F02 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		C8CE16FF21C7D68400B79F02 /* SearchSuggestionsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSuggestionsManager.swift; sourceTree = "<group>"; };
 		C9BA96E73C001A2D3F7102E9 /* Pods-iMarvelTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iMarvelTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-iMarvelTests/Pods-iMarvelTests.release.xcconfig"; sourceTree = "<group>"; };
 		D25C7D1A873D65D90EEC8E5B /* Pods-iMarvel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iMarvel.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iMarvel/Pods-iMarvel.debug.xcconfig"; sourceTree = "<group>"; };
 		DD8228C8959C34B2B4F2CA27 /* Pods_iMarvel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iMarvel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -377,6 +381,7 @@
 		C8CE16AD21C79B6600B79F02 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C8CE16FC21C7CDA500B79F02 /* Base */,
 				C8CE16F821C7C5C400B79F02 /* Common */,
 				C8CE16C121C7A63E00B79F02 /* Characters List */,
 			);
@@ -464,6 +469,7 @@
 			isa = PBXGroup;
 			children = (
 				C8CE16CF21C7A8F200B79F02 /* Data Models */,
+				C8CE16FF21C7D68400B79F02 /* SearchSuggestionsManager.swift */,
 			);
 			path = "Search Suggestions";
 			sourceTree = "<group>";
@@ -545,6 +551,14 @@
 				C8CE16FA21C7C5C400B79F02 /* CustomTitleView.swift */,
 			);
 			path = "Custom Title View";
+			sourceTree = "<group>";
+		};
+		C8CE16FC21C7CDA500B79F02 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				C8CE16FD21C7CDB800B79F02 /* BaseViewController.swift */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -774,6 +788,7 @@
 				C8CE16B621C79BF700B79F02 /* CharactersListInteractor.swift in Sources */,
 				C8CE168721C70DE100B79F02 /* EndPoint.swift in Sources */,
 				C8CE16F421C7B85E00B79F02 /* Utils.swift in Sources */,
+				C8CE16FE21C7CDB800B79F02 /* BaseViewController.swift in Sources */,
 				C8CE168121C70DE100B79F02 /* HTTPCode.swift in Sources */,
 				C8CE16C721C7A69100B79F02 /* SuggestionsView.swift in Sources */,
 				C8CE16EC21C7AB5A00B79F02 /* TotalResultsView.swift in Sources */,
@@ -787,6 +802,7 @@
 				C8CE169221C70E3C00B79F02 /* Reachability.m in Sources */,
 				C8CE168521C70DE100B79F02 /* RequestErrors.swift in Sources */,
 				C8CE16AF21C79B9700B79F02 /* CharactersListProtocols.swift in Sources */,
+				C8CE170021C7D68400B79F02 /* SearchSuggestionsManager.swift in Sources */,
 				C8CE16FB21C7C5C400B79F02 /* CustomTitleView.swift in Sources */,
 				C8CE169921C7117200B79F02 /* CharactersRequest.swift in Sources */,
 				C8CE16CB21C7A75E00B79F02 /* SuggestionTableViewCell.swift in Sources */,

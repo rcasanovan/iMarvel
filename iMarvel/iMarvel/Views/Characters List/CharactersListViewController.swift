@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CharactersListViewController: UIViewController {
+class CharactersListViewController: BaseViewController {
     
     public var presenter: CharactersListPresenterDelegate?
     
@@ -218,7 +218,7 @@ extension CharactersListViewController: UITableViewDelegate {
     
 }
 
-// MARK: - IMSearchViewDelegate
+// MARK: - SearchViewDelegate
 extension CharactersListViewController: SearchViewDelegate {
     
     func searchButtonPressedWithSearch(search: String?) {
@@ -230,7 +230,7 @@ extension CharactersListViewController: SearchViewDelegate {
     
 }
 
-// MARK: - IMSuggestionsViewDelegate
+// MARK: - SuggestionsViewDelegate
 extension CharactersListViewController: SuggestionsViewDelegate {
     
     func suggestionSelectedAt(index: Int) {
@@ -244,9 +244,11 @@ extension CharactersListViewController: SuggestionsViewDelegate {
 extension CharactersListViewController: CharactersListViewInjection {
     
     func showProgress(_ show: Bool, status: String) {
+        showLoader(show, status: status)
     }
     
     func showProgress(_ show: Bool) {
+        showLoader(show)
     }
     
     func loadCharacters(_ viewModels: [CharactersListViewModel], totalResults: Int, copyright: String?) {
@@ -263,7 +265,12 @@ extension CharactersListViewController: CharactersListViewInjection {
         totalResultsView.bindWithText("Total characters: \(totalResults)")
     }
     
+    func loadSuggestions(_ suggestions: [SuggestionViewModel]) {
+        suggestionsView.suggestions = suggestions
+    }
+    
     func showMessageWith(title: String, message: String, actionTitle: String) {
+        showAlertWith(title: title, message: message, actionTitle: actionTitle)
     }
     
     

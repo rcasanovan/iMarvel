@@ -13,6 +13,7 @@ protocol CharactersListViewInjection : class {
     func showProgress(_ show: Bool, status: String)
     func showProgress(_ show: Bool)
     func loadCharacters(_ viewModels: [CharactersListViewModel], totalResults: Int, copyright: String?)
+    func loadSuggestions(_ suggestions: [SuggestionViewModel])
     func showMessageWith(title: String, message: String, actionTitle: String)
 }
 

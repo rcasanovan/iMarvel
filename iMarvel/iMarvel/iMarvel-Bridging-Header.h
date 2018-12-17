@@ -15,4 +15,7 @@
 //__ Haneke
 #import <Haneke/Haneke.h>
 
+//__ SVProgressHUD
+#import <SVProgressHUD/SVProgressHUD.h>
+
 #endif /* iMarvel_Bridging_Header_h */

@@ -20,8 +20,8 @@ struct CharactersRequest: RequestProtocol {
     var contentType: ContentType = .json
     var processHeader: Bool? = false
     
-    init(limit: UInt, offset: UInt) {
-        url = Endpoint.getCharactersWith(limit: limit, offset: offset).url
+    init(nameStartsWith: String?, limit: UInt, offset: UInt) {
+        url = Endpoint.getCharactersWith(nameStartsWith:nameStartsWith, limit: limit, offset: offset).url
     }
     
 }

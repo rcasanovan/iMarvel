@@ -24,8 +24,8 @@ class CharactersListInteractor {
 
 extension CharactersListInteractor {
     
-    private func getCharactersResultsWith(limit: UInt, offset: UInt, simulatedJSONFile: String? = nil,  completion: @escaping getCharactersCompletionBlock) {
-        var charactersRequest = CharactersRequest(limit: limit, offset: offset)
+    private func getCharactersResultsWith(nameStartsWith: String?, limit: UInt, offset: UInt, simulatedJSONFile: String? = nil,  completion: @escaping getCharactersCompletionBlock) {
+        var charactersRequest = CharactersRequest(nameStartsWith: nameStartsWith, limit: limit, offset: offset)
         
         charactersRequest.completion = completion
         charactersRequest.simulatedResponseJSONFile = simulatedJSONFile
@@ -41,6 +41,7 @@ extension CharactersListInteractor: CharactersListInteractorDelegate {
     }
     
     func clearSearch() {
+        charactersListViewModel = []
     }
     
     func getCharactersWith(character: String?, completion: @escaping CharactersListGetCharactersCompletionBlock) {
@@ -49,7 +50,7 @@ extension CharactersListInteractor: CharactersListInteractorDelegate {
             return
         }
         
-        getCharactersResultsWith(limit: 10, offset: 0){ [weak self] (response) in
+        getCharactersResultsWith(nameStartsWith: character, limit: 10, offset: 0){ [weak self] (response) in
             guard let `self` = self else { return }
             
             switch response {
@@ -69,9 +70,12 @@ extension CharactersListInteractor: CharactersListInteractorDelegate {
     }
     
     func saveSearch(_ search: String) {
+        SearchSuggestionsManager.saveSuggestion(search)
     }
     
     func getAllSuggestions(completion: @escaping CharactersListGetSuggestionsCompletionBlock) {
+        let suggestions = SearchSuggestionsManager.getSuggestions()
+        completion(SuggestionViewModel.getViewModelsWith(suggestions: suggestions))
     }
     
 }
