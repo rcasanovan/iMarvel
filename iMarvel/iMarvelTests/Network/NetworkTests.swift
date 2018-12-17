@@ -58,12 +58,12 @@ class NetworkTests: XCTestCase {
         
         testCharactersResultsWith(limit: 10, offset: 0, simulatedJSONFile: "AllCharacters"){ (response) in
             switch response {
-            case .success(let sessionResponse):
-                guard let sessionResponse = sessionResponse else {
+            case .success(let response):
+                guard let response = response else {
                     XCTFail("Impossible to get the session response")
                     return
                 }
-                XCTAssert(sessionResponse.data.count != 0, "data array can't be empty")
+                XCTAssert(response.data.count != 0, "data array can't be empty")
             case .failure(let error):
                 XCTFail(error.localizedDescription)
             }

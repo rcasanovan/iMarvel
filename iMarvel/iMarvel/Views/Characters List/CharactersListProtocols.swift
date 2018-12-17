@@ -20,15 +20,15 @@ protocol CharactersListPresenterDelegate : class {
 }
 
 // Presenter / Interactor
-typealias GetCharactersListCompletionBlock = (_ viewModel: [CharactersListViewModel]?, _ success: Bool, _ error: ResultError?, _ allCharactersSync: Bool) -> Void
-typealias GetSuggestionsCompletionBlock = ([SuggestionViewModel]) -> Void
+typealias CharactersListGetCharactersCompletionBlock = (_ viewModel: [CharactersListViewModel]?, _ success: Bool, _ error: ResultError?, _ allCharactersSync: Bool) -> Void
+typealias CharactersListGetSuggestionsCompletionBlock = ([SuggestionViewModel]) -> Void
 
 protocol CharactersListInteractorDelegate : class {
     func shouldGetCharacters() -> Bool
     func clearSearch()
-    func getCharactersWith(character: String?, completion: @escaping GetCharactersListCompletionBlock)
+    func getCharactersWith(character: String?, completion: @escaping CharactersListGetCharactersCompletionBlock)
     func saveSearch(_ search: String)
-    func getAllSuggestions(completion: @escaping GetSuggestionsCompletionBlock)
+    func getAllSuggestions(completion: @escaping CharactersListGetSuggestionsCompletionBlock)
 }
 
 // Presenter / Router
