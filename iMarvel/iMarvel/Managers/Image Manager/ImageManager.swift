@@ -19,6 +19,7 @@ class ImageManager {
         
         struct ImageSize {
             static let landspace: String = "landscape_amazing"
+            static let portrait: String = "portrait_medium"
         }
         
     }
@@ -29,6 +30,15 @@ class ImageManager {
         }
         
         let url = URL(string: partialUrl + "/" + Url.ImageSize.landspace + "." + ext)
+        return url
+    }
+    
+    public func getPortraitUrlWith(_ partialUrl: String?, ext: String) -> URL? {
+        guard let partialUrl = partialUrl else {
+            return nil
+        }
+        
+        let url = URL(string: partialUrl + "/" + Url.ImageSize.portrait + "." + ext)
         return url
     }
     

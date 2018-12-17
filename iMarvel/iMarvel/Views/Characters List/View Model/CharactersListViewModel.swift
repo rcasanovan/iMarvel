@@ -13,13 +13,15 @@ struct CharactersListViewModel {
     let id: Int32
     let name: String
     let description: String
-    let urlImage: URL?
+    let backgroundUrlImage: URL?
+    let posterUrlImage: URL?
     
-    init(id: Int32, name: String, description: String, urlImage: URL?) {
+    init(id: Int32, name: String, description: String, backgroundUrlImage: URL?, posterUrlImage: URL?) {
         self.id = id
         self.name = name
         self.description = description
-        self.urlImage = urlImage
+        self.backgroundUrlImage = backgroundUrlImage
+        self.posterUrlImage = posterUrlImage
     }
     
     public static func getViewModelsWith(characters: [CharacterResponse]) -> [CharactersListViewModel] {
@@ -30,8 +32,10 @@ struct CharactersListViewModel {
      * Get a single view model with a IMSingleMovieResponse
      */
     public static func getViewModelWith(character: CharacterResponse) -> CharactersListViewModel {
-        let urlImage = ImageManager.shared.getLandscapeUrlWith(character.thumbnail.path, ext: character.thumbnail.ext)
-        return CharactersListViewModel(id: character.id, name: character.name, description: character.description, urlImage: urlImage)
+        let backgroundUrlImage = ImageManager.shared.getLandscapeUrlWith(character.thumbnail.path, ext: character.thumbnail.ext)
+        let posterUrlImage = ImageManager.shared.getPortraitUrlWith(character.thumbnail.path, ext: character.thumbnail.ext)
+        
+        return CharactersListViewModel(id: character.id, name: character.name, description: character.description, backgroundUrlImage: backgroundUrlImage, posterUrlImage: posterUrlImage)
     }
     
 }

@@ -12,6 +12,7 @@ class CharactersListTableViewCell: UITableViewCell {
     
     private var backgroundImageView: UIImageView = UIImageView()
     private var backgroundLayerImageView: UIVisualEffectView?
+    private var posterImageView: UIImageView = UIImageView()
     
     private var viewModel: CharactersListViewModel?
     
@@ -38,11 +39,12 @@ class CharactersListTableViewCell: UITableViewCell {
      * Bind component
      *
      * - parameters:
-     *      -viewModel: IMMovieViewModel
+     *      -viewModel: CharactersListViewModel
      */
     public func bindWithViewModel(_ viewModel: CharactersListViewModel) {
         self.viewModel = viewModel
         configureBackgroundImage()
+        configurePosterImage()
     }
 }
 
@@ -70,13 +72,16 @@ extension CharactersListTableViewCell {
         backgroundLayerImageView = UIVisualEffectView(effect: blurEffect)
         backgroundLayerImageView?.frame = self.bounds
         backgroundLayerImageView?.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        
+        posterImageView.frame = CGRect(x: 0.0, y: 0.0, width: 100.0, height: 150.0)
+        posterImageView.backgroundColor = .clear
     }
     
     /**
      * Configure background image
      */
     private func configureBackgroundImage() {
-        guard let url = viewModel?.urlImage else {
+        guard let url = viewModel?.backgroundUrlImage else {
             return
         }
         backgroundImageView.hnk_setImage(from: url, placeholder: nil, success: { [weak self] (image) in
@@ -89,6 +94,16 @@ extension CharactersListTableViewCell {
         }
     }
     
+    /**
+     * Configure poster image
+     */
+    private func configurePosterImage() {
+        guard let url = viewModel?.posterUrlImage else {
+            return
+        }
+        posterImageView.hnk_setImage(from: url, placeholder: nil)
+    }
+    
 }
 
 // MARK: - Layout & constraints
@@ -99,41 +114,16 @@ extension CharactersListTableViewCell {
      */
     private struct Layout {
         
+        static let height: CGFloat = 170.0
+        
         struct PosterImageView {
-            static let height: CGFloat = 138.0
-            static let width: CGFloat = 92.0
+            static let height: CGFloat = 150.0
+            static let width: CGFloat = 100.0
             static let leading: CGFloat = 16.0
             static let top: CGFloat = 16.0
             static let bottom: CGFloat = 16.0
         }
-        
-        struct TitleLabel {
-            static let height: CGFloat = 45.0
-            static let top: CGFloat = 16.0
-            static let leading: CGFloat = 16.0
-            static let trailing: CGFloat = 16.0
-        }
-        
-        struct ReleaseDateLabel {
-            static let height: CGFloat = 17.0
-            static let top: CGFloat = 8.0
-            static let leading: CGFloat = 16.0
-            static let trailing: CGFloat = 16.0
-        }
-        
-        struct StarRating {
-            static let height: CGFloat = 15.0
-            static let width: CGFloat = 100.0
-            static let top: CGFloat = 8.0
-            static let leading: CGFloat = 8.0
-        }
-        
-        struct OverviewLabel {
-            static let top: CGFloat = 8.0
-            static let bottom: CGFloat = 8.0
-            static let leading: CGFloat = 16.0
-            static let trailing: CGFloat = 16.0
-        }
+
     }
     
     /**
@@ -148,8 +138,13 @@ extension CharactersListTableViewCell {
             addConstraintsWithFormat("V:|[v0]|", views: backgroundLayerImageView)
         }
         
+        addSubview(posterImageView)
+        
         addConstraintsWithFormat("H:|[v0]|", views: backgroundImageView)
         addConstraintsWithFormat("V:|[v0]|", views: backgroundImageView)
+        
+        addConstraintsWithFormat("H:|-\(Layout.PosterImageView.leading)-[v0(\(Layout.PosterImageView.width))]", views: posterImageView)
+        addConstraintsWithFormat("V:|-\(Layout.PosterImageView.top)-[v0(\(Layout.PosterImageView.height))]->=\(Layout.PosterImageView.bottom)-|", views: posterImageView)
     }
     
 }

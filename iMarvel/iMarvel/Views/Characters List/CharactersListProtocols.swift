@@ -10,9 +10,14 @@ import Foundation
 
 // View / Presenter
 protocol CharactersListViewInjection : class {
+    func showProgress(_ show: Bool, status: String)
+    func showProgress(_ show: Bool)
+    func loadCharacters(_ viewModels: [CharactersListViewModel])
+    func showMessageWith(title: String, message: String, actionTitle: String)
 }
 
 protocol CharactersListPresenterDelegate : class {
+    func viewDidLoad()
     func searchCharacter(_ character: String)
     func loadNextPage()
     func getSuggestions()

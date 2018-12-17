@@ -21,7 +21,36 @@ class CharactersListPresenter {
     
 }
 
+extension CharactersListPresenter {
+    
+    private func getCharacters(character: String? = nil) {
+        interactor.getCharactersWith(character: character) { [weak self] (characters, success, error, allCharactersSync) in
+            guard let `self` = self else { return }
+            
+            if let characters = characters, allCharactersSync == false {
+                self.view?.loadCharacters(characters)
+                return
+            }
+            
+            if let error = error {
+                self.view?.showMessageWith(title: "Oops... 🧐", message: error.localizedDescription, actionTitle: "Accept")
+                return
+            }
+            
+            if !success {
+                self.view?.showMessageWith(title: "Oops... 🧐", message: "Something wrong happened. Please try again", actionTitle: "Accept")
+                return
+            }
+        }
+    }
+    
+}
+
 extension CharactersListPresenter: CharactersListPresenterDelegate {
+    
+    func viewDidLoad() {
+        getCharacters()
+    }
     
     func searchCharacter(_ character: String) {
     }

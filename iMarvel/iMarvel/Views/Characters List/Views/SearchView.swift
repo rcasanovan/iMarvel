@@ -64,7 +64,7 @@ extension SearchView {
     private func configureSubviews() {
         searchContainerView.backgroundColor = .clear
         
-        searchBar.placeholder = "Search your favorites movies"
+        searchBar.placeholder = "Search your favorites characters"
         searchBar.backgroundColor = .clear
         searchBar.barTintColor = .clear
         searchBar.delegate = self

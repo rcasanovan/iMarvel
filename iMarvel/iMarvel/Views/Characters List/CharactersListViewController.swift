@@ -22,6 +22,8 @@ class CharactersListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        presenter?.viewDidLoad()
+        setupViews()
     }
     
 }
@@ -34,6 +36,7 @@ extension CharactersListViewController {
      */
     private func setupViews() {
         view.backgroundColor = .black
+        edgesForExtendedLayout = []
         
         configureSubviews()
         addSubviews()
@@ -148,17 +151,14 @@ extension CharactersListViewController {
         view.addSubview(charactersListContainerView)
         view.addSubview(suggestionsView)
         
-        var top: CGFloat = 0.0
-        var bottom: CGFloat = 0.0
-        
         view.addConstraintsWithFormat("H:|[v0]|", views: searchView)
-        view.addConstraintsWithFormat("V:|-\(top)-[v0(\(searchView.getHeight()))]", views: searchView)
+        view.addConstraintsWithFormat("V:|-\(10.0)-[v0(\(searchView.getHeight()))]", views: searchView)
         
         view.addConstraintsWithFormat("H:|[v0]|", views: totalResultsView)
         view.addConstraintsWithFormat("V:[v0][v1(\(totalResultsView.getHeight()))]", views: searchView, totalResultsView)
         
         view.addConstraintsWithFormat("H:|[v0]|", views: charactersListContainerView)
-        view.addConstraintsWithFormat("V:[v0][v1]-\(bottom)-|", views: totalResultsView, charactersListContainerView)
+        view.addConstraintsWithFormat("V:[v0][v1]|", views: totalResultsView, charactersListContainerView)
         
         if let charactersTableView = charactersTableView {
             charactersListContainerView.addSubview(charactersTableView)
@@ -228,5 +228,27 @@ extension CharactersListViewController: SuggestionsViewDelegate {
 }
 
 extension CharactersListViewController: CharactersListViewInjection {
+    
+    func showProgress(_ show: Bool, status: String) {
+    }
+    
+    func showProgress(_ show: Bool) {
+    }
+    
+    func loadCharacters(_ viewModels: [CharactersListViewModel]) {
+        // Are we loading the movies from the beginning? -> scroll to top
+//        if fromBeginning {
+            scrollToTop()
+//        }
+        dataSource?.characters = viewModels
+        charactersTableView?.reloadData()
+        totalResultsView.isHidden = true
+//        totalResultsView.isHidden = totalResults == 0
+//        totalResultsView.bindWithText("Total movies: \(totalResults)")
+    }
+    
+    func showMessageWith(title: String, message: String, actionTitle: String) {
+    }
+    
     
 }
