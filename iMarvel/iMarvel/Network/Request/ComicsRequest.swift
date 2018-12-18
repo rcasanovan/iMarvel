@@ -21,7 +21,7 @@ struct ComicsRequest: RequestProtocol {
     var processHeader: Bool? = false
     
     init(characterId: Int32, limit: UInt, offset: UInt) {
-        url = Endpoint.getComicWith(characterId: characterId, limit: limit, offset: offset).url
+        url = Endpoint.getComicsWith(characterId: characterId, limit: limit, offset: offset).url
     }
     
 }

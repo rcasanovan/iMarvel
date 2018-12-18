@@ -50,7 +50,7 @@ enum Endpoint: EndpointProtocol {
             
             return endpoint
             
-        case .getComicWith(let characterId, let limit, let offset):
+        case .getComicsWith(let characterId, let limit, let offset):
             let ts = String(format: "%f", Date().timeIntervalSince1970)
             guard let hash = "\(ts)\(Url.privateKey)\(Url.apiKey)".hashed(.md5) else {
                 return "/v1/public/characters/\(characterId)/comics"
@@ -62,7 +62,7 @@ enum Endpoint: EndpointProtocol {
     }
     
     case getCharactersWith(nameStartsWith: String?, limit: UInt, offset: UInt)
-    case getComicWith(characterId: Int32, limit: UInt, offset: UInt)
+    case getComicsWith(characterId: Int32, limit: UInt, offset: UInt)
 }
 
 extension EndpointProtocol {
