@@ -24,6 +24,7 @@ protocol CharactersListPresenterDelegate : class {
     func getSuggestions()
     func suggestionSelectedAt(index: Int)
     func showCharacterDetailAt(index: Int)
+    func refreshResults()
 }
 
 // Presenter / Interactor

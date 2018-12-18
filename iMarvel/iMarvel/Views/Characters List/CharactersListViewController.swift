@@ -18,6 +18,7 @@ class CharactersListViewController: BaseViewController {
     private let charactersListContainerView: UIView = UIView()
     private var charactersTableView: UITableView?
     private var dataSource: CharactersListDataSource?
+    private var refreshControl: UIRefreshControl = UIRefreshControl()
     private let suggestionsView = SuggestionsView()
     private var suggestionsViewBottomConstraint: NSLayoutConstraint?
     private var totalCharacters: Int = 0
@@ -68,6 +69,10 @@ extension CharactersListViewController {
         charactersTableView?.allowsSelection = true
         charactersTableView?.backgroundColor = .black
         charactersTableView?.delegate = self
+        
+        refreshControl.addTarget(self, action: #selector(userDidPullToRefresh), for: .valueChanged)
+        refreshControl.tintColor = .white
+        charactersTableView?.addSubview(refreshControl)
         
         registerCells()
         setupDatasource()
@@ -238,6 +243,15 @@ extension CharactersListViewController: UITableViewDelegate {
     
 }
 
+// MARK: - User actions
+extension CharactersListViewController {
+    
+    @objc private func userDidPullToRefresh() {
+        presenter?.refreshResults()
+    }
+    
+}
+
 // MARK: - SearchViewDelegate
 extension CharactersListViewController: SearchViewDelegate {
     
@@ -273,6 +287,8 @@ extension CharactersListViewController: CharactersListViewInjection {
     
     func loadCharacters(_ viewModels: [CharactersListViewModel], totalResults: Int, copyright: String?, fromBeginning: Bool) {
         totalCharacters = viewModels.count
+        refreshControl.endRefreshing()
+        
         // Are we loading the characters from the beginning? -> scroll to top
         if fromBeginning {
             scrollToTop()

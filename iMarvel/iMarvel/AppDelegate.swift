@@ -52,6 +52,7 @@ extension AppDelegate  {
     private func configureNavigationBar() {
         UINavigationBar.appearance().barStyle = .default
         UINavigationBar.appearance().barTintColor = .red
+        UINavigationBar.appearance().tintColor = .white
         UINavigationBar.appearance().barStyle = .blackOpaque
     }
     

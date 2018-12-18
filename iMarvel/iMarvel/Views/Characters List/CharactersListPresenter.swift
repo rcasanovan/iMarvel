@@ -112,4 +112,10 @@ extension CharactersListPresenter: CharactersListPresenterDelegate {
         router.showDetail()
     }
     
+    func refreshResults() {
+        interactor.clearSearch()
+        view?.loadCharacters([CharactersListViewModel](), totalResults: 0, copyright: "", fromBeginning: true)
+        getCharacters(showProgress: true)
+    }
+    
 }
