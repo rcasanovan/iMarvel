@@ -21,7 +21,7 @@ class RequestManager {
     
     fileprivate func sessionConfiguration() -> URLSessionConfiguration {
         let configuration = URLSessionConfiguration.default
-        configuration.timeoutIntervalForRequest = 10
+        configuration.timeoutIntervalForRequest = 20
         configuration.timeoutIntervalForResource = 30
         configuration.httpAdditionalHeaders = NetworkHeaders.create()
         return configuration
