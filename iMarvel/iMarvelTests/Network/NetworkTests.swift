@@ -87,7 +87,28 @@ class NetworkTests: XCTestCase {
     func testComicsResults() {
         let comicsResultsExpectation: XCTestExpectation = self.expectation(description: "comicsResultsExpectation")
         
-        testComicsResultsWith(characterId: "1017100",limit: 10, offset: 0) { (response) in
+        testComicsResultsWith(characterId: "1017100", limit: 10, offset: 0) { (response) in
+            switch response {
+            case .success(let response):
+                guard let response = response else {
+                    XCTFail("Impossible to get the session response")
+                    return
+                }
+                XCTAssert(response.data.count != 0, "data array can't be empty")
+            case .failure(let error):
+                XCTFail(error.localizedDescription)
+            }
+            
+            comicsResultsExpectation.fulfill()
+        }
+        
+        self.waitForExpectations(timeout: 25.0, handler: nil)
+    }
+    
+    func testSimulatedComicsResults() {
+        let comicsResultsExpectation: XCTestExpectation = self.expectation(description: "comicsResultsExpectation")
+        
+        testComicsResultsWith(characterId: "1017100", limit: 10, offset: 0, simulatedJSONFile: "Comics") { (response) in
             switch response {
             case .success(let response):
                 guard let response = response else {
