@@ -36,7 +36,10 @@ protocol CharacterDetailInteractorDelegate : class {
     func getCharacter() -> CharactersListViewModel
     func getComicsWith(characterId: Int32, completion: @escaping CharacterDetailGetComicsCompletionBlock)
     func getSyncComics() -> [ComicViewModel]
+    func getSeriesWith(characterId: Int32, completion: @escaping CharacterDetailGetComicsCompletionBlock)
+    func getSyncSeries() -> [ComicViewModel]
     func shouldGetComics() -> Bool
+    func shouldGetSeries() -> Bool
 }
 
 // Presenter / Router
