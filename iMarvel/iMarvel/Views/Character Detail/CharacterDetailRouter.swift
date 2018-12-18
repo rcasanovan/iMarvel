@@ -16,3 +16,7 @@ class CharacterDetailRouter {
     }
     
 }
+
+extension CharacterDetailRouter: CharacterDetailRouterDelegate {
+    
+}

@@ -15,3 +15,7 @@ class CharacterDetailViewController: BaseViewController {
     }
     
 }
+
+extension CharacterDetailViewController: CharacterDetailViewInjection {
+    
+}
