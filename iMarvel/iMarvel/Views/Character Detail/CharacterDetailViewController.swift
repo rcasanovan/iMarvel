@@ -49,6 +49,7 @@ extension CharacterDetailViewController {
     private func configureSubviews() {
         optionsBarView.backgroundColor = .yellow
         optionsBarView.options = ["Comics", "Series", "Stories", "Events"]
+        optionsBarView.delegate = self
         
         comicsTableView = UITableView(frame: comicsContainerView.bounds, style: .plain)
         comicsTableView?.tableFooterView = UIView()
@@ -60,6 +61,7 @@ extension CharacterDetailViewController {
         
         registerCells()
         setupDatasource()
+
     }
     
     private func configureNavigationBar() {
@@ -140,6 +142,25 @@ extension CharacterDetailViewController {
      */
     private func scrollToTop() {
         comicsTableView?.setContentOffset(.zero, animated: false)
+    }
+    
+}
+
+extension CharacterDetailViewController: OptionsBarViewDelegate {
+    
+    func optionSelectedAt(_ index: Int) {
+        switch index {
+        case 0:
+            presenter?.optionSelected(.comics)
+        case 1:
+            presenter?.optionSelected(.series)
+        case 2:
+            presenter?.optionSelected(.stories)
+        case 3:
+            presenter?.optionSelected(.events)
+        default:
+            print("do nothing")
+        }
     }
     
 }

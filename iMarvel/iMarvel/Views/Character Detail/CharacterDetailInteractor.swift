@@ -77,6 +77,10 @@ extension CharacterDetailInteractor: CharacterDetailInteractorDelegate {
         }
     }
     
+    func getSyncComics() -> [ComicViewModel] {
+        return comicListViewModel
+    }
+    
     func shouldGetComics() -> Bool {
         return !allComicsSync
     }

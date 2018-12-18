@@ -8,7 +8,13 @@
 
 import UIKit
 
+protocol OptionsBarViewDelegate: class {
+    func optionSelectedAt(_ index: Int)
+}
+
 class OptionsBarView: UIView {
+    
+    public weak var delegate: OptionsBarViewDelegate?
     
     public var options: [String] = [String]() {
         didSet {
@@ -120,6 +126,8 @@ extension OptionsBarView {
 extension OptionsBarView {
     
     @objc func buttonPressed(sender: UIButton) {
+        delegate?.optionSelectedAt(sender.tag)
+        
         self.separatorViewLeadingLayout?.constant = self.optionWidth * CGFloat(sender.tag)
         
         UIView.animate(withDuration: 0.5) {

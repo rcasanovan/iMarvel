@@ -8,6 +8,13 @@
 
 import Foundation
 
+enum OptionType {
+    case comics
+    case series
+    case stories
+    case events
+}
+
 // View / Presenter
 protocol CharacterDetailViewInjection : class {
     func showProgress(_ show: Bool, status: String)
@@ -19,6 +26,7 @@ protocol CharacterDetailViewInjection : class {
 
 protocol CharacterDetailPresenterDelegate : class {
     func viewDidLoad()
+    func optionSelected(_ option: OptionType)
 }
 
 // Presenter / Interactor
@@ -27,6 +35,7 @@ typealias CharacterDetailGetComicsCompletionBlock = (_ viewModel: [ComicViewMode
 protocol CharacterDetailInteractorDelegate : class {
     func getCharacter() -> CharactersListViewModel
     func getComicsWith(characterId: Int32, completion: @escaping CharacterDetailGetComicsCompletionBlock)
+    func getSyncComics() -> [ComicViewModel]
     func shouldGetComics() -> Bool
 }
 

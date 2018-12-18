@@ -70,4 +70,24 @@ extension CharacterDetailPresenter: CharacterDetailPresenterDelegate {
         getComics(showProgress: true)
     }
     
+    func optionSelected(_ option: OptionType) {
+        view?.loadComics([ComicViewModel](), copyright: nil, fromBeginning: true)
+        
+        switch option {
+        case .comics:
+            let syncComics = interactor.getSyncComics()
+            if syncComics.isEmpty {
+                getComics(showProgress: true)
+                return
+            }
+            view?.loadComics(interactor.getSyncComics(), copyright: nil, fromBeginning: true)
+        case .series:
+            getComics(showProgress: true)
+        case .stories:
+            getComics(showProgress: true)
+        case .events:
+            getComics(showProgress: true)
+        }
+    }
+    
 }

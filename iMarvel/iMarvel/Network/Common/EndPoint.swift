@@ -58,11 +58,41 @@ enum Endpoint: EndpointProtocol {
             let endpoint = "/v1/public/characters/\(characterId)/comics?\(Url.Fields.apiKey)=\(Url.apiKey)&\(Url.Fields.limit)=\(limit)&\(Url.Fields.offset)=\(offset)&\(Url.Fields.ts)=\(ts)&\(Url.Fields.hash)=\(hash)"
             
             return endpoint
+        
+        case .getSeriesWith(let characterId, let limit, let offset):
+            let ts = String(format: "%f", Date().timeIntervalSince1970)
+            guard let hash = "\(ts)\(Url.privateKey)\(Url.apiKey)".hashed(.md5) else {
+                return "/v1/public/characters/\(characterId)/comics"
+            }
+            let endpoint = "/v1/public/characters/\(characterId)/series?\(Url.Fields.apiKey)=\(Url.apiKey)&\(Url.Fields.limit)=\(limit)&\(Url.Fields.offset)=\(offset)&\(Url.Fields.ts)=\(ts)&\(Url.Fields.hash)=\(hash)"
+        
+            return endpoint
+            
+        case .getStoriesWith(let characterId, let limit, let offset):
+            let ts = String(format: "%f", Date().timeIntervalSince1970)
+            guard let hash = "\(ts)\(Url.privateKey)\(Url.apiKey)".hashed(.md5) else {
+                return "/v1/public/characters/\(characterId)/comics"
+            }
+            let endpoint = "/v1/public/characters/\(characterId)/stories?\(Url.Fields.apiKey)=\(Url.apiKey)&\(Url.Fields.limit)=\(limit)&\(Url.Fields.offset)=\(offset)&\(Url.Fields.ts)=\(ts)&\(Url.Fields.hash)=\(hash)"
+            
+            return endpoint
+            
+        case .getEventsWith(let characterId, let limit, let offset):
+            let ts = String(format: "%f", Date().timeIntervalSince1970)
+            guard let hash = "\(ts)\(Url.privateKey)\(Url.apiKey)".hashed(.md5) else {
+                return "/v1/public/characters/\(characterId)/events"
+            }
+            let endpoint = "/v1/public/characters/\(characterId)/events?\(Url.Fields.apiKey)=\(Url.apiKey)&\(Url.Fields.limit)=\(limit)&\(Url.Fields.offset)=\(offset)&\(Url.Fields.ts)=\(ts)&\(Url.Fields.hash)=\(hash)"
+            
+            return endpoint
         }
     }
     
     case getCharactersWith(nameStartsWith: String?, limit: UInt, offset: UInt)
     case getComicsWith(characterId: Int32, limit: UInt, offset: UInt)
+    case getSeriesWith(characterId: Int32, limit: UInt, offset: UInt)
+    case getStoriesWith(characterId: Int32, limit: UInt, offset: UInt)
+    case getEventsWith(characterId: Int32, limit: UInt, offset: UInt)
 }
 
 extension EndpointProtocol {
