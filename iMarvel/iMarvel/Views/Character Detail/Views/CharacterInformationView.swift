@@ -52,6 +52,14 @@ class CharacterInformationView: UIView {
         storiesView.value = viewModel.stories
         eventsView.value = viewModel.events
     }
+    
+    public func clear() {
+        backgroundImageView.image = nil
+        posterImageView.image = nil
+        nameLabel.text = ""
+        lastUpdateDateLabel.text = ""
+        descriptionLabel.text = ""
+    }
 }
 
 // MARK: - Setup views
