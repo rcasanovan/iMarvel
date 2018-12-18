@@ -20,7 +20,7 @@ struct ComicsRequest: RequestProtocol {
     var contentType: ContentType = .json
     var processHeader: Bool? = false
     
-    init(characterId: String, limit: UInt, offset: UInt) {
+    init(characterId: Int32, limit: UInt, offset: UInt) {
         url = Endpoint.getComicWith(characterId: characterId, limit: limit, offset: offset).url
     }
     

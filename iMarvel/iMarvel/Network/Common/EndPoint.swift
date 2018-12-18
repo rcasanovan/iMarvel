@@ -62,7 +62,7 @@ enum Endpoint: EndpointProtocol {
     }
     
     case getCharactersWith(nameStartsWith: String?, limit: UInt, offset: UInt)
-    case getComicWith(characterId: String, limit: UInt, offset: UInt)
+    case getComicWith(characterId: Int32, limit: UInt, offset: UInt)
 }
 
 extension EndpointProtocol {

@@ -12,10 +12,10 @@ struct ComicViewModel {
     
     let id: Int32
     let title: String
-    let description: String
+    let description: String?
     let urlImage: URL?
     
-    init(id: Int32, title: String, description: String, urlImage: URL?) {
+    init(id: Int32, title: String, description: String?, urlImage: URL?) {
         self.id = id
         self.title = title
         self.description = description

@@ -117,12 +117,22 @@ extension CharacterDetailViewController {
     private func addSubviews() {
         view.addSubview(characterInformationView)
         view.addSubview(optionsBarView)
+        view.addSubview(comicsContainerView)
         
         view.addConstraintsWithFormat("H:|[v0]|", views: characterInformationView)
         view.addConstraintsWithFormat("V:|[v0(>=0.0)]", views: characterInformationView)
         
         view.addConstraintsWithFormat("H:|[v0]|", views: optionsBarView)
         view.addConstraintsWithFormat("V:[v0][v1(\(optionsBarView.height))]", views: characterInformationView, optionsBarView)
+        
+        view.addConstraintsWithFormat("H:|[v0]|", views: comicsContainerView)
+        view.addConstraintsWithFormat("V:[v0][v1]|", views: optionsBarView, comicsContainerView)
+        
+        if let comicsTableView = comicsTableView {
+            comicsContainerView.addSubview(comicsTableView)
+            comicsContainerView.addConstraintsWithFormat("H:|[v0]|", views: comicsTableView)
+            comicsContainerView.addConstraintsWithFormat("V:|[v0]|", views: comicsTableView)
+        }
     }
     
     /**
@@ -136,11 +146,19 @@ extension CharacterDetailViewController {
 
 extension CharacterDetailViewController: CharacterDetailViewInjection {
     
+    func showProgress(_ show: Bool, status: String) {
+        showLoader(show, status: status)
+    }
+    
+    func showProgress(_ show: Bool) {
+        showLoader(show)
+    }
+    
     func loadCharacter(_ characterDetail: CharactersListViewModel) {
         characterInformationView.bindWithViewModel(characterDetail)
     }
     
-    func loadCharacters(_ viewModels: [ComicViewModel], copyright: String?, fromBeginning: Bool) {
+    func loadComics(_ viewModels: [ComicViewModel], copyright: String?, fromBeginning: Bool) {
         // Are we loading the characters from the beginning? -> scroll to top
         if fromBeginning {
             scrollToTop()
@@ -149,6 +167,10 @@ extension CharacterDetailViewController: CharacterDetailViewInjection {
         
         dataSource?.comics = viewModels
         comicsTableView?.reloadData()
+    }
+    
+    func showMessageWith(title: String, message: String, actionTitle: String) {
+        showAlertWith(title: title, message: message, actionTitle: actionTitle)
     }
     
 }

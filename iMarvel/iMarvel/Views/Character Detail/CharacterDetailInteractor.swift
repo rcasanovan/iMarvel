@@ -30,7 +30,7 @@ class CharacterDetailInteractor {
 
 extension CharacterDetailInteractor {
     
-    func getComicsResultsWith(characterId: String, limit: UInt, offset: UInt, simulatedJSONFile: String? = nil, completion: @escaping getComicsCompletionBlock) {
+    func getComicsResultsWith(characterId: Int32, limit: UInt, offset: UInt, simulatedJSONFile: String? = nil, completion: @escaping getComicsCompletionBlock) {
         var comicsRequest = ComicsRequest(characterId: characterId, limit: limit, offset: offset)
         
         comicsRequest.completion = completion
@@ -46,9 +46,9 @@ extension CharacterDetailInteractor: CharacterDetailInteractorDelegate {
         return characterDetail
     }
     
-    func getComicsWith(characterId: String, completion: @escaping CharacterDetailGetComicsCompletionBlock) {
+    func getComicsWith(characterId: Int32, completion: @escaping CharacterDetailGetComicsCompletionBlock) {
         if allComicsSync {
-            completion(comicListViewModel, 0, nil, true, nil, allComicsSync)
+            completion(comicListViewModel, nil, true, nil, allComicsSync)
             return
         }
         
@@ -58,7 +58,7 @@ extension CharacterDetailInteractor: CharacterDetailInteractorDelegate {
             switch response {
             case .success(let response):
                 guard let response = response else {
-                    completion(nil, 0, nil, false, nil, self.allComicsSync)
+                    completion(nil, nil, false, nil, self.allComicsSync)
                     return
                 }
                 
@@ -70,11 +70,15 @@ extension CharacterDetailInteractor: CharacterDetailInteractorDelegate {
                 
                 let responseViewModel = ComicViewModel.getViewModelsWith(comics: response.data.results)
                 self.comicListViewModel.append(contentsOf: responseViewModel)
-                completion(self.comicListViewModel, response.data.total, response.attributionText, true, nil, self.allComicsSync)
+                completion(self.comicListViewModel, response.attributionText, true, nil, self.allComicsSync)
             case .failure(let error):
-                completion(nil, 0, nil,  false, error, self.allComicsSync)
+                completion(nil, nil,  false, error, self.allComicsSync)
             }
         }
+    }
+    
+    func shouldGetComics() -> Bool {
+        return !allComicsSync
     }
     
 }

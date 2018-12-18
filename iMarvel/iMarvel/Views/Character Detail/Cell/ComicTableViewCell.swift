@@ -15,6 +15,8 @@ class ComicTableViewCell: UITableViewCell {
     private let descriptionLabel: UILabel = UILabel()
     private let arrowImageView: UIImageView = UIImageView()
     
+    private var viewModel: ComicViewModel?
+    
     static public var identifier: String {
         return String(describing: self)
     }
@@ -43,7 +45,32 @@ class ComicTableViewCell: UITableViewCell {
      *      -viewModel: ComicViewModel
      */
     public func bindWithViewModel(_ viewModel: ComicViewModel) {
+        self.viewModel = viewModel
+        configureInformation()
+        configurePosterImage()
     }
+    
+    /**
+     * Configure movie information
+     */
+    private func configureInformation() {
+        guard let viewModel = viewModel else {
+            return
+        }
+        titleLabel.text = viewModel.title
+        descriptionLabel.text = viewModel.description
+    }
+    
+    /**
+     * Configure poster image
+     */
+    private func configurePosterImage() {
+        guard let url = viewModel?.urlImage else {
+            return
+        }
+        posterImageView.hnk_setImage(from: url, placeholder: nil)
+    }
+    
 }
 
 // MARK: - Setup views
