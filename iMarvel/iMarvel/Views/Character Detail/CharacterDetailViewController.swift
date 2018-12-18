@@ -14,6 +14,7 @@ class CharacterDetailViewController: BaseViewController {
     
     private let characterInformationView: CharacterInformationView = CharacterInformationView()
     private let customTitleView: CustomTitleView = CustomTitleView()
+    private let optionsBarView: OptionsBarView = OptionsBarView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +43,8 @@ extension CharacterDetailViewController {
      * ConfigureSubviews
      */
     private func configureSubviews() {
+        optionsBarView.backgroundColor = .yellow
+        optionsBarView.options = ["Comics", "Series", "Stories", "Events"]
     }
     
     private func configureNavigationBar() {
@@ -81,9 +84,13 @@ extension CharacterDetailViewController {
      */
     private func addSubviews() {
         view.addSubview(characterInformationView)
+        view.addSubview(optionsBarView)
         
         view.addConstraintsWithFormat("H:|[v0]|", views: characterInformationView)
         view.addConstraintsWithFormat("V:|[v0(>=0.0)]", views: characterInformationView)
+        
+        view.addConstraintsWithFormat("H:|[v0]|", views: optionsBarView)
+        view.addConstraintsWithFormat("V:[v0][v1(\(optionsBarView.height))]", views: characterInformationView, optionsBarView)
     }
     
 }
