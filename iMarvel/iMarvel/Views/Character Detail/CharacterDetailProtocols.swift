@@ -34,12 +34,18 @@ typealias CharacterDetailGetComicsCompletionBlock = (_ viewModel: [ComicViewMode
 
 protocol CharacterDetailInteractorDelegate : class {
     func getCharacter() -> CharactersListViewModel
+    
     func getComicsWith(characterId: Int32, completion: @escaping CharacterDetailGetComicsCompletionBlock)
     func getSyncComics() -> [ComicViewModel]
+    func shouldGetComics() -> Bool
+    
     func getSeriesWith(characterId: Int32, completion: @escaping CharacterDetailGetComicsCompletionBlock)
     func getSyncSeries() -> [ComicViewModel]
-    func shouldGetComics() -> Bool
     func shouldGetSeries() -> Bool
+    
+    func getStoriesWith(characterId: Int32, completion: @escaping CharacterDetailGetComicsCompletionBlock)
+    func getSyncStories() -> [ComicViewModel]
+    func shouldGetStories() -> Bool
 }
 
 // Presenter / Router

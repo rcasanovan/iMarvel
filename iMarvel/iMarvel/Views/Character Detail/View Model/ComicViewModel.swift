@@ -27,7 +27,7 @@ struct ComicViewModel {
     }
     
     public static func getViewModelWith(comic: ComicResponse) -> ComicViewModel {
-        let urlImage = ImageManager.shared.getPortraitUrlWith(comic.thumbnail.path, ext: comic.thumbnail.ext)
+        let urlImage = ImageManager.shared.getPortraitUrlWith(comic.thumbnail?.path, ext: comic.thumbnail?.ext)
         
         return ComicViewModel(id: comic.id, title: comic.title, description: comic.description, urlImage: urlImage)
     }

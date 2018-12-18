@@ -33,8 +33,8 @@ class ImageManager {
         return url
     }
     
-    public func getPortraitUrlWith(_ partialUrl: String?, ext: String) -> URL? {
-        guard let partialUrl = partialUrl else {
+    public func getPortraitUrlWith(_ partialUrl: String?, ext: String?) -> URL? {
+        guard let partialUrl = partialUrl , let ext = ext else {
             return nil
         }
         

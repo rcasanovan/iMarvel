@@ -31,6 +31,6 @@ public struct ComicResponse: Decodable {
     let id: Int32
     let title: String
     let description: String?
-    let thumbnail: ThumbnailResponse
+    let thumbnail: ThumbnailResponse?
     
 }
