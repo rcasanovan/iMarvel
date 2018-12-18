@@ -22,8 +22,8 @@ class OptionsBarView: UIView {
     }
     
     private var optionWidth: CGFloat = 0.0
-    
     private let separatorView: UIView = UIView()
+    private var separatorViewLeadingLayout: NSLayoutConstraint?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -86,12 +86,16 @@ extension OptionsBarView {
      */
     private func addSubviews() {
         var leading: CGFloat = 0.0
+        var tag: Int = 0
         
         for eachOption in options {
             let button = UIButton(type: .custom)
             button.setTitle(eachOption, for: .normal)
             button.setTitleColor(.white, for: .normal)
             button.titleLabel?.font = UIFont.interUIMediumWithSize(size: 14.0)
+            button.addTarget(self, action:#selector(buttonPressed(sender:)), for: .touchUpInside)
+            button.tag = tag
+
             
             addSubview(button)
             
@@ -99,12 +103,28 @@ extension OptionsBarView {
             addConstraintsWithFormat("V:|[v0]|", views: button)
             
             leading = leading + optionWidth
+            tag = tag + 1
         }
         
         addSubview(separatorView)
-        addConstraintsWithFormat("H:|[v0(\(optionWidth))]", views: separatorView)
+        addConstraintsWithFormat("H:[v0(\(optionWidth))]", views: separatorView)
         addConstraintsWithFormat("V:[v0(\(Layout.SeparatorView.height))]|", views: separatorView)
+        let separatorViewLeadingLayout = NSLayoutConstraint(item: separatorView, attribute: .leading, relatedBy: .equal, toItem: self, attribute: .leading, multiplier: 1.0, constant: 0.0)
+        self.separatorViewLeadingLayout = separatorViewLeadingLayout
+        addConstraint(separatorViewLeadingLayout)
+    }
+    
+}
+
+// MARK: - OptionsBarView
+extension OptionsBarView {
+    
+    @objc func buttonPressed(sender: UIButton) {
+        self.separatorViewLeadingLayout?.constant = self.optionWidth * CGFloat(sender.tag)
         
+        UIView.animate(withDuration: 0.5) {
+            self.layoutIfNeeded()
+        }
     }
     
 }
