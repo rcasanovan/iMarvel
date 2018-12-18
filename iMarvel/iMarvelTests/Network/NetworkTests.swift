@@ -23,8 +23,8 @@ class NetworkTests: XCTestCase {
         super.tearDown()
     }
 
-    func testCharactersResultsWith(limit: UInt, offset: UInt, simulatedJSONFile: String? = nil,  completion: @escaping charactersCompletionBlock) {
-        var charactersRequest = CharactersRequest(limit: limit, offset: offset)
+    func testCharactersResultsWith(nameStartsWith: String? = nil, limit: UInt, offset: UInt, simulatedJSONFile: String? = nil,  completion: @escaping charactersCompletionBlock) {
+        var charactersRequest = CharactersRequest(nameStartsWith: nameStartsWith, limit: limit, offset: offset)
         
         charactersRequest.completion = completion
         charactersRequest.simulatedResponseJSONFile = simulatedJSONFile
