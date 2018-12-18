@@ -66,6 +66,8 @@
 		C8CE170821C8FF6E00B79F02 /* SuggestionsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CE170721C8FF6E00B79F02 /* SuggestionsTest.swift */; };
 		C8CE170B21C9025200B79F02 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CE170A21C9025200B79F02 /* Date.swift */; };
 		C8CE170E21C9028700B79F02 /* DateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CE170D21C9028700B79F02 /* DateTests.swift */; };
+		C8CE171021C9076D00B79F02 /* PublicationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CE170F21C9076D00B79F02 /* PublicationView.swift */; };
+		C8CE171221C907A400B79F02 /* BubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CE171121C907A400B79F02 /* BubbleView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -145,6 +147,8 @@
 		C8CE170721C8FF6E00B79F02 /* SuggestionsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionsTest.swift; sourceTree = "<group>"; };
 		C8CE170A21C9025200B79F02 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		C8CE170D21C9028700B79F02 /* DateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTests.swift; sourceTree = "<group>"; };
+		C8CE170F21C9076D00B79F02 /* PublicationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicationView.swift; sourceTree = "<group>"; };
+		C8CE171121C907A400B79F02 /* BubbleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleView.swift; sourceTree = "<group>"; };
 		C9BA96E73C001A2D3F7102E9 /* Pods-iMarvelTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iMarvelTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-iMarvelTests/Pods-iMarvelTests.release.xcconfig"; sourceTree = "<group>"; };
 		D25C7D1A873D65D90EEC8E5B /* Pods-iMarvel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iMarvel.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iMarvel/Pods-iMarvel.debug.xcconfig"; sourceTree = "<group>"; };
 		DD8228C8959C34B2B4F2CA27 /* Pods_iMarvel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iMarvel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -445,6 +449,8 @@
 				C8CE16C321C7A65C00B79F02 /* Suggestions */,
 				C8CE16E921C7AB2300B79F02 /* SearchView.swift */,
 				C8CE16EB21C7AB5A00B79F02 /* TotalResultsView.swift */,
+				C8CE170F21C9076D00B79F02 /* PublicationView.swift */,
+				C8CE171121C907A400B79F02 /* BubbleView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -848,6 +854,7 @@
 				C8CE169221C70E3C00B79F02 /* Reachability.m in Sources */,
 				C8CE168521C70DE100B79F02 /* RequestErrors.swift in Sources */,
 				C8CE16AF21C79B9700B79F02 /* CharactersListProtocols.swift in Sources */,
+				C8CE171221C907A400B79F02 /* BubbleView.swift in Sources */,
 				C8CE170021C7D68400B79F02 /* SearchSuggestionsManager.swift in Sources */,
 				C8CE16FB21C7C5C400B79F02 /* CustomTitleView.swift in Sources */,
 				C8CE169921C7117200B79F02 /* CharactersRequest.swift in Sources */,
@@ -856,6 +863,7 @@
 				C8CE16B421C79BEA00B79F02 /* CharactersListPresenter.swift in Sources */,
 				C8CE16A021C71E7800B79F02 /* String.swift in Sources */,
 				C8CE16B821C79C0900B79F02 /* CharactersListRouter.swift in Sources */,
+				C8CE171021C9076D00B79F02 /* PublicationView.swift in Sources */,
 				C8CE16D421C7A9F500B79F02 /* UIView.swift in Sources */,
 				C8CE170321C82F3F00B79F02 /* CharacterDetailViewController.swift in Sources */,
 				C8CE16E821C7AA8600B79F02 /* UIFont.swift in Sources */,

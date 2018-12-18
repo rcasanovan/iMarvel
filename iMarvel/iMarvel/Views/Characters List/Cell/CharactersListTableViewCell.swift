@@ -10,13 +10,18 @@ import UIKit
 
 class CharactersListTableViewCell: UITableViewCell {
     
-    private var backgroundImageView: UIImageView = UIImageView()
+    private let backgroundImageView: UIImageView = UIImageView()
     private var backgroundLayerImageView: UIVisualEffectView?
-    private var posterImageView: UIImageView = UIImageView()
-    private var nameLabel: UILabel = UILabel()
-    private var lastUpdateDateLabel: UILabel = UILabel()
-    private var descriptionLabel: UILabel = UILabel()
-    private var arrowImageView: UIImageView = UIImageView()
+    private let posterImageView: UIImageView = UIImageView()
+    private let nameLabel: UILabel = UILabel()
+    private let lastUpdateDateLabel: UILabel = UILabel()
+    private let descriptionLabel: UILabel = UILabel()
+    private let arrowImageView: UIImageView = UIImageView()
+    
+    private let comicsView: PublicationView = PublicationView()
+    private let seriesView: PublicationView = PublicationView()
+    private let storiesView: PublicationView = PublicationView()
+    private let eventsView: PublicationView = PublicationView()
     
     private var viewModel: CharactersListViewModel?
     
@@ -54,6 +59,18 @@ class CharactersListTableViewCell: UITableViewCell {
         configureInformation()
         configureBackgroundImage()
         configurePosterImage()
+        
+        comicsView.title = "Comics"
+        comicsView.value = "12"
+        
+        seriesView.title = "Series"
+        seriesView.value = "5"
+        
+        storiesView.title = "Stories"
+        storiesView.value = "4"
+        
+        eventsView.title = "Events"
+        eventsView.value = "16"
     }
 }
 
@@ -213,12 +230,16 @@ extension CharactersListTableViewCell {
         addSubview(lastUpdateDateLabel)
         addSubview(descriptionLabel)
         addSubview(arrowImageView)
+        addSubview(comicsView)
+        addSubview(seriesView)
+        addSubview(storiesView)
+        addSubview(eventsView)
         
         addConstraintsWithFormat("H:|[v0]|", views: backgroundImageView)
         addConstraintsWithFormat("V:|[v0]|", views: backgroundImageView)
         
         addConstraintsWithFormat("H:|-\(Layout.PosterImageView.leading)-[v0(\(Layout.PosterImageView.width))]", views: posterImageView)
-        addConstraintsWithFormat("V:|-\(Layout.PosterImageView.top)-[v0(\(Layout.PosterImageView.height))]->=\(Layout.PosterImageView.bottom)-|", views: posterImageView)
+        addConstraintsWithFormat("V:|-\(Layout.PosterImageView.top)-[v0(\(Layout.PosterImageView.height))]->=\(Layout.PosterImageView.bottom)-[v1]", views: posterImageView, comicsView)
         
         addConstraintsWithFormat("H:[v0]-\(Layout.TitleLabel.leading)-[v1]-\(Layout.TitleLabel.trailing)-|", views: posterImageView, nameLabel)
         addConstraintsWithFormat("V:|-\(Layout.TitleLabel.top)-[v0(\(Layout.TitleLabel.height))]", views: nameLabel)
@@ -233,6 +254,18 @@ extension CharactersListTableViewCell {
         addConstraintsWithFormat("V:[v0(\(Layout.ArrowIcon.height))]", views: arrowImageView)
         let arrowCenterLayoutConstraint = NSLayoutConstraint(item: arrowImageView, attribute: .centerY, relatedBy: .equal, toItem: self, attribute: .centerY, multiplier: 1.0, constant: 1.0)
         addConstraint(arrowCenterLayoutConstraint)
+        
+        addConstraintsWithFormat("H:|-\(Layout.PosterImageView.leading)-[v0(\(Layout.PosterImageView.width))]", views: comicsView)
+        addConstraintsWithFormat("V:[v0(\(comicsView.height))]-10.0-[v1]", views: comicsView, seriesView)
+        
+        addConstraintsWithFormat("H:|-\(Layout.PosterImageView.leading)-[v0(\(Layout.PosterImageView.width))]", views: seriesView)
+        addConstraintsWithFormat("V:[v0(\(comicsView.height))]-10.0-[v1]", views: seriesView, storiesView)
+        
+        addConstraintsWithFormat("H:|-\(Layout.PosterImageView.leading)-[v0(\(Layout.PosterImageView.width))]", views: storiesView)
+        addConstraintsWithFormat("V:[v0(\(comicsView.height))]-10.0-[v1]", views: storiesView, eventsView)
+        
+        addConstraintsWithFormat("H:|-\(Layout.PosterImageView.leading)-[v0(\(Layout.PosterImageView.width))]", views: eventsView)
+        addConstraintsWithFormat("V:[v0(\(comicsView.height))]-16.0-|", views: eventsView)
     }
     
 }
