@@ -11,6 +11,7 @@ import UIKit
 class CharactersListTableViewCell: UITableViewCell {
     
     private let characterInformationView: CharacterInformationView = CharacterInformationView()
+    private let arrowImageView: UIImageView = UIImageView()
     
     static public var identifier: String {
         return String(describing: self)
@@ -52,7 +53,12 @@ extension CharactersListTableViewCell {
         backgroundColor = .clear
         selectionStyle = .none
         
+        configureSubviews()
         addSubviews()
+    }
+    
+    private func configureSubviews() {
+        arrowImageView.image = UIImage(named: "ArrowIcon")
     }
     
 }
@@ -61,13 +67,32 @@ extension CharactersListTableViewCell {
 extension CharactersListTableViewCell {
     
     /**
+     * Internal struct for layout
+     */
+    private struct Layout {
+        
+        struct ArrowIcon {
+            static let width: CGFloat = 8.0
+            static let height: CGFloat = 13.0
+            static let trailing: CGFloat = 16.0
+        }
+        
+    }
+    
+    /**
      * Add subviews
      */
     private func addSubviews() {
         addSubview(characterInformationView)
+        addSubview(arrowImageView)
         
         addConstraintsWithFormat("H:|[v0]|", views: characterInformationView)
         addConstraintsWithFormat("V:|[v0(>=0.0)]|", views: characterInformationView)
+        
+        addConstraintsWithFormat("H:[v0(\(Layout.ArrowIcon.width))]-\(Layout.ArrowIcon.trailing)-|", views: arrowImageView)
+        addConstraintsWithFormat("V:[v0(\(Layout.ArrowIcon.height))]", views: arrowImageView)
+        let arrowCenterLayoutConstraint = NSLayoutConstraint(item: arrowImageView, attribute: .centerY, relatedBy: .equal, toItem: self, attribute: .centerY, multiplier: 1.0, constant: 1.0)
+        addConstraint(arrowCenterLayoutConstraint)
     }
     
 }

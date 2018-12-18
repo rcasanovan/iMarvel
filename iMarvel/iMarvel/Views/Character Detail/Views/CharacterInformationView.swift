@@ -16,7 +16,6 @@ class CharacterInformationView: UIView {
     private let nameLabel: UILabel = UILabel()
     private let lastUpdateDateLabel: UILabel = UILabel()
     private let descriptionLabel: UILabel = UILabel()
-    private let arrowImageView: UIImageView = UIImageView()
     
     private let comicsView: PublicationView = PublicationView()
     private let seriesView: PublicationView = PublicationView()
@@ -102,8 +101,6 @@ extension CharacterInformationView {
         descriptionLabel.font = UIFont.interUIMediumWithSize(size: 15.0)
         descriptionLabel.textColor = .white
         descriptionLabel.numberOfLines = 0
-        
-        arrowImageView.image = UIImage(named: "ArrowIcon")
         
         comicsView.title = "Comics"
         seriesView.title = "Series"
@@ -194,13 +191,7 @@ extension CharacterInformationView {
             static let top: CGFloat = 8.0
             static let bottom: CGFloat = 8.0
             static let leading: CGFloat = 16.0
-            static let trailing: CGFloat = 16.0
-        }
-        
-        struct ArrowIcon {
-            static let width: CGFloat = 8.0
-            static let height: CGFloat = 13.0
-            static let trailing: CGFloat = 16.0
+            static let trailing: CGFloat = 40.0
         }
         
     }
@@ -221,7 +212,6 @@ extension CharacterInformationView {
         addSubview(nameLabel)
         addSubview(lastUpdateDateLabel)
         addSubview(descriptionLabel)
-        addSubview(arrowImageView)
         addSubview(comicsView)
         addSubview(seriesView)
         addSubview(storiesView)
@@ -239,13 +229,8 @@ extension CharacterInformationView {
         addConstraintsWithFormat("H:[v0]-\(Layout.ReleaseDateLabel.leading)-[v1]-\(Layout.ReleaseDateLabel.trailing)-|", views: posterImageView, lastUpdateDateLabel)
         addConstraintsWithFormat("V:[v0]-\(Layout.ReleaseDateLabel.top)-[v1(\(Layout.ReleaseDateLabel.height))]", views: nameLabel, lastUpdateDateLabel)
         
-        addConstraintsWithFormat("H:[v0]-\(Layout.OverviewLabel.leading)-[v1]-\(Layout.OverviewLabel.trailing)-[v2]", views: posterImageView, descriptionLabel, arrowImageView)
+        addConstraintsWithFormat("H:[v0]-\(Layout.OverviewLabel.leading)-[v1]-\(Layout.OverviewLabel.trailing)-|", views: posterImageView, descriptionLabel)
         addConstraintsWithFormat("V:[v0]-\(Layout.OverviewLabel.top)-[v1]-\(Layout.OverviewLabel.bottom)-|", views: lastUpdateDateLabel, descriptionLabel)
-        
-        addConstraintsWithFormat("H:[v0(\(Layout.ArrowIcon.width))]-\(Layout.ArrowIcon.trailing)-|", views: arrowImageView)
-        addConstraintsWithFormat("V:[v0(\(Layout.ArrowIcon.height))]", views: arrowImageView)
-        let arrowCenterLayoutConstraint = NSLayoutConstraint(item: arrowImageView, attribute: .centerY, relatedBy: .equal, toItem: self, attribute: .centerY, multiplier: 1.0, constant: 1.0)
-        addConstraint(arrowCenterLayoutConstraint)
         
         addConstraintsWithFormat("H:|-\(Layout.PosterImageView.leading)-[v0(\(Layout.PosterImageView.width))]", views: comicsView)
         addConstraintsWithFormat("V:[v0(\(comicsView.height))]-10.0-[v1]", views: comicsView, seriesView)
