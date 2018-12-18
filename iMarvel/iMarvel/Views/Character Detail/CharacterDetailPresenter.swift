@@ -25,4 +25,9 @@ class CharacterDetailPresenter {
 
 extension CharacterDetailPresenter: CharacterDetailPresenterDelegate {
     
+    func viewDidLoad() {
+        let character = interactor.getCharacter()
+        view?.loadCharacter(character)
+    }
+    
 }

@@ -20,4 +20,8 @@ class CharacterDetailInteractor {
 
 extension CharacterDetailInteractor: CharacterDetailInteractorDelegate {
     
+    func getCharacter() -> CharactersListViewModel {
+        return characterDetail
+    }
+    
 }

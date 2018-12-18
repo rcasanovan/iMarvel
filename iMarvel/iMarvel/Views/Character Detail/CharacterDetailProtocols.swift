@@ -10,13 +10,16 @@ import Foundation
 
 // View / Presenter
 protocol CharacterDetailViewInjection : class {
+    func loadCharacter(_ characterDetail: CharactersListViewModel)
 }
 
 protocol CharacterDetailPresenterDelegate : class {
+    func viewDidLoad()
 }
 
 // Presenter / Interactor
 protocol CharacterDetailInteractorDelegate : class {
+    func getCharacter() -> CharactersListViewModel
 }
 
 // Presenter / Router
