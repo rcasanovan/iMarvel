@@ -12,7 +12,6 @@
 		C8CE164821C6F4AD00B79F02 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CE164721C6F4AD00B79F02 /* AppDelegate.swift */; };
 		C8CE164F21C6F4AE00B79F02 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C8CE164E21C6F4AE00B79F02 /* Assets.xcassets */; };
 		C8CE165221C6F4AE00B79F02 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8CE165021C6F4AE00B79F02 /* LaunchScreen.storyboard */; };
-		C8CE165D21C6F4AE00B79F02 /* iMarvelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CE165C21C6F4AE00B79F02 /* iMarvelTests.swift */; };
 		C8CE168021C70DE100B79F02 /* RequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CE166E21C70DE100B79F02 /* RequestManager.swift */; };
 		C8CE168121C70DE100B79F02 /* HTTPCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CE166F21C70DE100B79F02 /* HTTPCode.swift */; };
 		C8CE168221C70DE100B79F02 /* NetworkHeaders.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CE167021C70DE100B79F02 /* NetworkHeaders.swift */; };
@@ -65,6 +64,8 @@
 		C8CE170321C82F3F00B79F02 /* CharacterDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CE170221C82F3F00B79F02 /* CharacterDetailViewController.swift */; };
 		C8CE170521C82F6F00B79F02 /* CharacterDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CE170421C82F6F00B79F02 /* CharacterDetailRouter.swift */; };
 		C8CE170821C8FF6E00B79F02 /* SuggestionsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CE170721C8FF6E00B79F02 /* SuggestionsTest.swift */; };
+		C8CE170B21C9025200B79F02 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CE170A21C9025200B79F02 /* Date.swift */; };
+		C8CE170E21C9028700B79F02 /* DateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CE170D21C9028700B79F02 /* DateTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,7 +88,6 @@
 		C8CE165121C6F4AE00B79F02 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C8CE165321C6F4AE00B79F02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C8CE165821C6F4AE00B79F02 /* iMarvelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iMarvelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C8CE165C21C6F4AE00B79F02 /* iMarvelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iMarvelTests.swift; sourceTree = "<group>"; };
 		C8CE165E21C6F4AE00B79F02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C8CE166E21C70DE100B79F02 /* RequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestManager.swift; sourceTree = "<group>"; };
 		C8CE166F21C70DE100B79F02 /* HTTPCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPCode.swift; sourceTree = "<group>"; };
@@ -143,6 +143,8 @@
 		C8CE170221C82F3F00B79F02 /* CharacterDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailViewController.swift; sourceTree = "<group>"; };
 		C8CE170421C82F6F00B79F02 /* CharacterDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailRouter.swift; sourceTree = "<group>"; };
 		C8CE170721C8FF6E00B79F02 /* SuggestionsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionsTest.swift; sourceTree = "<group>"; };
+		C8CE170A21C9025200B79F02 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		C8CE170D21C9028700B79F02 /* DateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTests.swift; sourceTree = "<group>"; };
 		C9BA96E73C001A2D3F7102E9 /* Pods-iMarvelTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iMarvelTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-iMarvelTests/Pods-iMarvelTests.release.xcconfig"; sourceTree = "<group>"; };
 		D25C7D1A873D65D90EEC8E5B /* Pods-iMarvel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iMarvel.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iMarvel/Pods-iMarvel.debug.xcconfig"; sourceTree = "<group>"; };
 		DD8228C8959C34B2B4F2CA27 /* Pods_iMarvel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iMarvel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -229,11 +231,11 @@
 		C8CE165B21C6F4AE00B79F02 /* iMarvelTests */ = {
 			isa = PBXGroup;
 			children = (
+				C8CE170C21C9027800B79F02 /* Date */,
 				C8CE170621C8FF5600B79F02 /* Suggestions */,
 				C8CE16BE21C7A30F00B79F02 /* Images */,
 				C8CE16A421C7251500B79F02 /* Encryption */,
 				C8CE169A21C712A300B79F02 /* Network */,
-				C8CE165C21C6F4AE00B79F02 /* iMarvelTests.swift */,
 				C8CE165E21C6F4AE00B79F02 /* Info.plist */,
 			);
 			path = iMarvelTests;
@@ -352,6 +354,7 @@
 		C8CE169D21C71E6600B79F02 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				C8CE170921C9024400B79F02 /* Date */,
 				C8CE16F521C7BD6300B79F02 /* UIEdgeInsets */,
 				C8CE16E621C7AA7A00B79F02 /* UIFont */,
 				C8CE16D221C7A9CE00B79F02 /* UIView */,
@@ -586,6 +589,22 @@
 			path = Suggestions;
 			sourceTree = "<group>";
 		};
+		C8CE170921C9024400B79F02 /* Date */ = {
+			isa = PBXGroup;
+			children = (
+				C8CE170A21C9025200B79F02 /* Date.swift */,
+			);
+			path = Date;
+			sourceTree = "<group>";
+		};
+		C8CE170C21C9027800B79F02 /* Date */ = {
+			isa = PBXGroup;
+			children = (
+				C8CE170D21C9028700B79F02 /* DateTests.swift */,
+			);
+			path = Date;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -815,6 +834,7 @@
 				C8CE16F421C7B85E00B79F02 /* Utils.swift in Sources */,
 				C8CE16FE21C7CDB800B79F02 /* BaseViewController.swift in Sources */,
 				C8CE168121C70DE100B79F02 /* HTTPCode.swift in Sources */,
+				C8CE170B21C9025200B79F02 /* Date.swift in Sources */,
 				C8CE16C721C7A69100B79F02 /* SuggestionsView.swift in Sources */,
 				C8CE16EC21C7AB5A00B79F02 /* TotalResultsView.swift in Sources */,
 				C8CE170521C82F6F00B79F02 /* CharacterDetailRouter.swift in Sources */,
@@ -853,7 +873,7 @@
 				C8CE170821C8FF6E00B79F02 /* SuggestionsTest.swift in Sources */,
 				C8CE16C021C7A32000B79F02 /* ImageTests.swift in Sources */,
 				C8CE169C21C712BD00B79F02 /* NetworkTests.swift in Sources */,
-				C8CE165D21C6F4AE00B79F02 /* iMarvelTests.swift in Sources */,
+				C8CE170E21C9028700B79F02 /* DateTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
