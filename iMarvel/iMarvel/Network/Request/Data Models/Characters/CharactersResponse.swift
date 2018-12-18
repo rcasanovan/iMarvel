@@ -33,6 +33,10 @@ public struct CharacterResponse: Decodable {
     let description: String
     let modified: String
     let thumbnail: ThumbnailResponse
+    let comics: ParticipationResponse
+    let series: ParticipationResponse
+    let stories: ParticipationResponse
+    let events: ParticipationResponse
     
 }
 
@@ -49,5 +53,11 @@ public struct ThumbnailResponse: Decodable {
         case path = "path"
         case ext = "extension"
     }
+    
+}
+
+public struct ParticipationResponse: Decodable {
+    
+    let available: Int
     
 }

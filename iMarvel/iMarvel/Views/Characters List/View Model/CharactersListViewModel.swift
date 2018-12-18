@@ -16,14 +16,22 @@ struct CharactersListViewModel {
     let backgroundUrlImage: URL?
     let posterUrlImage: URL?
     let modifiedDate: String?
+    let comics: String
+    let series: String
+    let stories: String
+    let events: String
     
-    init(id: Int32, name: String, description: String, backgroundUrlImage: URL?, posterUrlImage: URL?, modifiedDate: String?) {
+    init(id: Int32, name: String, description: String, backgroundUrlImage: URL?, posterUrlImage: URL?, modifiedDate: String?, comics: String, series: String, stories: String, events: String) {
         self.id = id
         self.name = name
         self.description = description
         self.backgroundUrlImage = backgroundUrlImage
         self.posterUrlImage = posterUrlImage
         self.modifiedDate = modifiedDate
+        self.comics = comics
+        self.series = series
+        self.stories = stories
+        self.events = events
     }
     
     public static func getViewModelsWith(characters: [CharacterResponse]) -> [CharactersListViewModel] {
@@ -40,7 +48,12 @@ struct CharactersListViewModel {
         let date = Date.getISODateWithString(character.modified)
         let stringDate = date?.getStringMMMddyyyyFormat()
         
-        return CharactersListViewModel(id: character.id, name: character.name, description: character.description, backgroundUrlImage: backgroundUrlImage, posterUrlImage: posterUrlImage, modifiedDate: stringDate)
+        let comics = "\(character.comics.available)"
+        let series = "\(character.series.available)"
+        let stories = "\(character.stories.available)"
+        let events = "\(character.events.available)"
+        
+        return CharactersListViewModel(id: character.id, name: character.name, description: character.description, backgroundUrlImage: backgroundUrlImage, posterUrlImage: posterUrlImage, modifiedDate: stringDate, comics: comics, series: series, stories: stories, events: events)
     }
     
 }

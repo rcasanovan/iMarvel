@@ -60,17 +60,10 @@ class CharactersListTableViewCell: UITableViewCell {
         configureBackgroundImage()
         configurePosterImage()
         
-        comicsView.title = "Comics"
-        comicsView.value = "12"
-        
-        seriesView.title = "Series"
-        seriesView.value = "5"
-        
-        storiesView.title = "Stories"
-        storiesView.value = "4"
-        
-        eventsView.title = "Events"
-        eventsView.value = "16"
+        comicsView.value = viewModel.comics
+        seriesView.value = viewModel.series
+        storiesView.value = viewModel.stories
+        eventsView.value = viewModel.events
     }
 }
 
@@ -117,6 +110,11 @@ extension CharactersListTableViewCell {
         descriptionLabel.numberOfLines = 0
         
         arrowImageView.image = UIImage(named: "ArrowIcon")
+        
+        comicsView.title = "Comics"
+        seriesView.title = "Series"
+        storiesView.title = "Stories"
+        eventsView.title = "Events"
     }
     
     /**
