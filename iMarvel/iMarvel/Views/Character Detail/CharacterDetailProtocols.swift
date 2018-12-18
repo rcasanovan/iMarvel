@@ -11,6 +11,7 @@ import Foundation
 // View / Presenter
 protocol CharacterDetailViewInjection : class {
     func loadCharacter(_ characterDetail: CharactersListViewModel)
+    func loadCharacters(_ viewModels: [ComicViewModel], copyright: String?, fromBeginning: Bool)
 }
 
 protocol CharacterDetailPresenterDelegate : class {

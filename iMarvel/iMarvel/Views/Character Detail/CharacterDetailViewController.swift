@@ -16,6 +16,10 @@ class CharacterDetailViewController: BaseViewController {
     private let customTitleView: CustomTitleView = CustomTitleView()
     private let optionsBarView: OptionsBarView = OptionsBarView()
     
+    private let comicsContainerView: UIView = UIView()
+    private var comicsTableView: UITableView?
+    private var dataSource: ComicsDataSource?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
@@ -45,6 +49,17 @@ extension CharacterDetailViewController {
     private func configureSubviews() {
         optionsBarView.backgroundColor = .yellow
         optionsBarView.options = ["Comics", "Series", "Stories", "Events"]
+        
+        comicsTableView = UITableView(frame: comicsContainerView.bounds, style: .plain)
+        comicsTableView?.tableFooterView = UIView()
+        comicsTableView?.estimatedRowHeight = 193.0
+        comicsTableView?.rowHeight = UITableView.automaticDimension
+        comicsTableView?.invalidateIntrinsicContentSize()
+        comicsTableView?.allowsSelection = true
+        comicsTableView?.backgroundColor = .black
+        
+        registerCells()
+        setupDatasource()
     }
     
     private func configureNavigationBar() {
@@ -52,6 +67,23 @@ extension CharacterDetailViewController {
         customTitleView.setTitle("iMarvel")
         customTitleView.subtitleColor = .white
         navigationItem.titleView = customTitleView
+    }
+    
+    /**
+     * Register all the cells we need
+     */
+    private func registerCells() {
+        comicsTableView?.register(ComicTableViewCell.self, forCellReuseIdentifier: ComicTableViewCell.identifier)
+    }
+    
+    /**
+     * Setup datasource for the movies table view
+     */
+    private func setupDatasource() {
+        if let comicsTableView = comicsTableView {
+            dataSource = ComicsDataSource()
+            comicsTableView.dataSource = dataSource
+        }
     }
     
 }
@@ -93,12 +125,30 @@ extension CharacterDetailViewController {
         view.addConstraintsWithFormat("V:[v0][v1(\(optionsBarView.height))]", views: characterInformationView, optionsBarView)
     }
     
+    /**
+     * Scroll to top
+     */
+    private func scrollToTop() {
+        comicsTableView?.setContentOffset(.zero, animated: false)
+    }
+    
 }
 
 extension CharacterDetailViewController: CharacterDetailViewInjection {
     
     func loadCharacter(_ characterDetail: CharactersListViewModel) {
         characterInformationView.bindWithViewModel(characterDetail)
+    }
+    
+    func loadCharacters(_ viewModels: [ComicViewModel], copyright: String?, fromBeginning: Bool) {
+        // Are we loading the characters from the beginning? -> scroll to top
+        if fromBeginning {
+            scrollToTop()
+        }
+        customTitleView.setSubtitle(copyright)
+        
+        dataSource?.comics = viewModels
+        comicsTableView?.reloadData()
     }
     
 }
