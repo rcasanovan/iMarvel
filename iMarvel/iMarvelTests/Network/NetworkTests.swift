@@ -10,6 +10,7 @@ import XCTest
 @testable import iMarvel
 
 typealias charactersCompletionBlock = (Result<CharactersResponse?>) -> Void
+typealias comicsCompletionBlock = (Result<ComicsResponse?>) -> Void
 
 class NetworkTests: XCTestCase {
 
@@ -32,17 +33,26 @@ class NetworkTests: XCTestCase {
         requestManager.send(request: charactersRequest)
     }
     
+    func testComicsResultsWith(characterId: String, limit: UInt, offset: UInt, simulatedJSONFile: String? = nil,  completion: @escaping comicsCompletionBlock) {
+        var comicsRequest = ComicsRequest(characterId: characterId, limit: limit, offset: offset)
+        
+        comicsRequest.completion = completion
+        comicsRequest.simulatedResponseJSONFile = simulatedJSONFile
+        comicsRequest.verbose = true
+        requestManager.send(request: comicsRequest)
+    }
+    
     func testCharactersResults() {
         let charactersResultsExpectation: XCTestExpectation = self.expectation(description: "charactersResultsExpectation")
         
         testCharactersResultsWith(limit: 10, offset: 0){ (response) in
             switch response {
-            case .success(let sessionResponse):
-                guard let sessionResponse = sessionResponse else {
+            case .success(let response):
+                guard let response = response else {
                     XCTFail("Impossible to get the session response")
                     return
                 }
-                XCTAssert(sessionResponse.data.count != 0, "data array can't be empty")
+                XCTAssert(response.data.count != 0, "data array can't be empty")
             case .failure(let error):
                 XCTFail(error.localizedDescription)
             }
@@ -69,6 +79,27 @@ class NetworkTests: XCTestCase {
             }
             
             charactersResultsExpectation.fulfill()
+        }
+        
+        self.waitForExpectations(timeout: 25.0, handler: nil)
+    }
+    
+    func testComicsResults() {
+        let comicsResultsExpectation: XCTestExpectation = self.expectation(description: "comicsResultsExpectation")
+        
+        testComicsResultsWith(characterId: "1017100",limit: 10, offset: 0) { (response) in
+            switch response {
+            case .success(let response):
+                guard let response = response else {
+                    XCTFail("Impossible to get the session response")
+                    return
+                }
+                XCTAssert(response.data.count != 0, "data array can't be empty")
+            case .failure(let error):
+                XCTFail(error.localizedDescription)
+            }
+            
+            comicsResultsExpectation.fulfill()
         }
         
         self.waitForExpectations(timeout: 25.0, handler: nil)

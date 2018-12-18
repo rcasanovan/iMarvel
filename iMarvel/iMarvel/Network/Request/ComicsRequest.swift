@@ -20,8 +20,8 @@ struct ComicsRequest: RequestProtocol {
     var contentType: ContentType = .json
     var processHeader: Bool? = false
     
-    init(nameStartsWith: String?, limit: UInt, offset: UInt) {
-        url = Endpoint.getCharactersWith(nameStartsWith:nameStartsWith, limit: limit, offset: offset).url
+    init(characterId: String, limit: UInt, offset: UInt) {
+        url = Endpoint.getComicWith(characterId: characterId, limit: limit, offset: offset).url
     }
     
 }

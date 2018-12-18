@@ -75,6 +75,7 @@
 		C8CE171D21C9297E00B79F02 /* OptionsBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CE171C21C9297E00B79F02 /* OptionsBarView.swift */; };
 		C8CE175921C9735100B79F02 /* ComicsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CE175821C9735100B79F02 /* ComicsResponse.swift */; };
 		C8CE175B21C9742500B79F02 /* ComicsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CE175A21C9742500B79F02 /* ComicsRequest.swift */; };
+		C8CE176021C9783300B79F02 /* Comics.json in Resources */ = {isa = PBXBuildFile; fileRef = C8CE175F21C9783300B79F02 /* Comics.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -163,6 +164,7 @@
 		C8CE171C21C9297E00B79F02 /* OptionsBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsBarView.swift; sourceTree = "<group>"; };
 		C8CE175821C9735100B79F02 /* ComicsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicsResponse.swift; sourceTree = "<group>"; };
 		C8CE175A21C9742500B79F02 /* ComicsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicsRequest.swift; sourceTree = "<group>"; };
+		C8CE175F21C9783300B79F02 /* Comics.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Comics.json; sourceTree = "<group>"; };
 		C9BA96E73C001A2D3F7102E9 /* Pods-iMarvelTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iMarvelTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-iMarvelTests/Pods-iMarvelTests.release.xcconfig"; sourceTree = "<group>"; };
 		D25C7D1A873D65D90EEC8E5B /* Pods-iMarvel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iMarvel.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iMarvel/Pods-iMarvel.debug.xcconfig"; sourceTree = "<group>"; };
 		DD8228C8959C34B2B4F2CA27 /* Pods_iMarvel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iMarvel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -271,6 +273,7 @@
 		C8CE166821C70D4700B79F02 /* Simulated Response */ = {
 			isa = PBXGroup;
 			children = (
+				C8CE175C21C9778000B79F02 /* Comics */,
 				C8CE166921C70D5800B79F02 /* All Characters */,
 			);
 			path = "Simulated Response";
@@ -648,6 +651,14 @@
 			path = Comics;
 			sourceTree = "<group>";
 		};
+		C8CE175C21C9778000B79F02 /* Comics */ = {
+			isa = PBXGroup;
+			children = (
+				C8CE175F21C9783300B79F02 /* Comics.json */,
+			);
+			path = Comics;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -734,6 +745,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C8CE165221C6F4AE00B79F02 /* LaunchScreen.storyboard in Resources */,
+				C8CE176021C9783300B79F02 /* Comics.json in Resources */,
 				C8CE16E321C7AA5200B79F02 /* InterUI-Medium.ttf in Resources */,
 				C8CE164F21C6F4AE00B79F02 /* Assets.xcassets in Resources */,
 				C8CE16DE21C7AA5200B79F02 /* InterUI-Bold.ttf in Resources */,

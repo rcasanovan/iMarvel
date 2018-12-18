@@ -29,7 +29,7 @@ public struct ComicDataResponse: Decodable {
 public struct ComicResponse: Decodable {
     
     let id: Int32
-    let tile: String
+    let title: String
     let description: String
     let thumbnail: ThumbnailResponse
     
