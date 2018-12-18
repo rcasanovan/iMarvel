@@ -9,6 +9,13 @@
 import Foundation
 
 class CharacterDetailInteractor {
+    
+    private let characterDetail: CharactersListViewModel
+    
+    init(characterDetail: CharactersListViewModel) {
+        self.characterDetail = characterDetail
+    }
+    
 }
 
 extension CharacterDetailInteractor: CharacterDetailInteractorDelegate {

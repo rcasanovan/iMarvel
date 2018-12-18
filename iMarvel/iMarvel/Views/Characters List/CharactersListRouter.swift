@@ -27,8 +27,8 @@ class CharactersListRouter {
 
 extension CharactersListRouter: CharactersListRouterDelegate {
     
-    func showDetail() {
-        let detailVC = CharacterDetailRouter.setupModule(navigationController: navigationController)
+    func showDetail(_ character: CharactersListViewModel) {
+        let detailVC = CharacterDetailRouter.setupModule(character: character, navigationController: navigationController)
         navigationController?.pushViewController(detailVC, animated: true)
     }
     

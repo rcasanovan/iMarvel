@@ -10,8 +10,15 @@ import Foundation
 
 class CharacterDetailRouter {
     
-    public static func setupModule(navigationController: UINavigationController? = nil) -> UIViewController {
+    private weak var navigationController: UINavigationController?
+    
+    init(navigationController: UINavigationController? = nil) {
+        self.navigationController = navigationController
+    }
+    
+    public static func setupModule(character: CharactersListViewModel, navigationController: UINavigationController? = nil) -> CharacterDetailViewController {
         let characterDetailVC = CharacterDetailViewController()
+        characterDetailVC.presenter = CharacterDetailPresenter(characterDetail: character, view: characterDetailVC, navigationController: navigationController)
         return characterDetailVC
     }
     

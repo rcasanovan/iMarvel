@@ -109,7 +109,10 @@ extension CharactersListPresenter: CharactersListPresenterDelegate {
     }
     
     func showCharacterDetailAt(index: Int) {
-        router.showDetail()
+        guard let character = interactor.getCharacterAt(index: index) else {
+            return
+        }
+        router.showDetail(character)
     }
     
     func refreshResults() {

@@ -40,9 +40,10 @@ protocol CharactersListInteractorDelegate : class {
     func getSuggestionAt(index: Int) -> SuggestionViewModel?
     func getCurrentSearchCharacter() -> String?
     func updateSearchCharacter(_ searchCharacter: String)
+    func getCharacterAt(index: Int) -> CharactersListViewModel?
 }
 
 // Presenter / Router
 protocol CharactersListRouterDelegate : class {
-    func showDetail()
+    func showDetail(_ character: CharactersListViewModel)
 }

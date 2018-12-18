@@ -112,4 +112,10 @@ extension CharactersListInteractor: CharactersListInteractorDelegate {
         self.searchCharacter = searchCharacter
     }
     
+    func getCharacterAt(index: Int) -> CharactersListViewModel? {
+        if !charactersListViewModel.indices.contains(index) { return nil }
+        
+        return charactersListViewModel[index]
+    }
+    
 }

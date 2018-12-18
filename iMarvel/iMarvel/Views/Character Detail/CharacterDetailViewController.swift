@@ -10,6 +10,8 @@ import UIKit
 
 class CharacterDetailViewController: BaseViewController {
     
+    public var presenter: CharacterDetailPresenterDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
