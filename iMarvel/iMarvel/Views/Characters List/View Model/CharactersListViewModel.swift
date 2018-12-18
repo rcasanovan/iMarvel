@@ -38,9 +38,6 @@ struct CharactersListViewModel {
         return characters.map { getViewModelWith(character: $0) }
     }
     
-    /**
-     * Get a single view model with a IMSingleMovieResponse
-     */
     public static func getViewModelWith(character: CharacterResponse) -> CharactersListViewModel {
         let backgroundUrlImage = ImageManager.shared.getLandscapeUrlWith(character.thumbnail.path, ext: character.thumbnail.ext)
         let posterUrlImage = ImageManager.shared.getPortraitUrlWith(character.thumbnail.path, ext: character.thumbnail.ext)

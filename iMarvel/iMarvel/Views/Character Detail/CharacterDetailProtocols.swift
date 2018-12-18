@@ -18,6 +18,8 @@ protocol CharacterDetailPresenterDelegate : class {
 }
 
 // Presenter / Interactor
+typealias CharacterDetailGetComicsCompletionBlock = (_ viewModel: [CharactersListViewModel]?, _ total: Int, _ copyright: String?, _ success: Bool, _ error: ResultError?, _ allCharactersSync: Bool) -> Void
+
 protocol CharacterDetailInteractorDelegate : class {
     func getCharacter() -> CharactersListViewModel
 }
