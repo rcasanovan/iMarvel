@@ -110,7 +110,13 @@ extension CharactersListTableViewCell {
             return
         }
         nameLabel.text = viewModel.name
-        lastUpdateDateLabel.text = "Jan 30, 2008"
+        
+        if let modifiedDate = viewModel.modifiedDate {
+            lastUpdateDateLabel.text = "Last update: \(modifiedDate)"
+        } else {
+            lastUpdateDateLabel.text = "Last update: not available"
+        }
+        
         descriptionLabel.text = viewModel.description
     }
     

@@ -15,13 +15,15 @@ struct CharactersListViewModel {
     let description: String
     let backgroundUrlImage: URL?
     let posterUrlImage: URL?
+    let modifiedDate: String?
     
-    init(id: Int32, name: String, description: String, backgroundUrlImage: URL?, posterUrlImage: URL?) {
+    init(id: Int32, name: String, description: String, backgroundUrlImage: URL?, posterUrlImage: URL?, modifiedDate: String?) {
         self.id = id
         self.name = name
         self.description = description
         self.backgroundUrlImage = backgroundUrlImage
         self.posterUrlImage = posterUrlImage
+        self.modifiedDate = modifiedDate
     }
     
     public static func getViewModelsWith(characters: [CharacterResponse]) -> [CharactersListViewModel] {
@@ -35,7 +37,10 @@ struct CharactersListViewModel {
         let backgroundUrlImage = ImageManager.shared.getLandscapeUrlWith(character.thumbnail.path, ext: character.thumbnail.ext)
         let posterUrlImage = ImageManager.shared.getPortraitUrlWith(character.thumbnail.path, ext: character.thumbnail.ext)
         
-        return CharactersListViewModel(id: character.id, name: character.name, description: character.description, backgroundUrlImage: backgroundUrlImage, posterUrlImage: posterUrlImage)
+        let date = Date.getISODateWithString(character.modified)
+        let stringDate = date?.getStringMMMddyyyyFormat()
+        
+        return CharactersListViewModel(id: character.id, name: character.name, description: character.description, backgroundUrlImage: backgroundUrlImage, posterUrlImage: posterUrlImage, modifiedDate: stringDate)
     }
     
 }
