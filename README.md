@@ -71,6 +71,10 @@ protocol CharactersListRouterDelegate : class {
 
 ## First at all. Where is the data came from?
 
+I'm using the api from **Marvel** (you can check the api documentation [here](https://developer.marvel.com/)).
+
+You just need to create an account to have access to the api. Once you do it you'll able to get information for characters in a JSON format.
+
 ## Data models
 
 ### Network data models
@@ -180,7 +184,6 @@ I'm using a Swift Standard Library decodable functionality in order to manage a 
 Obviously the response has more properties for each character. I decided to use only these ones.
 
 Reference: [Apple documentation](https://developer.apple.com/documentation/swift/swift_standard_library/encoding_decoding_and_serialization)
-
 
 ### Suggestions data model
 
