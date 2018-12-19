@@ -41,7 +41,7 @@ extension CharacterDetailViewController {
      * SetupViews
      */
     private func setupViews() {
-        view.backgroundColor = .black
+        view.backgroundColor = .black()
         edgesForExtendedLayout = []
         
         configureSubviews()
@@ -62,7 +62,7 @@ extension CharacterDetailViewController {
         comicsTableView?.rowHeight = UITableView.automaticDimension
         comicsTableView?.invalidateIntrinsicContentSize()
         comicsTableView?.allowsSelection = true
-        comicsTableView?.backgroundColor = .black
+        comicsTableView?.backgroundColor = .black()
         comicsTableView?.delegate = self
         
         registerCells()
@@ -71,9 +71,9 @@ extension CharacterDetailViewController {
     }
     
     private func configureNavigationBar() {
-        customTitleView.titleColor = .white
+        customTitleView.titleColor = .white()
         customTitleView.setTitle("iMarvel")
-        customTitleView.subtitleColor = .white
+        customTitleView.subtitleColor = .white()
         navigationItem.titleView = customTitleView
     }
     

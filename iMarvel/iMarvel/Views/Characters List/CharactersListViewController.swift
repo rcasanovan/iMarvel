@@ -47,7 +47,7 @@ extension CharactersListViewController {
      * SetupViews
      */
     private func setupViews() {
-        view.backgroundColor = .black
+        view.backgroundColor = .black()
         edgesForExtendedLayout = []
         
         configureSubviews()
@@ -69,11 +69,11 @@ extension CharactersListViewController {
         charactersTableView?.rowHeight = UITableView.automaticDimension
         charactersTableView?.invalidateIntrinsicContentSize()
         charactersTableView?.allowsSelection = true
-        charactersTableView?.backgroundColor = .black
+        charactersTableView?.backgroundColor = .black()
         charactersTableView?.delegate = self
         
         refreshControl.addTarget(self, action: #selector(userDidPullToRefresh), for: .valueChanged)
-        refreshControl.tintColor = .white
+        refreshControl.tintColor = .white()
         charactersTableView?.addSubview(refreshControl)
         
         registerCells()
@@ -81,9 +81,9 @@ extension CharactersListViewController {
     }
     
     private func configureNavigationBar() {
-        customTitleView.titleColor = .white
+        customTitleView.titleColor = .white()
         customTitleView.setTitle("iMarvel")
-        customTitleView.subtitleColor = .white
+        customTitleView.subtitleColor = .white()
         navigationItem.titleView = customTitleView
     }
     

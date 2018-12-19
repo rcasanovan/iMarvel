@@ -87,7 +87,7 @@ extension ComicTableViewCell {
      * SetupViews
      */
     private func setupViews() {
-        backgroundColor = .black
+        backgroundColor = .black()
         selectionStyle = .none
         
         configureSubviews()
@@ -99,13 +99,13 @@ extension ComicTableViewCell {
         posterImageView.backgroundColor = .clear
         
         titleLabel.font = UIFont.interUIMediumWithSize(size: 17.0)
-        titleLabel.textColor = .white
+        titleLabel.textColor = .white()
         titleLabel.numberOfLines = 0
         titleLabel.adjustsFontSizeToFitWidth = true
         titleLabel.backgroundColor = .clear
         
         descriptionLabel.font = UIFont.interUIMediumWithSize(size: 15.0)
-        descriptionLabel.textColor = .white
+        descriptionLabel.textColor = .white()
         descriptionLabel.numberOfLines = 0
         
         arrowImageView.image = UIImage(named: "ArrowIcon")

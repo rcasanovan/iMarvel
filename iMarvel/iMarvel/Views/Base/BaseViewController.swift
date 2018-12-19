@@ -47,7 +47,7 @@ class BaseViewController: UIViewController {
 extension BaseViewController {
     
     private func setupViews() {
-        view.backgroundColor = .white
+        view.backgroundColor = .white()
         navigationController?.navigationBar.isTranslucent = false
     }
     

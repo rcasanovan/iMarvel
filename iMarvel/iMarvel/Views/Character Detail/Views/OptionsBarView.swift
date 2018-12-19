@@ -66,7 +66,7 @@ extension OptionsBarView {
             optionWidth = Utils.shared.screenWidth() / CGFloat(options.count)
         }
         
-        separatorView.backgroundColor = .white
+        separatorView.backgroundColor = .white()
     }
     
 }
@@ -97,7 +97,7 @@ extension OptionsBarView {
         for eachOption in options {
             let button = UIButton(type: .custom)
             button.setTitle(eachOption, for: .normal)
-            button.setTitleColor(.white, for: .normal)
+            button.setTitleColor(.white(), for: .normal)
             button.titleLabel?.font = UIFont.interUIMediumWithSize(size: 14.0)
             button.addTarget(self, action:#selector(buttonPressed(sender:)), for: .touchUpInside)
             button.tag = tag

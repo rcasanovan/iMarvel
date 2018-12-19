@@ -32,7 +32,7 @@ extension GeneralMessageViewController {
      * SetupViews
      */
     private func setupViews() {
-        view.backgroundColor = .white
+        view.backgroundColor = .white()
         
         configureSubviews()
         addSubviews()
@@ -43,12 +43,12 @@ extension GeneralMessageViewController {
      */
     private func configureSubviews() {
         titleLabel.font = UIFont.boldSystemFont(ofSize: 40.0)
-        titleLabel.textColor = .black
+        titleLabel.textColor = .black()
         titleLabel.numberOfLines = 2
         titleLabel.adjustsFontSizeToFitWidth = true
         
         messageLabel.font = UIFont.systemFont(ofSize: 14.0)
-        messageLabel.textColor = .black
+        messageLabel.textColor = .black()
         messageLabel.numberOfLines = 2
         messageLabel.adjustsFontSizeToFitWidth = true
     }

@@ -50,12 +50,12 @@ extension UIColor {
     }
     
     public class func black() -> UIColor {
-        return colorWithHex(hex: "#4e445e")
+        return colorWithHex(hex: "#000000")
     }
     
     public class func white() -> UIColor {
         return colorWithHex(hex: "#FFFFFF")
-    }
+    } 
     
     public class func red() -> UIColor {
         return .red

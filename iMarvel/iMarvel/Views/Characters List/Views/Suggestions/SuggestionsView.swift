@@ -49,7 +49,7 @@ extension SuggestionsView {
      * SetupViews
      */
     private func setupViews() {
-        backgroundColor = .white
+        backgroundColor = .white()
         
         configureSubviews()
         addSubviews()

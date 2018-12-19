@@ -61,7 +61,7 @@ extension PublicationView {
         bubbleView.width = 16.0
         totalResultsLabel.font = UIFont.interUIBoldWithSize(size: 14.0)
         totalResultsLabel.textAlignment = .left
-        totalResultsLabel.textColor = .white
+        totalResultsLabel.textColor = .white()
     }
     
 }

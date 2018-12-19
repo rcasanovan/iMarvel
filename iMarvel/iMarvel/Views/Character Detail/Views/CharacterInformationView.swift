@@ -90,16 +90,16 @@ extension CharacterInformationView {
         posterImageView.backgroundColor = .clear
         
         nameLabel.font = UIFont.interUIMediumWithSize(size: 17.0)
-        nameLabel.textColor = .white
+        nameLabel.textColor = .white()
         nameLabel.numberOfLines = 0
         nameLabel.adjustsFontSizeToFitWidth = true
         nameLabel.backgroundColor = .clear
         
         lastUpdateDateLabel.font = UIFont.interUIMediumWithSize(size: 14.0)
-        lastUpdateDateLabel.textColor = .white
+        lastUpdateDateLabel.textColor = .white()
         
         descriptionLabel.font = UIFont.interUIMediumWithSize(size: 15.0)
-        descriptionLabel.textColor = .white
+        descriptionLabel.textColor = .white()
         descriptionLabel.numberOfLines = 0
         
         comicsView.title = "Comics"

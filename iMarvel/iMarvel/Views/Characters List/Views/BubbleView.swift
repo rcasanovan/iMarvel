@@ -61,9 +61,9 @@ extension BubbleView {
         countLabel.lineBreakMode = .byClipping
         countLabel.numberOfLines = 0
         countLabel.textAlignment = .center
-        countLabel.textColor = .white
+        countLabel.textColor = .white()
         
-        backgroundView.backgroundColor = .red
+        backgroundView.backgroundColor = .red()
     }
 
     public func bindWithText(_ text: String) {

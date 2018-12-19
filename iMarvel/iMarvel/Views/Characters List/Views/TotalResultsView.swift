@@ -38,7 +38,7 @@ extension TotalResultsView {
      * SetupViews
      */
     private func setupViews() {
-        backgroundColor = .black
+        backgroundColor = .black()
         
         configureSubviews()
         addSubviews()
@@ -50,7 +50,7 @@ extension TotalResultsView {
     private func configureSubviews() {
         totalResultsLabel.font = UIFont.interUIBoldWithSize(size: 14.0)
         totalResultsLabel.textAlignment = .center
-        totalResultsLabel.textColor = .white
+        totalResultsLabel.textColor = .white()
     }
     
     /**

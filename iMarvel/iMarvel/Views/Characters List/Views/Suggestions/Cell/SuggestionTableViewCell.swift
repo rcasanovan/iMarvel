@@ -60,7 +60,7 @@ extension SuggestionTableViewCell {
      */
     private func configureSubviews() {
         suggestionLabel.font = UIFont.interUIMediumWithSize(size: 17.0)
-        suggestionLabel.textColor = .black
+        suggestionLabel.textColor = .black()
         suggestionLabel.numberOfLines = 1
         suggestionLabel.backgroundColor = .clear
     }

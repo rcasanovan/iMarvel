@@ -55,7 +55,7 @@ class SearchView: UIView {
 extension SearchView {
     
     private func setupViews() {
-        backgroundColor = .black
+        backgroundColor = .black()
         
         configureSubviews()
         addSubviews()
