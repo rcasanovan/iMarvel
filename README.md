@@ -214,7 +214,7 @@ Used to manage the images (create the urls to retrieve the images)
 
 ### ReachabilityManager
 
-Used to manage the reachability
+Used to manage the reachability. In this case I would like to notify a little issue related with the simulator. *It seems Xcode has an issue with the simulator because if you try to turn off the wifi and turning on again, the observer for the state change is not triggering. It's working 100% fine in a real device*
 
 ## How it looks like?
 
