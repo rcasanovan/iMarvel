@@ -14,6 +14,7 @@ class BaseViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        addObservers()
         setupViews()
     }
     
@@ -48,6 +49,17 @@ extension BaseViewController {
     private func setupViews() {
         view.backgroundColor = .white
         navigationController?.navigationBar.isTranslucent = false
+    }
+    
+    /**
+     * Add observers to the view
+     */
+    private func addObservers() {
+        NotificationCenter.default.addObserver(self, selector: #selector(retryConnection), name: .retryConnection, object: nil)
+    }
+    
+    @objc private func retryConnection() {
+        SVProgressHUD.show(withStatus: "🤔 it seems this is taking a little bit. Please be patience")
     }
     
 }

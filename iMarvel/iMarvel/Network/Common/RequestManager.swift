@@ -91,6 +91,7 @@ class RequestManager {
                     let httpError = ResultError(error: error)
                     // Check if it's a generic connection error to attempt retry
                     if httpError.isConnectionError && request.shouldRetry {
+                        NotificationCenter.default.post(name: .retryConnection, object: nil)
                         self.send(request: request, after: self.defaultRetryTime)
                     } else {
                         request.completion?(Result.failure(httpError))

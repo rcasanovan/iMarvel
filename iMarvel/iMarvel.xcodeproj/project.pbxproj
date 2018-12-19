@@ -79,6 +79,10 @@
 		C8CE176321C97E6300B79F02 /* ComicViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CE176221C97E6300B79F02 /* ComicViewModel.swift */; };
 		C8CE176621C983E500B79F02 /* ComicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CE176521C983E500B79F02 /* ComicTableViewCell.swift */; };
 		C8CE176821C9864F00B79F02 /* ComicsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CE176721C9864F00B79F02 /* ComicsDataSource.swift */; };
+		C8CE176E21CA947200B79F02 /* InternalNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CE176D21CA947200B79F02 /* InternalNotifications.swift */; };
+		C8CE177321CA9BE700B79F02 /* GeneralMessageProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CE177021CA9BE700B79F02 /* GeneralMessageProtocols.swift */; };
+		C8CE177421CA9BE700B79F02 /* GeneralMessagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CE177121CA9BE700B79F02 /* GeneralMessagePresenter.swift */; };
+		C8CE177521CA9BE700B79F02 /* GeneralMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CE177221CA9BE700B79F02 /* GeneralMessageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -171,6 +175,10 @@
 		C8CE176221C97E6300B79F02 /* ComicViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicViewModel.swift; sourceTree = "<group>"; };
 		C8CE176521C983E500B79F02 /* ComicTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicTableViewCell.swift; sourceTree = "<group>"; };
 		C8CE176721C9864F00B79F02 /* ComicsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicsDataSource.swift; sourceTree = "<group>"; };
+		C8CE176D21CA947200B79F02 /* InternalNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternalNotifications.swift; sourceTree = "<group>"; };
+		C8CE177021CA9BE700B79F02 /* GeneralMessageProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralMessageProtocols.swift; sourceTree = "<group>"; };
+		C8CE177121CA9BE700B79F02 /* GeneralMessagePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralMessagePresenter.swift; sourceTree = "<group>"; };
+		C8CE177221CA9BE700B79F02 /* GeneralMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralMessageViewController.swift; sourceTree = "<group>"; };
 		C9BA96E73C001A2D3F7102E9 /* Pods-iMarvelTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iMarvelTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-iMarvelTests/Pods-iMarvelTests.release.xcconfig"; sourceTree = "<group>"; };
 		D25C7D1A873D65D90EEC8E5B /* Pods-iMarvel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iMarvel.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iMarvel/Pods-iMarvel.debug.xcconfig"; sourceTree = "<group>"; };
 		DD8228C8959C34B2B4F2CA27 /* Pods_iMarvel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iMarvel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -239,9 +247,9 @@
 		C8CE164621C6F4AD00B79F02 /* iMarvel */ = {
 			isa = PBXGroup;
 			children = (
-				C8CE16F221C7B85100B79F02 /* Utils */,
 				C8CE169421C70E8200B79F02 /* iMarvel-Bridging-Header.h */,
 				C8CE164721C6F4AD00B79F02 /* AppDelegate.swift */,
+				C8CE16F221C7B85100B79F02 /* Utils */,
 				C8CE16AD21C79B6600B79F02 /* Views */,
 				C8CE169D21C71E6600B79F02 /* Extensions */,
 				C8CE168D21C70E2400B79F02 /* Managers */,
@@ -424,6 +432,7 @@
 				C8CE16F821C7C5C400B79F02 /* Common */,
 				C8CE16C121C7A63E00B79F02 /* Characters List */,
 				C8CE170121C82F1E00B79F02 /* Character Detail */,
+				C8CE176F21CA9BE700B79F02 /* General Message */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -567,6 +576,7 @@
 			isa = PBXGroup;
 			children = (
 				C8CE16F321C7B85E00B79F02 /* Utils.swift */,
+				C8CE176D21CA947200B79F02 /* InternalNotifications.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -682,6 +692,16 @@
 				C8CE176521C983E500B79F02 /* ComicTableViewCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		C8CE176F21CA9BE700B79F02 /* General Message */ = {
+			isa = PBXGroup;
+			children = (
+				C8CE177021CA9BE700B79F02 /* GeneralMessageProtocols.swift */,
+				C8CE177221CA9BE700B79F02 /* GeneralMessageViewController.swift */,
+				C8CE177121CA9BE700B79F02 /* GeneralMessagePresenter.swift */,
+			);
+			path = "General Message";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -912,6 +932,7 @@
 				C8CE16D121C7A90600B79F02 /* SearchSuggestion.swift in Sources */,
 				C8CE171B21C91BE300B79F02 /* CharacterInformationView.swift in Sources */,
 				C8CE168621C70DE100B79F02 /* ResultError.swift in Sources */,
+				C8CE177421CA9BE700B79F02 /* GeneralMessagePresenter.swift in Sources */,
 				C8CE16B621C79BF700B79F02 /* CharactersListInteractor.swift in Sources */,
 				C8CE168721C70DE100B79F02 /* EndPoint.swift in Sources */,
 				C8CE16F421C7B85E00B79F02 /* Utils.swift in Sources */,
@@ -939,6 +960,7 @@
 				C8CE171621C915C900B79F02 /* CharacterDetailInteractor.swift in Sources */,
 				C8CE16FB21C7C5C400B79F02 /* CustomTitleView.swift in Sources */,
 				C8CE169921C7117200B79F02 /* CharactersRequest.swift in Sources */,
+				C8CE177321CA9BE700B79F02 /* GeneralMessageProtocols.swift in Sources */,
 				C8CE175921C9735100B79F02 /* ComicsResponse.swift in Sources */,
 				C8CE16CB21C7A75E00B79F02 /* SuggestionTableViewCell.swift in Sources */,
 				C8CE168221C70DE100B79F02 /* NetworkHeaders.swift in Sources */,
@@ -950,8 +972,10 @@
 				C8CE16D421C7A9F500B79F02 /* UIView.swift in Sources */,
 				C8CE170321C82F3F00B79F02 /* CharacterDetailViewController.swift in Sources */,
 				C8CE16E821C7AA8600B79F02 /* UIFont.swift in Sources */,
+				C8CE176E21CA947200B79F02 /* InternalNotifications.swift in Sources */,
 				C8CE164821C6F4AD00B79F02 /* AppDelegate.swift in Sources */,
 				C8CE176321C97E6300B79F02 /* ComicViewModel.swift in Sources */,
+				C8CE177521CA9BE700B79F02 /* GeneralMessageViewController.swift in Sources */,
 				C8CE168421C70DE100B79F02 /* RequestProtocol.swift in Sources */,
 				C8CE16A321C7230A00B79F02 /* Data.swift in Sources */,
 			);
