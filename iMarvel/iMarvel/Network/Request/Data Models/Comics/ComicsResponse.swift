@@ -32,5 +32,13 @@ public struct ComicResponse: Decodable {
     let title: String
     let description: String?
     let thumbnail: ThumbnailResponse?
+    let urls: [UrlResponse]?
+    
+}
+
+public struct UrlResponse: Decodable {
+    
+    let type: String
+    let url: String
     
 }

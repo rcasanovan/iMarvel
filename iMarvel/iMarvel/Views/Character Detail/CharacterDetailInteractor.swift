@@ -63,7 +63,6 @@ extension CharacterDetailInteractor {
         
         comicsRequest.completion = completion
         comicsRequest.simulatedResponseJSONFile = simulatedJSONFile
-        comicsRequest.verbose = true
         requestManager.send(request: comicsRequest)
     }
     
