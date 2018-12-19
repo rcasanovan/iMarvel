@@ -118,6 +118,7 @@ Reference: [Realm](https://realm.io/docs/swift/latest)
 ### Character detail
 ![alt tag](https://github.com/rcasanovan/iMarvel/blob/master/Images/02.png?raw=true)
 ![alt tag](https://github.com/rcasanovan/iMarvel/blob/master/Images/03.png?raw=true)
+![alt tag](https://github.com/rcasanovan/iMarvel/blob/master/Images/08.png?raw=true)
 ![alt tag](https://github.com/rcasanovan/iMarvel/blob/master/Images/05.png?raw=true)
 
 ### Handling errors and states
