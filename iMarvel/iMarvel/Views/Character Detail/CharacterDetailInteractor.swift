@@ -30,6 +30,11 @@ class CharacterDetailInteractor {
     private var storiesLimit: UInt
     private var storiesOffSet: UInt
     
+    private var allEventsSync: Bool = false
+    private var eventListViewModel: [ComicViewModel]
+    private var eventsLimit: UInt
+    private var eventsOffSet: UInt
+    
     init(characterDetail: CharactersListViewModel) {
         self.characterDetail = characterDetail
         comicListViewModel = []
@@ -43,6 +48,10 @@ class CharacterDetailInteractor {
         storyListViewModel = []
         storiesOffSet = 0
         storiesLimit = 100
+        
+        eventListViewModel = []
+        eventsOffSet = 0
+        eventsLimit = 100
     }
     
 }
@@ -158,6 +167,37 @@ extension CharacterDetailInteractor: CharacterDetailInteractorDelegate {
         }
     }
     
+    func getEventsWith(characterId: Int32, completion: @escaping CharacterDetailGetComicsCompletionBlock) {
+        if allEventsSync {
+            completion(eventListViewModel, nil, true, nil, allEventsSync)
+            return
+        }
+        
+        getComicsResultsWith(characterId: characterId, limit: eventsLimit, offset: eventsOffSet, type: .events) { [weak self] (response) in
+            guard let `self` = self else { return }
+            
+            switch response {
+            case .success(let response):
+                guard let response = response else {
+                    completion(nil, nil, false, nil, self.allEventsSync)
+                    return
+                }
+                
+                if response.data.limit > response.data.count {
+                    self.allEventsSync = true
+                }
+                
+                self.eventsOffSet = self.eventsOffSet + self.eventsLimit
+                
+                let responseViewModel = ComicViewModel.getViewModelsWith(comics: response.data.results)
+                self.eventListViewModel.append(contentsOf: responseViewModel)
+                completion(self.eventListViewModel, response.attributionText, true, nil, self.allEventsSync)
+            case .failure(let error):
+                completion(nil, nil,  false, error, self.allEventsSync)
+            }
+        }
+    }
+    
     func getSyncComics() -> [ComicViewModel] {
         return comicListViewModel
     }
@@ -170,6 +210,10 @@ extension CharacterDetailInteractor: CharacterDetailInteractorDelegate {
         return storyListViewModel
     }
     
+    func getSyncEvents() -> [ComicViewModel] {
+        return eventListViewModel
+    }
+    
     func shouldGetComics() -> Bool {
         return !allComicsSync
     }
@@ -180,6 +224,10 @@ extension CharacterDetailInteractor: CharacterDetailInteractorDelegate {
     
     func shouldGetStories() -> Bool {
         return !allStoriesSync
+    }
+    
+    func shouldGetEvents() -> Bool {
+        return !allEventsSync
     }
     
 }

@@ -46,6 +46,10 @@ protocol CharacterDetailInteractorDelegate : class {
     func getStoriesWith(characterId: Int32, completion: @escaping CharacterDetailGetComicsCompletionBlock)
     func getSyncStories() -> [ComicViewModel]
     func shouldGetStories() -> Bool
+    
+    func getEventsWith(characterId: Int32, completion: @escaping CharacterDetailGetComicsCompletionBlock)
+    func getSyncEvents() -> [ComicViewModel]
+    func shouldGetEvents() -> Bool
 }
 
 // Presenter / Router
