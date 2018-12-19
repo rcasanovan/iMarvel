@@ -72,7 +72,7 @@ class ComicTableViewCell: UITableViewCell {
      */
     private func configurePosterImage() {
         guard let url = viewModel?.urlImage else {
-            posterImageView.backgroundColor = .lightGray
+            posterImageView.image = generateRandomPlaceholder()
             return
         }
         posterImageView.hnk_setImage(from: url, placeholder: nil)
@@ -110,6 +110,11 @@ extension ComicTableViewCell {
         
         arrowImageView.image = UIImage(named: "ArrowIcon")
         arrowImageView.isHidden = true
+    }
+    
+    private func generateRandomPlaceholder() -> UIImage? {
+        let number = Int.random(in: 1 ... 3)
+        return UIImage(named: "Placeholder\(number)")
     }
     
 }

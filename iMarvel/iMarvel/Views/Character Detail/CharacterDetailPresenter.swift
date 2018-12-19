@@ -219,7 +219,7 @@ extension CharacterDetailPresenter: CharacterDetailPresenterDelegate {
         case .series:
             getSeries(showProgress: false)
         case .stories:
-            getSeries(showProgress: false)
+            getStories(showProgress: false)
         }
     }
     
