@@ -122,6 +122,8 @@ Reference: [Realm](https://realm.io/docs/swift/latest)
 ![alt tag](https://github.com/rcasanovan/iMarvel/blob/master/Images/05.png?raw=true)
 
 ### Handling errors and states
+![alt tag](https://github.com/rcasanovan/iMarvel/blob/master/Images/10.png?raw=true)
+![alt tag](https://github.com/rcasanovan/iMarvel/blob/master/Images/09.png?raw=true)
 ![alt tag](https://github.com/rcasanovan/iMarvel/blob/master/Images/04.png?raw=true)
 ![alt tag](https://github.com/rcasanovan/iMarvel/blob/master/Images/06.png?raw=true)
 
