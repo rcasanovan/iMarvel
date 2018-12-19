@@ -113,6 +113,7 @@ Reference: [Realm](https://realm.io/docs/swift/latest)
 
 ### Character list results
 ![alt tag](https://github.com/rcasanovan/iMarvel/blob/master/Images/01.png?raw=true)
+![alt tag](https://github.com/rcasanovan/iMarvel/blob/master/Images/07.png?raw=true)
 
 ### Character detail
 ![alt tag](https://github.com/rcasanovan/iMarvel/blob/master/Images/02.png?raw=true)
