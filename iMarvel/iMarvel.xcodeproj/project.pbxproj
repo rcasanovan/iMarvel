@@ -83,6 +83,7 @@
 		C8CE177321CA9BE700B79F02 /* GeneralMessageProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CE177021CA9BE700B79F02 /* GeneralMessageProtocols.swift */; };
 		C8CE177421CA9BE700B79F02 /* GeneralMessagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CE177121CA9BE700B79F02 /* GeneralMessagePresenter.swift */; };
 		C8CE177521CA9BE700B79F02 /* GeneralMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CE177221CA9BE700B79F02 /* GeneralMessageViewController.swift */; };
+		C8CE177821CAA16900B79F02 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CE177721CAA16900B79F02 /* UIColor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -179,6 +180,7 @@
 		C8CE177021CA9BE700B79F02 /* GeneralMessageProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralMessageProtocols.swift; sourceTree = "<group>"; };
 		C8CE177121CA9BE700B79F02 /* GeneralMessagePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralMessagePresenter.swift; sourceTree = "<group>"; };
 		C8CE177221CA9BE700B79F02 /* GeneralMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralMessageViewController.swift; sourceTree = "<group>"; };
+		C8CE177721CAA16900B79F02 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		C9BA96E73C001A2D3F7102E9 /* Pods-iMarvelTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iMarvelTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-iMarvelTests/Pods-iMarvelTests.release.xcconfig"; sourceTree = "<group>"; };
 		D25C7D1A873D65D90EEC8E5B /* Pods-iMarvel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iMarvel.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iMarvel/Pods-iMarvel.debug.xcconfig"; sourceTree = "<group>"; };
 		DD8228C8959C34B2B4F2CA27 /* Pods_iMarvel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iMarvel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -391,6 +393,7 @@
 		C8CE169D21C71E6600B79F02 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				C8CE177621CAA15C00B79F02 /* UIColor */,
 				C8CE170921C9024400B79F02 /* Date */,
 				C8CE16F521C7BD6300B79F02 /* UIEdgeInsets */,
 				C8CE16E621C7AA7A00B79F02 /* UIFont */,
@@ -704,6 +707,14 @@
 			path = "General Message";
 			sourceTree = "<group>";
 		};
+		C8CE177621CAA15C00B79F02 /* UIColor */ = {
+			isa = PBXGroup;
+			children = (
+				C8CE177721CAA16900B79F02 /* UIColor.swift */,
+			);
+			path = UIColor;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -954,6 +965,7 @@
 				C8CE171D21C9297E00B79F02 /* OptionsBarView.swift in Sources */,
 				C8CE169221C70E3C00B79F02 /* Reachability.m in Sources */,
 				C8CE168521C70DE100B79F02 /* RequestErrors.swift in Sources */,
+				C8CE177821CAA16900B79F02 /* UIColor.swift in Sources */,
 				C8CE16AF21C79B9700B79F02 /* CharactersListProtocols.swift in Sources */,
 				C8CE171221C907A400B79F02 /* BubbleView.swift in Sources */,
 				C8CE170021C7D68400B79F02 /* SearchSuggestionsManager.swift in Sources */,
