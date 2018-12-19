@@ -175,9 +175,9 @@ public struct UrlResponse: Decodable {
 
 I'm using a Swift Standard Library decodable functionality in order to manage a type that can decode itself from an external representation (I really ❤ this from Swift).
 
-**Why some properties are optionals?**
-
 **Are more properties there??**
+
+Obviously the response has more properties for each movie. I decided to use only these ones.
 
 Reference: [Apple documentation](https://developer.apple.com/documentation/swift/swift_standard_library/encoding_decoding_and_serialization)
 
