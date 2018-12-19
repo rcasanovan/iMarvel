@@ -177,7 +177,7 @@ I'm using a Swift Standard Library decodable functionality in order to manage a 
 
 **Are more properties there??**
 
-Obviously the response has more properties for each movie. I decided to use only these ones.
+Obviously the response has more properties for each character. I decided to use only these ones.
 
 Reference: [Apple documentation](https://developer.apple.com/documentation/swift/swift_standard_library/encoding_decoding_and_serialization)
 
@@ -238,7 +238,7 @@ Used to manage the reachability
 
 * Realm migration process: It would be nice to add a process to migrate the realm database to a new model (just in case you need to add a new field into the database)
 * Localizable files: This demo doesn't include the localizable files to translate the app to different languages.
-
+* Limit the number of retries for the api calls: This demo doesn't include a limitation for the number of retries while the app is doing the api calls.
 
 ## Programming languages && Development tools
 
