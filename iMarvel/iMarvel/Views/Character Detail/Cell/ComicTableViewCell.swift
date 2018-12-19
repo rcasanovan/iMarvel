@@ -36,6 +36,8 @@ class ComicTableViewCell: UITableViewCell {
         posterImageView.image = nil
         titleLabel.text = ""
         descriptionLabel.text = ""
+        arrowImageView.isHidden = true
+        posterImageView.backgroundColor = .clear
     }
     
     /**
@@ -59,6 +61,10 @@ class ComicTableViewCell: UITableViewCell {
         }
         titleLabel.text = viewModel.title
         descriptionLabel.text = viewModel.description
+        
+        if let _ = viewModel.urlDetail {
+            arrowImageView.isHidden = false
+        }
     }
     
     /**
@@ -66,6 +72,7 @@ class ComicTableViewCell: UITableViewCell {
      */
     private func configurePosterImage() {
         guard let url = viewModel?.urlImage else {
+            posterImageView.backgroundColor = .lightGray
             return
         }
         posterImageView.hnk_setImage(from: url, placeholder: nil)
@@ -102,6 +109,7 @@ extension ComicTableViewCell {
         descriptionLabel.numberOfLines = 0
         
         arrowImageView.image = UIImage(named: "ArrowIcon")
+        arrowImageView.isHidden = true
     }
     
 }
