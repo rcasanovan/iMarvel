@@ -26,6 +26,7 @@ struct ComicsRequest: RequestProtocol {
     var verbose: Bool?
     var contentType: ContentType = .json
     var processHeader: Bool? = false
+    var shouldRetry: Bool = true
     
     init(characterId: Int32, limit: UInt, offset: UInt, type: CharacterRequestType) {
         switch type {

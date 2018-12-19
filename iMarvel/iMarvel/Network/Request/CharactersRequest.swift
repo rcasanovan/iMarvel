@@ -19,6 +19,7 @@ struct CharactersRequest: RequestProtocol {
     var verbose: Bool?
     var contentType: ContentType = .json
     var processHeader: Bool? = false
+    var shouldRetry: Bool = true
     
     init(nameStartsWith: String?, limit: UInt, offset: UInt) {
         url = Endpoint.getCharactersWith(nameStartsWith:nameStartsWith, limit: limit, offset: offset).url

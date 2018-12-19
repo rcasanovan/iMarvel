@@ -44,8 +44,8 @@ enum Endpoint: EndpointProtocol {
             }
             var endpoint = "/v1/public/characters?\(Url.Fields.apiKey)=\(Url.apiKey)&\(Url.Fields.limit)=\(limit)&\(Url.Fields.offset)=\(offset)&\(Url.Fields.ts)=\(ts)&\(Url.Fields.hash)=\(hash)"
             
-            if let nameStartsWith = nameStartsWith {
-                endpoint = "\(endpoint)&\(Url.Fields.nameStartsWith)=\(nameStartsWith)"
+            if let nameStartsWith = nameStartsWith, let nameStartsWithUrlFormat = nameStartsWith.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed) {
+                endpoint = "\(endpoint)&\(Url.Fields.nameStartsWith)=\(nameStartsWithUrlFormat)"
             }
             
             return endpoint

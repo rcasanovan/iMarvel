@@ -45,12 +45,23 @@ struct CharactersListViewModel {
         let date = Date.getISODateWithString(character.modified)
         let stringDate = date?.getStringMMMddyyyyFormat()
         
-        let comics = "\(character.comics.available)"
-        let series = "\(character.series.available)"
-        let stories = "\(character.stories.available)"
-        let events = "\(character.events.available)"
+        let comics = generateCounterFor(character.comics.available)
+        let series = generateCounterFor(character.series.available)
+        let stories = generateCounterFor(character.stories.available)
+        let events = generateCounterFor(character.events.available)
         
         return CharactersListViewModel(id: character.id, name: character.name, description: character.description, backgroundUrlImage: backgroundUrlImage, posterUrlImage: posterUrlImage, modifiedDate: stringDate, comics: comics, series: series, stories: stories, events: events)
+    }
+    
+}
+
+extension CharactersListViewModel {
+    
+    private static func generateCounterFor(_ value: Int) -> String {
+        if value > 99 {
+            return "+99"
+        }
+        return "\(value)"
     }
     
 }
