@@ -58,6 +58,7 @@ extension CharacterDetailViewController {
         comicsTableView?.invalidateIntrinsicContentSize()
         comicsTableView?.allowsSelection = true
         comicsTableView?.backgroundColor = .black
+        comicsTableView?.delegate = self
         
         registerCells()
         setupDatasource()
@@ -161,6 +162,18 @@ extension CharacterDetailViewController: OptionsBarViewDelegate {
         default:
             print("do nothing")
         }
+    }
+    
+}
+
+// MARK: - UITableViewDelegate
+extension CharacterDetailViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        presenter?.comicSelectedAt(indexPath.row)
     }
     
 }

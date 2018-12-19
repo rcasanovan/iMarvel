@@ -35,6 +35,8 @@ class CharacterDetailInteractor {
     private var eventsLimit: UInt
     private var eventsOffSet: UInt
     
+    private var sectionSelected: OptionType
+    
     init(characterDetail: CharactersListViewModel) {
         self.characterDetail = characterDetail
         comicListViewModel = []
@@ -52,6 +54,8 @@ class CharacterDetailInteractor {
         eventListViewModel = []
         eventsOffSet = 0
         eventsLimit = 100
+        
+        sectionSelected = .comics
     }
     
 }
@@ -68,7 +72,32 @@ extension CharacterDetailInteractor {
     
 }
 
-extension CharacterDetailInteractor: CharacterDetailInteractorDelegate {
+extension CharacterDetailInteractor: CharacterDetailInteractorDelegate {    
+    
+    func setSectionSelected(_ type: OptionType) {
+        sectionSelected = type
+    }
+    
+    func getSectionSelected() -> OptionType {
+        return sectionSelected
+    }
+    
+    func getComicSelectedAt(_ index: Int) -> ComicViewModel? {
+        switch sectionSelected {
+        case .comics:
+            if !comicListViewModel.indices.contains(index) { return nil }
+            return comicListViewModel[index]
+        case .series:
+            if !serieListViewModel.indices.contains(index) { return nil }
+            return serieListViewModel[index]
+        case .stories:
+            if !storyListViewModel.indices.contains(index) { return nil }
+            return storyListViewModel[index]
+        case .events:
+            if !eventListViewModel.indices.contains(index) { return nil }
+            return eventListViewModel[index]
+        }
+    }
     
     func getCharacter() -> CharactersListViewModel {
         return characterDetail

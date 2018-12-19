@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SafariServices
 
 class CharacterDetailRouter {
     
@@ -25,5 +26,10 @@ class CharacterDetailRouter {
 }
 
 extension CharacterDetailRouter: CharacterDetailRouterDelegate {
+    
+    func showComicDetailWithUrl(_ url: URL) {
+        let safariVC = SFSafariViewController(url: url)
+        navigationController?.present(safariVC, animated: true, completion: nil)
+    }
     
 }

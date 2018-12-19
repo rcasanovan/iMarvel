@@ -155,6 +155,7 @@ extension CharacterDetailPresenter {
 extension CharacterDetailPresenter: CharacterDetailPresenterDelegate {
     
     func viewDidLoad() {
+        interactor.setSectionSelected(.comics)
         let character = interactor.getCharacter()
         view?.loadCharacter(character)
         getComics(showProgress: true)
@@ -165,6 +166,7 @@ extension CharacterDetailPresenter: CharacterDetailPresenterDelegate {
         
         switch option {
         case .comics:
+            interactor.setSectionSelected(.comics)
             let syncComics = interactor.getSyncComics()
             if syncComics.isEmpty {
                 getComics(showProgress: true)
@@ -172,6 +174,7 @@ extension CharacterDetailPresenter: CharacterDetailPresenterDelegate {
             }
             view?.loadComics(syncComics, copyright: nil, fromBeginning: true)
         case .series:
+            interactor.setSectionSelected(.series)
             let syncSeries = interactor.getSyncSeries()
             if syncSeries.isEmpty {
                 getSeries(showProgress: true)
@@ -179,6 +182,7 @@ extension CharacterDetailPresenter: CharacterDetailPresenterDelegate {
             }
             view?.loadComics(syncSeries, copyright: nil, fromBeginning: true)
         case .stories:
+            interactor.setSectionSelected(.stories)
             let syncStories = interactor.getSyncStories()
             if syncStories.isEmpty {
                 getStories(showProgress: true)
@@ -186,6 +190,7 @@ extension CharacterDetailPresenter: CharacterDetailPresenterDelegate {
             }
             view?.loadComics(syncStories, copyright: nil, fromBeginning: true)
         case .events:
+            interactor.setSectionSelected(.events)
             let syncEvents = interactor.getSyncEvents()
             if syncEvents.isEmpty {
                 getEvents(showProgress: true)
@@ -193,6 +198,14 @@ extension CharacterDetailPresenter: CharacterDetailPresenterDelegate {
             }
             view?.loadComics(syncEvents, copyright: nil, fromBeginning: true)
         }
+    }
+    
+    func comicSelectedAt(_ index: Int) {
+        guard let comicSelected = interactor.getComicSelectedAt(index), let url = comicSelected.urlDetail else {
+            return
+        }
+        
+        router.showComicDetailWithUrl(url)
     }
     
 }

@@ -27,12 +27,17 @@ protocol CharacterDetailViewInjection : class {
 protocol CharacterDetailPresenterDelegate : class {
     func viewDidLoad()
     func optionSelected(_ option: OptionType)
+    func comicSelectedAt(_ index: Int)
 }
 
 // Presenter / Interactor
 typealias CharacterDetailGetComicsCompletionBlock = (_ viewModel: [ComicViewModel]?, _ copyright: String?, _ success: Bool, _ error: ResultError?, _ allCharactersSync: Bool) -> Void
 
 protocol CharacterDetailInteractorDelegate : class {
+    func setSectionSelected(_ type: OptionType)
+    func getSectionSelected() -> OptionType
+    func getComicSelectedAt(_ index: Int) -> ComicViewModel?
+    
     func getCharacter() -> CharactersListViewModel
     
     func getComicsWith(characterId: Int32, completion: @escaping CharacterDetailGetComicsCompletionBlock)
@@ -54,4 +59,5 @@ protocol CharacterDetailInteractorDelegate : class {
 
 // Presenter / Router
 protocol CharacterDetailRouterDelegate : class {
+    func showComicDetailWithUrl(_ url: URL)
 }
