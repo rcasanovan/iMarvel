@@ -133,6 +133,45 @@ public struct ParticipationResponse: Decodable {
 }
 ```
 
+#### Character detail data models
+
+```swift
+public struct ComicsResponse: Decodable {
+    
+    let copyright: String
+    let attributionText: String
+    let data: ComicDataResponse
+    
+}
+
+public struct ComicDataResponse: Decodable {
+    
+    let offset: Int
+    let limit: Int
+    let total: Int
+    let count: Int
+    let results: [ComicResponse]
+    
+}
+
+public struct ComicResponse: Decodable {
+    
+    let id: Int32
+    let title: String
+    let description: String?
+    let thumbnail: ThumbnailResponse?
+    let urls: [UrlResponse]?
+    
+}
+
+public struct UrlResponse: Decodable {
+    
+    let type: String
+    let url: String
+    
+}
+```
+
 
 I'm using a Swift Standard Library decodable functionality in order to manage a type that can decode itself from an external representation (I really ❤ this from Swift).
 
