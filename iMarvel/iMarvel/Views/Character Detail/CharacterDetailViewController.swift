@@ -16,6 +16,7 @@ class CharacterDetailViewController: BaseViewController {
     private let customTitleView: CustomTitleView = CustomTitleView()
     private let optionsBarView: OptionsBarView = OptionsBarView()
     
+    private let spinner: UIActivityIndicatorView = UIActivityIndicatorView(style: .white)
     private let comicsContainerView: UIView = UIView()
     private var comicsTableView: UITableView?
     private var dataSource: ComicsDataSource?
@@ -177,7 +178,6 @@ extension CharacterDetailViewController: UITableViewDelegate {
         let lastSectionIndex = tableView.numberOfSections - 1
         let lastRowIndex = tableView.numberOfRows(inSection: lastSectionIndex) - 1
         if indexPath.section ==  lastSectionIndex && indexPath.row == lastRowIndex {
-            let spinner = UIActivityIndicatorView(style: .white)
             spinner.startAnimating()
             spinner.frame = CGRect(x: CGFloat(0), y: CGFloat(0), width: tableView.bounds.width, height: CGFloat(44))
             
