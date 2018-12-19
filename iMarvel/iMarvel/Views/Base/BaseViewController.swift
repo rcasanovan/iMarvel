@@ -19,6 +19,7 @@ class BaseViewController: UIViewController {
     
     public func showLoader(_ show: Bool, status: String? = nil) {
         if let status = status {
+            SVProgressHUD.setDefaultMaskType(.clear)
             show == true ? SVProgressHUD.show(withStatus: status) : SVProgressHUD.dismiss()
             return
         }

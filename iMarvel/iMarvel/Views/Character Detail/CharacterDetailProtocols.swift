@@ -34,6 +34,8 @@ protocol CharacterDetailPresenterDelegate : class {
 typealias CharacterDetailGetComicsCompletionBlock = (_ viewModel: [ComicViewModel]?, _ copyright: String?, _ success: Bool, _ error: ResultError?, _ allCharactersSync: Bool) -> Void
 
 protocol CharacterDetailInteractorDelegate : class {
+    func getCopyright() -> String?
+    
     func setSectionSelected(_ type: OptionType)
     func getSectionSelected() -> OptionType
     func getComicSelectedAt(_ index: Int) -> ComicViewModel?

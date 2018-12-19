@@ -162,7 +162,7 @@ extension CharacterDetailPresenter: CharacterDetailPresenterDelegate {
     }
     
     func optionSelected(_ option: OptionType) {
-        view?.loadComics([ComicViewModel](), copyright: nil, fromBeginning: true)
+        view?.loadComics([ComicViewModel](), copyright: interactor.getCopyright(), fromBeginning: true)
         
         switch option {
         case .comics:
@@ -172,7 +172,7 @@ extension CharacterDetailPresenter: CharacterDetailPresenterDelegate {
                 getComics(showProgress: true)
                 return
             }
-            view?.loadComics(syncComics, copyright: nil, fromBeginning: true)
+            view?.loadComics(syncComics, copyright: interactor.getCopyright(), fromBeginning: true)
         case .series:
             interactor.setSectionSelected(.series)
             let syncSeries = interactor.getSyncSeries()
@@ -180,7 +180,7 @@ extension CharacterDetailPresenter: CharacterDetailPresenterDelegate {
                 getSeries(showProgress: true)
                 return
             }
-            view?.loadComics(syncSeries, copyright: nil, fromBeginning: true)
+            view?.loadComics(syncSeries, copyright: interactor.getCopyright(), fromBeginning: true)
         case .stories:
             interactor.setSectionSelected(.stories)
             let syncStories = interactor.getSyncStories()
@@ -188,7 +188,7 @@ extension CharacterDetailPresenter: CharacterDetailPresenterDelegate {
                 getStories(showProgress: true)
                 return
             }
-            view?.loadComics(syncStories, copyright: nil, fromBeginning: true)
+            view?.loadComics(syncStories, copyright: interactor.getCopyright(), fromBeginning: true)
         case .events:
             interactor.setSectionSelected(.events)
             let syncEvents = interactor.getSyncEvents()
@@ -196,7 +196,7 @@ extension CharacterDetailPresenter: CharacterDetailPresenterDelegate {
                 getEvents(showProgress: true)
                 return
             }
-            view?.loadComics(syncEvents, copyright: nil, fromBeginning: true)
+            view?.loadComics(syncEvents, copyright: interactor.getCopyright(), fromBeginning: true)
         }
     }
     

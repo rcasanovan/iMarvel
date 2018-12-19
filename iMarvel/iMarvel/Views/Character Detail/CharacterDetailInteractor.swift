@@ -37,6 +37,8 @@ class CharacterDetailInteractor {
     
     private var sectionSelected: OptionType
     
+    private var copyright: String?
+    
     init(characterDetail: CharactersListViewModel) {
         self.characterDetail = characterDetail
         comicListViewModel = []
@@ -73,6 +75,10 @@ extension CharacterDetailInteractor {
 }
 
 extension CharacterDetailInteractor: CharacterDetailInteractorDelegate {    
+    
+    func getCopyright() -> String? {
+        return copyright
+    }
     
     func setSectionSelected(_ type: OptionType) {
         sectionSelected = type
@@ -127,6 +133,7 @@ extension CharacterDetailInteractor: CharacterDetailInteractorDelegate {
                 
                 let responseViewModel = ComicViewModel.getViewModelsWith(comics: response.data.results)
                 self.comicListViewModel.append(contentsOf: responseViewModel)
+                self.copyright = response.attributionText
                 completion(self.comicListViewModel, response.attributionText, true, nil, self.allComicsSync)
             case .failure(let error):
                 completion(nil, nil,  false, error, self.allComicsSync)
@@ -158,6 +165,7 @@ extension CharacterDetailInteractor: CharacterDetailInteractorDelegate {
                 
                 let responseViewModel = ComicViewModel.getViewModelsWith(comics: response.data.results)
                 self.serieListViewModel.append(contentsOf: responseViewModel)
+                self.copyright = response.attributionText
                 completion(self.serieListViewModel, response.attributionText, true, nil, self.allSeriesSync)
             case .failure(let error):
                 completion(nil, nil,  false, error, self.allSeriesSync)
@@ -189,6 +197,7 @@ extension CharacterDetailInteractor: CharacterDetailInteractorDelegate {
                 
                 let responseViewModel = ComicViewModel.getViewModelsWith(comics: response.data.results)
                 self.storyListViewModel.append(contentsOf: responseViewModel)
+                self.copyright = response.attributionText
                 completion(self.storyListViewModel, response.attributionText, true, nil, self.allStoriesSync)
             case .failure(let error):
                 completion(nil, nil,  false, error, self.allStoriesSync)
@@ -220,6 +229,7 @@ extension CharacterDetailInteractor: CharacterDetailInteractorDelegate {
                 
                 let responseViewModel = ComicViewModel.getViewModelsWith(comics: response.data.results)
                 self.eventListViewModel.append(contentsOf: responseViewModel)
+                self.copyright = response.attributionText
                 completion(self.eventListViewModel, response.attributionText, true, nil, self.allEventsSync)
             case .failure(let error):
                 completion(nil, nil,  false, error, self.allEventsSync)
