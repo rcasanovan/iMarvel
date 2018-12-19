@@ -20,6 +20,10 @@ class CharacterDetailViewController: BaseViewController {
     private var comicsTableView: UITableView?
     private var dataSource: ComicsDataSource?
     
+    private var totalComics: Int = 0
+    private var isLoadingNextPage: Bool = false
+    private var allComicsLoaded: Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
@@ -170,6 +174,29 @@ extension CharacterDetailViewController: OptionsBarViewDelegate {
 extension CharacterDetailViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let lastSectionIndex = tableView.numberOfSections - 1
+        let lastRowIndex = tableView.numberOfRows(inSection: lastSectionIndex) - 1
+        if indexPath.section ==  lastSectionIndex && indexPath.row == lastRowIndex {
+            let spinner = UIActivityIndicatorView(style: .white)
+            spinner.startAnimating()
+            spinner.frame = CGRect(x: CGFloat(0), y: CGFloat(0), width: tableView.bounds.width, height: CGFloat(44))
+            
+            comicsTableView?.tableFooterView = allComicsLoaded ? UIView() : spinner
+            comicsTableView?.tableFooterView?.isHidden = allComicsLoaded
+        }
+        
+        // Get the position for a percentage of the scrolling
+        // In this case we got the positions for the 75%
+        let position = Int(((Layout.Scroll.percentagePosition * Double(totalComics - 1)) / 100.0))
+        
+        // if we're not loading a next page && we´re in the 75% position
+        if !self.isLoadingNextPage && indexPath.item >= position {
+            // Change the value -> We're loading the next page
+            self.isLoadingNextPage = true
+            optionsBarView.isUserInteractionEnabled = allComicsLoaded
+            // Call the presenter
+            presenter?.loadNextPage()
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -192,14 +219,21 @@ extension CharacterDetailViewController: CharacterDetailViewInjection {
         characterInformationView.bindWithViewModel(characterDetail)
     }
     
-    func loadComics(_ viewModels: [ComicViewModel], copyright: String?, fromBeginning: Bool) {
+    func loadComics(_ viewModels: [ComicViewModel], copyright: String?, fromBeginning: Bool, allComicsLoaded: Bool) {
+        self.allComicsLoaded = allComicsLoaded
+        
         // Are we loading the characters from the beginning? -> scroll to top
         if fromBeginning {
             scrollToTop()
         }
         customTitleView.setSubtitle(copyright)
+        optionsBarView.isUserInteractionEnabled = true
+        
+        isLoadingNextPage = false
+        totalComics = viewModels.count
         
         dataSource?.comics = viewModels
+        comicsTableView?.tableFooterView = UIView()
         comicsTableView?.reloadData()
     }
     

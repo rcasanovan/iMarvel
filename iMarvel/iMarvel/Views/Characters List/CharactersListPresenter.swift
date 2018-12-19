@@ -39,7 +39,7 @@ extension CharactersListPresenter {
             self.view?.showProgress(false)
             
             if let characters = characters {
-                self.processCharactersResults(characterSearch: currentSearchCharacter, characters: characters, total: total, copyright: copyright, showProgress: showProgress)
+                self.processCharactersResults(characterSearch: currentSearchCharacter, characters: characters, total: total, copyright: copyright, showProgress: showProgress, allCharactersLoaded: allCharactersSync)
                 return
             }
             
@@ -55,7 +55,7 @@ extension CharactersListPresenter {
         }
     }
     
-    private func processCharactersResults(characterSearch: String?, characters: [CharactersListViewModel], total: Int, copyright: String?, showProgress: Bool) {
+    private func processCharactersResults(characterSearch: String?, characters: [CharactersListViewModel], total: Int, copyright: String?, showProgress: Bool, allCharactersLoaded: Bool) {
         
         if !characters.isEmpty {
             if let characterSearch = characterSearch {
@@ -67,7 +67,7 @@ extension CharactersListPresenter {
             view?.showMessageWith(title: "Oops", message: "It seems we don't have that character in the catalog right now 😢. Please try again", actionTitle: "Accept")
         }
         
-        view?.loadCharacters(characters, totalResults: total, copyright: copyright, fromBeginning: showProgress)
+        view?.loadCharacters(characters, totalResults: total, copyright: copyright, fromBeginning: showProgress, allCharactersLoaded: allCharactersLoaded)
     }
     
 }
@@ -117,7 +117,7 @@ extension CharactersListPresenter: CharactersListPresenterDelegate {
     
     func refreshResults() {
         interactor.clearSearch()
-        view?.loadCharacters([CharactersListViewModel](), totalResults: 0, copyright: "", fromBeginning: true)
+        view?.loadCharacters([CharactersListViewModel](), totalResults: 0, copyright: "", fromBeginning: true, allCharactersLoaded: true)
         getCharacters(showProgress: true)
     }
     

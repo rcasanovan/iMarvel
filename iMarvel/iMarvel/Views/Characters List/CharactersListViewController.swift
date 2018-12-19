@@ -23,6 +23,7 @@ class CharactersListViewController: BaseViewController {
     private var suggestionsViewBottomConstraint: NSLayoutConstraint?
     private var totalCharacters: Int = 0
     private var isLoadingNextPage: Bool = false
+    private var allCharactersLoaded: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -224,6 +225,17 @@ extension CharactersListViewController {
 extension CharactersListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let lastSectionIndex = tableView.numberOfSections - 1
+        let lastRowIndex = tableView.numberOfRows(inSection: lastSectionIndex) - 1
+        if indexPath.section ==  lastSectionIndex && indexPath.row == lastRowIndex {
+            let spinner = UIActivityIndicatorView(style: .white)
+            spinner.startAnimating()
+            spinner.frame = CGRect(x: CGFloat(0), y: CGFloat(0), width: tableView.bounds.width, height: CGFloat(44))
+    
+            charactersTableView?.tableFooterView = allCharactersLoaded ? UIView() : spinner
+            charactersTableView?.tableFooterView?.isHidden = allCharactersLoaded
+        }
+        
         // Get the position for a percentage of the scrolling
         // In this case we got the positions for the 75%
         let position = Int(((Layout.Scroll.percentagePosition * Double(totalCharacters - 1)) / 100.0))
@@ -285,7 +297,8 @@ extension CharactersListViewController: CharactersListViewInjection {
         showLoader(show)
     }
     
-    func loadCharacters(_ viewModels: [CharactersListViewModel], totalResults: Int, copyright: String?, fromBeginning: Bool) {
+    func loadCharacters(_ viewModels: [CharactersListViewModel], totalResults: Int, copyright: String?, fromBeginning: Bool, allCharactersLoaded: Bool) {
+        self.allCharactersLoaded = allCharactersLoaded
         totalCharacters = viewModels.count
         refreshControl.endRefreshing()
         
@@ -297,6 +310,7 @@ extension CharactersListViewController: CharactersListViewInjection {
         
         isLoadingNextPage = false
         dataSource?.characters = viewModels
+        charactersTableView?.tableFooterView = UIView()
         charactersTableView?.reloadData()
         totalResultsView.isHidden = true
         totalResultsView.isHidden = totalResults == 0
@@ -310,6 +324,5 @@ extension CharactersListViewController: CharactersListViewInjection {
     func showMessageWith(title: String, message: String, actionTitle: String) {
         showAlertWith(title: title, message: message, actionTitle: actionTitle)
     }
-    
     
 }

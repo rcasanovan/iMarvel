@@ -12,7 +12,7 @@ import Foundation
 protocol CharactersListViewInjection : class {
     func showProgress(_ show: Bool, status: String)
     func showProgress(_ show: Bool)
-    func loadCharacters(_ viewModels: [CharactersListViewModel], totalResults: Int, copyright: String?, fromBeginning: Bool)
+    func loadCharacters(_ viewModels: [CharactersListViewModel], totalResults: Int, copyright: String?, fromBeginning: Bool, allCharactersLoaded: Bool)
     func loadSuggestions(_ suggestions: [SuggestionViewModel])
     func showMessageWith(title: String, message: String, actionTitle: String)
 }

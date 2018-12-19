@@ -39,7 +39,7 @@ extension CharacterDetailPresenter {
             self.view?.showProgress(false)
             
             if let comics = comics {
-                self.processComicsResults(comics: comics, copyright: copyright, showProgress: showProgress)
+                self.processComicsResults(comics: comics, copyright: copyright, showProgress: showProgress, allComicsLoaded: allComicsSync)
                 return
             }
             
@@ -69,7 +69,7 @@ extension CharacterDetailPresenter {
             self.view?.showProgress(false)
             
             if let comics = comics {
-                self.processComicsResults(comics: comics, copyright: copyright, showProgress: showProgress)
+                self.processComicsResults(comics: comics, copyright: copyright, showProgress: showProgress, allComicsLoaded: allComicsSync)
                 return
             }
             
@@ -99,7 +99,7 @@ extension CharacterDetailPresenter {
             self.view?.showProgress(false)
             
             if let comics = comics {
-                self.processComicsResults(comics: comics, copyright: copyright, showProgress: showProgress)
+                self.processComicsResults(comics: comics, copyright: copyright, showProgress: showProgress, allComicsLoaded: allComicsSync)
                 return
             }
             
@@ -129,7 +129,7 @@ extension CharacterDetailPresenter {
             self.view?.showProgress(false)
             
             if let comics = comics {
-                self.processComicsResults(comics: comics, copyright: copyright, showProgress: showProgress)
+                self.processComicsResults(comics: comics, copyright: copyright, showProgress: showProgress, allComicsLoaded: allComicsSync)
                 return
             }
             
@@ -145,9 +145,9 @@ extension CharacterDetailPresenter {
         }
     }
     
-    private func processComicsResults(comics: [ComicViewModel], copyright: String?, showProgress: Bool) {
+    private func processComicsResults(comics: [ComicViewModel], copyright: String?, showProgress: Bool, allComicsLoaded: Bool) {
         
-        view?.loadComics(comics, copyright: copyright, fromBeginning: showProgress)
+        view?.loadComics(comics, copyright: copyright, fromBeginning: showProgress, allComicsLoaded: allComicsLoaded)
     }
     
 }
@@ -162,7 +162,7 @@ extension CharacterDetailPresenter: CharacterDetailPresenterDelegate {
     }
     
     func optionSelected(_ option: OptionType) {
-        view?.loadComics([ComicViewModel](), copyright: interactor.getCopyright(), fromBeginning: true)
+        view?.loadComics([ComicViewModel](), copyright: interactor.getCopyright(), fromBeginning: true, allComicsLoaded: true)
         
         switch option {
         case .comics:
@@ -172,7 +172,7 @@ extension CharacterDetailPresenter: CharacterDetailPresenterDelegate {
                 getComics(showProgress: true)
                 return
             }
-            view?.loadComics(syncComics, copyright: interactor.getCopyright(), fromBeginning: true)
+            view?.loadComics(syncComics, copyright: interactor.getCopyright(), fromBeginning: true, allComicsLoaded: true)
         case .series:
             interactor.setSectionSelected(.series)
             let syncSeries = interactor.getSyncSeries()
@@ -180,7 +180,7 @@ extension CharacterDetailPresenter: CharacterDetailPresenterDelegate {
                 getSeries(showProgress: true)
                 return
             }
-            view?.loadComics(syncSeries, copyright: interactor.getCopyright(), fromBeginning: true)
+            view?.loadComics(syncSeries, copyright: interactor.getCopyright(), fromBeginning: true, allComicsLoaded: true)
         case .stories:
             interactor.setSectionSelected(.stories)
             let syncStories = interactor.getSyncStories()
@@ -188,7 +188,7 @@ extension CharacterDetailPresenter: CharacterDetailPresenterDelegate {
                 getStories(showProgress: true)
                 return
             }
-            view?.loadComics(syncStories, copyright: interactor.getCopyright(), fromBeginning: true)
+            view?.loadComics(syncStories, copyright: interactor.getCopyright(), fromBeginning: true, allComicsLoaded: true)
         case .events:
             interactor.setSectionSelected(.events)
             let syncEvents = interactor.getSyncEvents()
@@ -196,7 +196,7 @@ extension CharacterDetailPresenter: CharacterDetailPresenterDelegate {
                 getEvents(showProgress: true)
                 return
             }
-            view?.loadComics(syncEvents, copyright: interactor.getCopyright(), fromBeginning: true)
+            view?.loadComics(syncEvents, copyright: interactor.getCopyright(), fromBeginning: true, allComicsLoaded: true)
         }
     }
     
@@ -206,6 +206,21 @@ extension CharacterDetailPresenter: CharacterDetailPresenterDelegate {
         }
         
         router.showComicDetailWithUrl(url)
+    }
+    
+    func loadNextPage() {
+        let type = interactor.getSectionSelected()
+        
+        switch type {
+        case .comics:
+            getComics(showProgress: false)
+        case .events:
+            getEvents(showProgress: false)
+        case .series:
+            getSeries(showProgress: false)
+        case .stories:
+            getSeries(showProgress: false)
+        }
     }
     
 }

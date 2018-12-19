@@ -20,7 +20,7 @@ protocol CharacterDetailViewInjection : class {
     func showProgress(_ show: Bool, status: String)
     func showProgress(_ show: Bool)
     func loadCharacter(_ characterDetail: CharactersListViewModel)
-    func loadComics(_ viewModels: [ComicViewModel], copyright: String?, fromBeginning: Bool)
+    func loadComics(_ viewModels: [ComicViewModel], copyright: String?, fromBeginning: Bool, allComicsLoaded: Bool)
     func showMessageWith(title: String, message: String, actionTitle: String)
 }
 
@@ -28,6 +28,7 @@ protocol CharacterDetailPresenterDelegate : class {
     func viewDidLoad()
     func optionSelected(_ option: OptionType)
     func comicSelectedAt(_ index: Int)
+    func loadNextPage()
 }
 
 // Presenter / Interactor
