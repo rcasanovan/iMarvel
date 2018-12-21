@@ -8,6 +8,13 @@ This project is using cocoapods. Please be sure to run the **pod install** comma
 
 If you have any doubt about cocoapods you can check the reference [here](https://cocoapods.org).
 
+To run the project you just need to add your API & private keys in EndPoint swift file
+
+```swift
+static let apiKey: String = "ADD YOUR API KEY HERE"
+    static let privateKey: String = "ADD YOUR PRIVATE KEY HERE"
+```
+
 ## Project Architecture 
 ![alt tag](https://github.com/rcasanovan/iMarvel/blob/master/Images/projectArchitecture.jpeg?raw=true)
 
