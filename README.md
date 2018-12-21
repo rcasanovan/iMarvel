@@ -12,7 +12,7 @@ To run the project you just need to add your API & private keys in EndPoint swif
 
 ```swift
 static let apiKey: String = "ADD YOUR API KEY HERE"
-    static let privateKey: String = "ADD YOUR PRIVATE KEY HERE"
+static let privateKey: String = "ADD YOUR PRIVATE KEY HERE"
 ```
 
 ## Project Architecture 
