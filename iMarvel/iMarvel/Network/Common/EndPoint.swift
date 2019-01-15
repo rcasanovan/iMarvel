@@ -18,8 +18,8 @@ protocol EndpointProtocol: RawRepresentable where RawValue == String {
 private struct Url {
     
     static let baseUrl: String = "https://gateway.marvel.com:443"
-    static let apiKey: String = "ADD YOUR API KEY HERE"
-    static let privateKey: String = "ADD YOUR PRIVATE KEY HERE"
+    static let apiKey: String = "6298465264107ae67e9e00c642dcad8a"
+    static let privateKey: String = "556d13a7f4d9cdfc03e439455daa0066c68785a3"
     
     struct Fields {
         static let apiKey: String = "apikey"
